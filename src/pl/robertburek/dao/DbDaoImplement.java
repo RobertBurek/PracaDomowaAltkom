@@ -1,0 +1,93 @@
+package pl.robertburek.dao;
+
+import pl.robertburek.db.CreateDatebase;
+import pl.robertburek.model.BrandCar;
+import pl.robertburek.model.Car;
+
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by Robert Burek
+ */
+public class DbDaoImplement extends CreateDatebase implements Dao {
+
+    static {
+        try {
+            System.out.println("REJESTROWANIE STEROWNIKA...");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Niezarejestrowany sterownik\n" + e);
+            System.exit(0);
+        }
+    }
+
+    @Override
+    public List<Car> getCars() throws SQLException {
+        System.out.println("\n\nODCZYT DANYCH Z TABELI...");
+        final String SQL_SELECT = "SELECT * FROM cars";
+        List<Car> cars = new ArrayList<>();
+        try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
+            ResultSetMetaData rsmd = resultSet.getMetaData();
+            int columns = rsmd.getColumnCount();
+            System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
+            for (int i = 1; i <= columns; i++) {
+                System.out.print(rsmd.getColumnName(i) + "        ");
+            }
+            System.out.println();
+            while (resultSet.next()) {
+                BrandCar brandCar = new BrandCar();
+                resultSetCar(resultSet, brandCar);
+                cars.add(brandCar);
+            }
+        }
+        return cars;
+    }
+
+    @Override
+    public Car getCarById(int id) throws SQLException {
+        System.out.println("\n\nODCZYT DANYCH Samochodu " + id);
+        final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
+        BrandCar brandCar = new BrandCar();
+        try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
+            ResultSetMetaData rsmd = resultSet.getMetaData();
+            int columns = rsmd.getColumnCount();
+//            System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
+            for (int i = 1; i <= columns; i++) {
+                System.out.print("      " + rsmd.getColumnName(i));
+            }
+            System.out.println();
+            if (resultSet.next()) {
+                resultSetCar(resultSet, brandCar);
+            }
+        }
+        return brandCar;
+    }
+
+    @Override
+    public boolean deleteCarById(int id) throws SQLException {
+        System.out.println("\n\nUsuwanie samochodu z bazy " + id);
+        final String SQL_SELECT = "DELETE FROM cars Where id=" + id;
+        int resault = statement.executeUpdate(SQL_SELECT);
+        System.out.println(resault);
+        return true;
+    }
+
+    private void resultSetCar(ResultSet resultSet, BrandCar brandCar) throws SQLException {
+        brandCar.setId(resultSet.getInt(1));
+        brandCar.setVIN(resultSet.getString(2));
+        brandCar.setBrand(resultSet.getString(3));
+        brandCar.setModel(resultSet.getString(4));
+        String date = resultSet.getString(5);
+        brandCar.setProductionDate(LocalDate.of(Integer.parseInt(date.substring(0, 4)),
+                Integer.parseInt(date.substring(5, 7)),
+                Integer.parseInt(date.substring(8, 10))));
+        brandCar.setColor(resultSet.getString(6));
+    }
+
+}
+
