@@ -1,10 +1,8 @@
 package pl.robertburek;
 
 import pl.robertburek.dao.Dao;
-import pl.robertburek.dao.DbDaoImplement;
-import pl.robertburek.db.OptionsDb;
+import pl.robertburek.dao.TestDaoImplement;
 import pl.robertburek.model.BrandCar;
-import pl.robertburek.model.Car;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -18,40 +16,11 @@ import java.util.Scanner;
 public class CarShowroom {
 
     static List<BrandCar> brandCars = new ArrayList<>();
-    static Dao dao = new DbDaoImplement();
-//    static Dao dao = new ArrayDaoImplement();
+    //    static Dao dao = new DbDaoImplement();
+    static Dao dao = new TestDaoImplement();
 
     public static void main(String[] args) throws SQLException {
         String numberOption;
-
-        BrandCar fordFocus = new BrandCar(1, "2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
-        BrandCar audiQuatro = new BrandCar(2, "3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
-        BrandCar nissanPulsar = new BrandCar(3, "3d21gf3e", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 6), "Srebrny");
-        BrandCar fiatUno = new BrandCar(4, "2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
-        brandCars.add(fordFocus);
-        brandCars.add(audiQuatro);
-        brandCars.add(nissanPulsar);
-        brandCars.add(fiatUno);
-
-
-
-//        try {
-            dao.operationDB(OptionsDb.INIT_CONNECTION,OptionsDb.CREATE_TABLE);
-            dao.operationDB(OptionsDb.INIT_CONNECTION);
-//            dao.saveCars(fordFocus, audiQuatro, nissanPulsar, fiatUno);
-            List<Car> cars = dao.getCars();
-            for (Car car:cars) {
-                System.out.println(car);
-            }
-//            System.out.println(dao.getCarById(2));
-//            System.out.println(dao.deleteCarById(2));
-//            dao.operationDB(OptionsDb.DROP_TABLE,OptionsDb.CLOSE_CONNETION);
-            dao.operationDB(OptionsDb.CLOSE_CONNETION);
-//        } catch (SQLException e) {
-//            System.out.print("Błąd bazy danych: " + e.getMessage());
-//        }
-
-
         do {
             numberOption = getOption("Wybierz opcje:\n"
                     + "[1] - Dodaj samochód\n"
@@ -81,7 +50,7 @@ public class CarShowroom {
     }
 
     private static int updateCar() {
-        showCars();
+//        showCars();
         System.out.print("Podaj numer samochodu: ");
         Scanner choiceOption = new Scanner(System.in);
         return Integer.valueOf(choiceOption.next()) - 1;
@@ -89,7 +58,7 @@ public class CarShowroom {
     }
 
     private static int deleteCar() {
-        showCars();
+//        showCars();
         System.out.print("Który samochód usunąć: ");
         Scanner choiceOption = new Scanner(System.in);
         String numberOption = choiceOption.next();
@@ -97,9 +66,10 @@ public class CarShowroom {
         return (Integer.valueOf(numberOption) - 1);
     }
 
-    private static void showCars() {
+    private static void showCars() throws SQLException {
         System.out.printf("%3s  %10s  %10s \n", "id", "Marka", "Model");
         System.out.println("---------------------------");
+        brandCars = dao.getCars();
         for (BrandCar car : brandCars) {
             System.out.printf("%3s  %10s  %10s \n", (brandCars.indexOf(car) + 1),
                     car.getBrand(), car.getModel());
@@ -109,7 +79,6 @@ public class CarShowroom {
 
     private static void findCar() throws SQLException {
         showCars();
-//        System.out.println(brandCars.get(Integer.valueOf(getOption("Podaj numer: ")) - 1));
         System.out.println(dao.getCarById(Integer.valueOf(getOption("Podaj numer: "))));
         System.out.println();
     }

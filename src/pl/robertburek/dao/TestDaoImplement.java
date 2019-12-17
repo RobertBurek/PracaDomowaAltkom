@@ -2,7 +2,6 @@ package pl.robertburek.dao;
 
 import pl.robertburek.db.OptionsDb;
 import pl.robertburek.model.BrandCar;
-import pl.robertburek.model.Car;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
@@ -12,9 +11,9 @@ import java.util.List;
 /**
  * Created by Robert Burek
  */
-public class ArrayDaoImplement implements Dao {
+public class TestDaoImplement implements Dao {
 
-    static List<Car> brandCars = new ArrayList<>();
+    static List<BrandCar> brandCars = new ArrayList<>();
 
     static {
         BrandCar fordFocus = new BrandCar(1, "2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
@@ -28,22 +27,17 @@ public class ArrayDaoImplement implements Dao {
     }
 
     @Override
-    public List<Car> getCars() throws SQLException {
+    public List<BrandCar> getCars() throws SQLException {
         return brandCars;
     }
 
     @Override
-    public Car getCarById(int id) throws SQLException {
-        return null;
+    public BrandCar getCarById(int id) throws SQLException {
+        return brandCars.get(id-1);
     }
 
     @Override
     public boolean deleteCarById(int id) throws SQLException {
         return false;
-    }
-
-    @Override
-    public void operationDB(OptionsDb... options) throws SQLException {
-
     }
 }

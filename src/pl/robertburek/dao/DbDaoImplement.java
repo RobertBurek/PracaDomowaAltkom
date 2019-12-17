@@ -1,8 +1,8 @@
 package pl.robertburek.dao;
 
 import pl.robertburek.db.CreateDatebase;
+import pl.robertburek.db.OptionsDb;
 import pl.robertburek.model.BrandCar;
-import pl.robertburek.model.Car;
 
 import java.sql.ResultSet;
 import java.sql.ResultSetMetaData;
@@ -17,20 +17,22 @@ import java.util.List;
 public class DbDaoImplement extends CreateDatebase implements Dao {
 
     static {
-        try {
-            System.out.println("REJESTROWANIE STEROWNIKA...");
-            Class.forName("com.mysql.cj.jdbc.Driver");
-        } catch (ClassNotFoundException e) {
-            System.out.println("Niezarejestrowany sterownik\n" + e);
-            System.exit(0);
-        }
+//     FRAGMENT KODU DLA MNIE INFORMACYJNIE
+//        try {
+//            System.out.println("REJESTROWANIE STEROWNIKA...");
+//            Class.forName("com.mysql.cj.jdbc.Driver");
+//        } catch (ClassNotFoundException e) {
+//            System.out.println("Niezarejestrowany sterownik\n" + e);
+//            System.exit(0);
+//        }
     }
 
     @Override
-    public List<Car> getCars() throws SQLException {
+    public List<BrandCar> getCars() throws SQLException {
+        operationsDB(OptionsDb.INIT_CONNECTION);
         System.out.println("\n\nODCZYT DANYCH Z TABELI...");
         final String SQL_SELECT = "SELECT * FROM cars";
-        List<Car> cars = new ArrayList<>();
+        List<BrandCar> cars = new ArrayList<>();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
             ResultSetMetaData rsmd = resultSet.getMetaData();
             int columns = rsmd.getColumnCount();
@@ -45,11 +47,13 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
                 cars.add(brandCar);
             }
         }
+        operationsDB(OptionsDb.CLOSE_CONNETION);
         return cars;
     }
 
     @Override
-    public Car getCarById(int id) throws SQLException {
+    public BrandCar getCarById(int id) throws SQLException {
+        operationsDB(OptionsDb.INIT_CONNECTION);
         System.out.println("\n\nODCZYT DANYCH Samochodu " + id);
         final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
         BrandCar brandCar = new BrandCar();
@@ -65,6 +69,7 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
                 resultSetCar(resultSet, brandCar);
             }
         }
+        operationsDB(OptionsDb.CLOSE_CONNETION);
         return brandCar;
     }
 
