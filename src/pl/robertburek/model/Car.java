@@ -15,8 +15,7 @@ public class Car {
     public Car() {
     }
 
-    public Car(int id, String VIN, LocalDate productionDate, String color) {
-        this.id = id;
+    public Car(String VIN, LocalDate productionDate, String color) {
         this.VIN = VIN;
         this.productionDate = productionDate;
         this.color = color;

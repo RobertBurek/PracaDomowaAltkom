@@ -5,13 +5,13 @@ import pl.robertburek.dao.DbDaoImplement;
 import pl.robertburek.model.BrandCar;
 import pl.robertburek.model.Car;
 
-import java.sql.*;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
 
-import static pl.robertburek.db.OptionsDb.CREATE_TABLE;
-import static pl.robertburek.db.OptionsDb.INIT_CONNECTION;
 import static pl.robertburek.db.ParametersDb.*;
 
 
@@ -21,7 +21,6 @@ import static pl.robertburek.db.ParametersDb.*;
 public class CreateDatebase {
     protected static Statement statement;
     private Connection connection;
-
 
 
     public void operationsDB(OptionsDb... options) throws SQLException {
@@ -52,8 +51,6 @@ public class CreateDatebase {
                 getPARAM_STRING());
         try {
             connection = DriverManager.getConnection(dbURL, getUSER_NAME(), getPASSWORD());
-//            DatabaseMetaData dbmd = connection.getMetaData();
-//            System.out.printf("Polaczenie nawiazane poprzez: %s%n", dbmd.getDriverName());
             statement = connection.createStatement();
         } catch (SQLException e) {
             System.out.println("Problem z połączeniem!!!");
@@ -61,7 +58,7 @@ public class CreateDatebase {
         }
     }
 
-    private void createTable() throws SQLException{
+    private void createTable() throws SQLException {
         final String SQL_DROP = "DROP TABLE IF EXISTS cars";
         statement.executeUpdate(SQL_DROP);
         System.out.println("\nTWORZENIE TABELI...");
@@ -105,14 +102,12 @@ public class CreateDatebase {
         System.out.println("\nWSTAWIANIE DANYCH...");
         for (BrandCar car : cars) {
             String insert = String.format(
-                    "INSERT INTO cars VALUES (%d, '%s','%s','%s','%s', '%s')",
-                    car.getId(),
+                    "INSERT INTO cars(VIN, brand, model, productionDate,color) VALUES ('%s','%s','%s','%s', '%s')",
                     car.getVIN(),
                     car.getBrand(),
                     car.getModel(),
                     car.getProductionDate().toString(),
                     car.getColor());
-//            System.out.println(car);
             try {
                 System.out.println(insert);
                 statement.executeUpdate(insert);
@@ -123,32 +118,27 @@ public class CreateDatebase {
         }
     }
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
 
-        List<BrandCar> brandCars = new ArrayList<>();
         Dao dao = new DbDaoImplement();
 
-        BrandCar fordFocus = new BrandCar(1, "2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
-        BrandCar audiQuatro = new BrandCar(2, "3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
-        BrandCar nissanPulsar = new BrandCar(3, "3d21gf3e", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 6), "Srebrny");
-        BrandCar fiatUno = new BrandCar(4, "2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
-        brandCars.add(fordFocus);
-        brandCars.add(audiQuatro);
-        brandCars.add(nissanPulsar);
-        brandCars.add(fiatUno);
+        BrandCar fordFocus = new BrandCar("2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
+        BrandCar audiQuatro = new BrandCar("3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
+        BrandCar nissanPulsar = new BrandCar("3d21gf3e", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 6), "Srebrny");
+        BrandCar fiatUno = new BrandCar("2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
+        BrandCar fiatTico = new BrandCar("2gt1sf5t", "FIAT", "Tico", LocalDate.of(2010, 10, 10), "Niebieski");
 
         try {
-        dao.operationsDB(OptionsDb.INIT_CONNECTION,OptionsDb.CREATE_TABLE);
+            dao.operationsDB(OptionsDb.INIT_CONNECTION, OptionsDb.CREATE_TABLE);
 //        dao.operationsDB(OptionsDb.INIT_CONNECTION);
-        saveCars(fordFocus, audiQuatro, nissanPulsar, fiatUno);
-        List<BrandCar> cars = dao.getCars();
-        for (Car car:cars) {
-            System.out.println(car);
-        }
-//            System.out.println(dao.getCarById(2));
-//            System.out.println(dao.deleteCarById(2));
-//            dao.operationsDB(OptionsDb.DROP_TABLE,OptionsDb.CLOSE_CONNETION);
-        dao.operationsDB(OptionsDb.CLOSE_CONNETION);
+            saveCars(fordFocus, audiQuatro, nissanPulsar, fiatUno, fiatTico);
+            System.out.println("W bazie danych znajdują się:");
+            List<BrandCar> cars = dao.getCars();
+            for (Car car : cars) {
+                System.out.println(car);
+            }
+//        dao.operationsDB(OptionsDb.DROP_TABLE,OptionsDb.CLOSE_CONNETION);
+            dao.operationsDB(OptionsDb.CLOSE_CONNETION);
         } catch (SQLException e) {
             System.out.print("Błąd bazy danych: " + e.getMessage());
         }

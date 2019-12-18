@@ -12,8 +12,8 @@ public class BrandCar extends ModelCar {
     public BrandCar() {
     }
 
-    public BrandCar(int id, String VIN, String brand, String model, LocalDate productionDate, String color) {
-        super(id, VIN, productionDate, color, model);
+    public BrandCar(String VIN, String brand, String model, LocalDate productionDate, String color) {
+        super(VIN, productionDate, color, model);
         this.brand = brand;
     }
 

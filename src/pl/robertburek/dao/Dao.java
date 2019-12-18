@@ -21,6 +21,8 @@ public interface Dao {
 
     boolean deleteCarById(int id) throws SQLException;
 
+    boolean addCar(BrandCar brandCar) throws SQLException;
+
 //    void closeDB() throws SQLException;
 
     void operationsDB(OptionsDb... options) throws SQLException;

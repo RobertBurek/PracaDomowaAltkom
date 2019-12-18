@@ -16,10 +16,14 @@ public class TestDaoImplement implements Dao {
     static List<BrandCar> brandCars = new ArrayList<>();
 
     static {
-        BrandCar fordFocus = new BrandCar(1, "2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
-        BrandCar audiQuatro = new BrandCar(2, "3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
-        BrandCar nissanPulsar = new BrandCar(3, "3d21gf3e", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 6), "Srebrny");
-        BrandCar fiatUno = new BrandCar(4, "2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
+        BrandCar fordFocus = new BrandCar("2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
+        BrandCar audiQuatro = new BrandCar("3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
+        BrandCar nissanPulsar = new BrandCar("3d21gf3e", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 6), "Srebrny");
+        BrandCar fiatUno = new BrandCar("2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
+        fordFocus.setId(1);
+        audiQuatro.setId(2);
+        nissanPulsar.setId(3);
+        fiatUno.setId(4);
         brandCars.add(fordFocus);
         brandCars.add(audiQuatro);
         brandCars.add(nissanPulsar);
@@ -39,6 +43,12 @@ public class TestDaoImplement implements Dao {
     @Override
     public boolean deleteCarById(int id) throws SQLException {
         return false;
+    }
+
+    @Override
+    public boolean addCar(BrandCar brandCar) throws SQLException {
+        brandCars.add(brandCar);
+        return true;
     }
 
     @Override

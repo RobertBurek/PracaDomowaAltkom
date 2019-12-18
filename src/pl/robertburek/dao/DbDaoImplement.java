@@ -82,6 +82,29 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
         return true;
     }
 
+    @Override
+    public boolean addCar(BrandCar brandCar) throws SQLException {
+        operationsDB(OptionsDb.INIT_CONNECTION);
+        System.out.println("\nWSTAWIANIE DANYCH...");
+            String insert = String.format(
+                    "INSERT INTO cars(VIN, brand, model, productionDate,color) VALUES ('%s','%s','%s','%s', '%s')",
+                    brandCar.getVIN(),
+                    brandCar.getBrand(),
+                    brandCar.getModel(),
+                    brandCar.getProductionDate().toString(),
+                    brandCar.getColor());
+            try {
+                statement.executeUpdate(insert);
+                return true;
+            } catch (SQLException e) {
+                System.out.println("Problem z zapisem danych do tablicy!!!");
+                e.printStackTrace();
+                return false;
+            } finally {
+                operationsDB(OptionsDb.CLOSE_CONNETION);
+            }
+    }
+
     private void resultSetCar(ResultSet resultSet, BrandCar brandCar) throws SQLException {
         brandCar.setId(resultSet.getInt(1));
         brandCar.setVIN(resultSet.getString(2));

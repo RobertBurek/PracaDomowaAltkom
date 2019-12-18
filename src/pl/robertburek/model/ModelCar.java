@@ -12,8 +12,8 @@ public class ModelCar extends Car {
     public ModelCar() {
     }
 
-    public ModelCar(int id, String VIN, LocalDate productionDate, String color, String model) {
-        super(id, VIN, productionDate, color);
+    public ModelCar(String VIN, LocalDate productionDate, String color, String model) {
+        super(VIN, productionDate, color);
         this.model = model;
     }
 

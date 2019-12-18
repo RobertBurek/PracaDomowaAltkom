@@ -2,6 +2,7 @@ package pl.robertburek;
 
 import pl.robertburek.dao.Dao;
 import pl.robertburek.dao.DbDaoImplement;
+import pl.robertburek.dao.TestDaoImplement;
 import pl.robertburek.model.BrandCar;
 
 import java.sql.SQLException;
@@ -16,8 +17,8 @@ import java.util.Scanner;
 public class CarShowroom {
 
     static List<BrandCar> brandCars = new ArrayList<>();
-    static Dao dao = new DbDaoImplement();
-//    static Dao dao = new TestDaoImplement();
+//    static Dao dao = new DbDaoImplement();
+    static Dao dao = new TestDaoImplement();
 
     public static void main(String[] args) throws SQLException {
         String numberOption;
@@ -31,7 +32,8 @@ public class CarShowroom {
                     + "[6] - Wyjdź \n");
             switch (numberOption) {
                 case "1":
-                    brandCars.add(getNewCar());
+                    if (dao.addCar(getNewCar())) System.out.println("DANE ZAPISANE POPRAWNIE");
+                    else System.out.println("BĄD W ZAPISYWANIU DANYCH!!!");
                     break;
                 case "2":
                     brandCars.set(updateCar(), getNewCar());
@@ -93,10 +95,7 @@ public class CarShowroom {
 
     private static BrandCar getNewCar() {
         Scanner readData = new Scanner(System.in);
-        System.out.print("Podaj id: ");
-        int id = readData.nextInt();
-        System.out.print("Podaj VIN: ");
-        String VIN = readData.next();
+        String VIN = getVIN(readData);
         System.out.print("Podaj markę: ");
         String brand = readData.next().toUpperCase();
         System.out.print("Podaj model: ");
@@ -104,7 +103,7 @@ public class CarShowroom {
         LocalDate productionDate = getProductionDate(readData);
         System.out.print("Podaj kolor: ");
         String color = readData.next();
-        return new BrandCar(id, VIN, brand.toUpperCase(), model, productionDate, color);
+        return new BrandCar( VIN, brand.toUpperCase(), model, productionDate, color);
     }
 
     private static LocalDate getProductionDate(Scanner readData) {
@@ -117,6 +116,16 @@ public class CarShowroom {
         return LocalDate.of(Integer.parseInt(prodDate.substring(6, 10)),
                 Integer.parseInt(prodDate.substring(3, 5)),
                 Integer.parseInt(prodDate.substring(0, 2)));
+    }
+
+    private static String getVIN(Scanner readData) {
+        String vin;
+        do {
+            System.out.print("Podaj VIN: ");
+            vin = readData.next();
+        }
+        while (vin.length() > 8);
+        return vin;
     }
 
     private static String changeUpperFristChar(String model) {
