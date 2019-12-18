@@ -5,7 +5,6 @@ import pl.robertburek.db.OptionsDb;
 import pl.robertburek.model.BrandCar;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -17,7 +16,7 @@ import java.util.List;
 public class DbDaoImplement extends CreateDatebase implements Dao {
 
     static {
-//     FRAGMENT KODU DLA MNIE INFORMACYJNIE
+//     FRAGMENT KODU - DLA MNIE INFORMACYJNIE
 //        try {
 //            System.out.println("REJESTROWANIE STEROWNIKA...");
 //            Class.forName("com.mysql.cj.jdbc.Driver");
@@ -80,10 +79,11 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
 
     @Override
     public boolean deleteCarById(int id) throws SQLException {
+        operationsDB(OptionsDb.INIT_CONNECTION);
         System.out.println("\n\nUsuwanie samochodu z bazy " + id);
         final String SQL_SELECT = "DELETE FROM cars Where id=" + id;
-        int resault = statement.executeUpdate(SQL_SELECT);
-        System.out.println(resault);
+        statement.executeUpdate(SQL_SELECT);
+        operationsDB(OptionsDb.CLOSE_CONNETION);
         return true;
     }
 

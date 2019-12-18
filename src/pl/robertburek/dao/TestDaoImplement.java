@@ -47,7 +47,8 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public boolean deleteCarById(int id) throws SQLException {
-        return false;
+        brandCars.remove(id-1);
+        return true;
     }
 
     @Override

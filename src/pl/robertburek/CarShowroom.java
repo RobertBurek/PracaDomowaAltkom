@@ -17,8 +17,6 @@ import java.util.Scanner;
 public class CarShowroom implements DaoProvider {
 
     static List<BrandCar> brandCars = new ArrayList<>();
-    //    static Dao dao = new DbDaoImplement();
-//    static Dao dao = new TestDaoImplement();
     static Dao dao;
 
     public static void main(String[] args) throws SQLException {
@@ -43,7 +41,7 @@ public class CarShowroom implements DaoProvider {
                     brandCars.set(updateCar(), getNewCar());
                     break;
                 case "3":
-                    brandCars.remove(deleteCar());
+                    deleteCar();
                     break;
                 case "4":
                     findCar();
@@ -63,13 +61,13 @@ public class CarShowroom implements DaoProvider {
 
     }
 
-    private static int deleteCar() {
-//        showCars();
+    private static void deleteCar() throws SQLException {
+        showCars();
         System.out.print("Który samochód usunąć: ");
         Scanner choiceOption = new Scanner(System.in);
         String numberOption = choiceOption.next();
-        System.out.println("Usunięto : " + brandCars.get(Integer.valueOf(numberOption) - 1));
-        return (Integer.valueOf(numberOption) - 1);
+//        System.out.println("Usunięto : " + brandCars.get(Integer.valueOf(numberOption) - 1));
+        dao.deleteCarById(Integer.valueOf(numberOption));
     }
 
     private static void showCars() throws SQLException {
