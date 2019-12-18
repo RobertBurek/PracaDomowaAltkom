@@ -109,7 +109,7 @@ public class CarShowroom {
     private static LocalDate getProductionDate(Scanner readData) {
         String prodDate;
         do {
-            System.out.print("Podaj datę produkcji w formacie dd/mm/yyyy : ");
+            System.out.print("Podaj datę produkcji (dd/mm/yyyy): ");
             prodDate = readData.next();
         }
         while (prodDate.length() != 10);
@@ -121,7 +121,7 @@ public class CarShowroom {
     private static String getVIN(Scanner readData) {
         String vin;
         do {
-            System.out.print("Podaj VIN: ");
+            System.out.print("Podaj VIN (max 8 znaków): ");
             vin = readData.next();
         }
         while (vin.length() > 8);
