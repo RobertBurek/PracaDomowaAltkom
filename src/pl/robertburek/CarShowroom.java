@@ -1,7 +1,7 @@
 package pl.robertburek;
 
 import pl.robertburek.dao.Dao;
-import pl.robertburek.dao.TestDaoImplement;
+import pl.robertburek.dao.DbDaoImplement;
 import pl.robertburek.model.BrandCar;
 
 import java.sql.SQLException;
@@ -16,8 +16,8 @@ import java.util.Scanner;
 public class CarShowroom {
 
     static List<BrandCar> brandCars = new ArrayList<>();
-    //    static Dao dao = new DbDaoImplement();
-    static Dao dao = new TestDaoImplement();
+    static Dao dao = new DbDaoImplement();
+//    static Dao dao = new TestDaoImplement();
 
     public static void main(String[] args) throws SQLException {
         String numberOption;

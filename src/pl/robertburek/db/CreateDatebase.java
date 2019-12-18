@@ -10,6 +10,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static pl.robertburek.db.OptionsDb.CREATE_TABLE;
+import static pl.robertburek.db.OptionsDb.INIT_CONNECTION;
 import static pl.robertburek.db.ParametersDb.*;
 
 
@@ -19,6 +21,8 @@ import static pl.robertburek.db.ParametersDb.*;
 public class CreateDatebase {
     protected static Statement statement;
     private Connection connection;
+
+
 
     public void operationsDB(OptionsDb... options) throws SQLException {
         for (OptionsDb option : options) {
@@ -48,8 +52,8 @@ public class CreateDatebase {
                 getPARAM_STRING());
         try {
             connection = DriverManager.getConnection(dbURL, getUSER_NAME(), getPASSWORD());
-            DatabaseMetaData dbmd = connection.getMetaData();
-            System.out.printf("Polaczenie nawiazane poprzez: %s%n", dbmd.getDriverName());
+//            DatabaseMetaData dbmd = connection.getMetaData();
+//            System.out.printf("Polaczenie nawiazane poprzez: %s%n", dbmd.getDriverName());
             statement = connection.createStatement();
         } catch (SQLException e) {
             System.out.println("Problem z połączeniem!!!");

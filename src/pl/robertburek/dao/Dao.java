@@ -1,5 +1,6 @@
 package pl.robertburek.dao;
 
+import pl.robertburek.db.OptionsDb;
 import pl.robertburek.model.BrandCar;
 
 import java.sql.SQLException;
@@ -22,6 +23,6 @@ public interface Dao {
 
 //    void closeDB() throws SQLException;
 
-//    void operationsDB(OptionsDb... options) throws SQLException;
+    void operationsDB(OptionsDb... options) throws SQLException;
 
 }

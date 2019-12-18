@@ -30,17 +30,17 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
     @Override
     public List<BrandCar> getCars() throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
-        System.out.println("\n\nODCZYT DANYCH Z TABELI...");
+//        System.out.println("\n\nODCZYT DANYCH Z TABELI...");
         final String SQL_SELECT = "SELECT * FROM cars";
         List<BrandCar> cars = new ArrayList<>();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-            ResultSetMetaData rsmd = resultSet.getMetaData();
-            int columns = rsmd.getColumnCount();
-            System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
-            for (int i = 1; i <= columns; i++) {
-                System.out.print(rsmd.getColumnName(i) + "        ");
-            }
-            System.out.println();
+//            ResultSetMetaData rsmd = resultSet.getMetaData();
+//            int columns = rsmd.getColumnCount();
+//            System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
+//            for (int i = 1; i <= columns; i++) {
+//                System.out.print(rsmd.getColumnName(i) + "        ");
+//            }
+//            System.out.println();
             while (resultSet.next()) {
                 BrandCar brandCar = new BrandCar();
                 resultSetCar(resultSet, brandCar);
@@ -58,13 +58,13 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
         final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
         BrandCar brandCar = new BrandCar();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-            ResultSetMetaData rsmd = resultSet.getMetaData();
-            int columns = rsmd.getColumnCount();
+//            ResultSetMetaData rsmd = resultSet.getMetaData();
+//            int columns = rsmd.getColumnCount();
 //            System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
-            for (int i = 1; i <= columns; i++) {
-                System.out.print("      " + rsmd.getColumnName(i));
-            }
-            System.out.println();
+//            for (int i = 1; i <= columns; i++) {
+//                System.out.print("      " + rsmd.getColumnName(i));
+//            }
+//            System.out.println();
             if (resultSet.next()) {
                 resultSetCar(resultSet, brandCar);
             }

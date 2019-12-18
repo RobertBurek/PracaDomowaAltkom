@@ -40,4 +40,9 @@ public class TestDaoImplement implements Dao {
     public boolean deleteCarById(int id) throws SQLException {
         return false;
     }
+
+    @Override
+    public void operationsDB(OptionsDb... options) throws SQLException {
+
+    }
 }
