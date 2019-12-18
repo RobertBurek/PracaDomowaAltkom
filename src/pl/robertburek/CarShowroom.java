@@ -75,7 +75,7 @@ public class CarShowroom implements DaoProvider {
         System.out.println("---------------------------");
         brandCars = dao.getCars();
         for (BrandCar car : brandCars) {
-            System.out.printf("%3s  %10s  %10s \n", (brandCars.indexOf(car) + 1),
+            System.out.printf("%3s  %10s  %10s \n", car.getId(),
                     car.getBrand(), car.getModel());
         }
         System.out.println("---------------------------");
