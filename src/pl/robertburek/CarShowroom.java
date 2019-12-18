@@ -1,8 +1,8 @@
 package pl.robertburek;
 
 import pl.robertburek.dao.Dao;
-import pl.robertburek.dao.DbDaoImplement;
-import pl.robertburek.dao.TestDaoImplement;
+import pl.robertburek.dao.DaoProvider;
+import pl.robertburek.dao.Sources;
 import pl.robertburek.model.BrandCar;
 
 import java.sql.SQLException;
@@ -14,13 +14,17 @@ import java.util.Scanner;
 /**
  * Created by Robert Burek
  */
-public class CarShowroom {
+public class CarShowroom implements DaoProvider {
 
     static List<BrandCar> brandCars = new ArrayList<>();
-//    static Dao dao = new DbDaoImplement();
-    static Dao dao = new TestDaoImplement();
+    //    static Dao dao = new DbDaoImplement();
+//    static Dao dao = new TestDaoImplement();
+    static Dao dao;
 
     public static void main(String[] args) throws SQLException {
+
+        dao = DaoProvider.getDao(Sources.DB);
+        System.out.println(dao.getNameDao());
         String numberOption;
         do {
             numberOption = getOption("Wybierz opcje:\n"
@@ -103,7 +107,7 @@ public class CarShowroom {
         LocalDate productionDate = getProductionDate(readData);
         System.out.print("Podaj kolor: ");
         String color = readData.next();
-        return new BrandCar( VIN, brand.toUpperCase(), model, productionDate, color);
+        return new BrandCar(VIN, brand.toUpperCase(), model, productionDate, color);
     }
 
     private static LocalDate getProductionDate(Scanner readData) {

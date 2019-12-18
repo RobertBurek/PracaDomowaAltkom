@@ -28,6 +28,11 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
     }
 
     @Override
+    public String getNameDao() {
+        return "Dane produkcyjne z bazy!!!";
+    }
+
+    @Override
     public List<BrandCar> getCars() throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
 //        System.out.println("\n\nODCZYT DANYCH Z TABELI...");

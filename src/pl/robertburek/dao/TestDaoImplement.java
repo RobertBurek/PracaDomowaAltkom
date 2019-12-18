@@ -31,6 +31,11 @@ public class TestDaoImplement implements Dao {
     }
 
     @Override
+    public String getNameDao() {
+        return "Dane testowe z kolekcji!!!";
+    }
+
+    @Override
     public List<BrandCar> getCars() throws SQLException {
         return brandCars;
     }

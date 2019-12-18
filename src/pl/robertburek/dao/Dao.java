@@ -11,6 +11,8 @@ import java.util.List;
  */
 public interface Dao {
 
+    String getNameDao();
+
 //    void openDB() throws SQLException;
 
 //    void saveCars(Car... cars) throws SQLException;
