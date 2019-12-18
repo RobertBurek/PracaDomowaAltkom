@@ -47,6 +47,7 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public boolean addCar(BrandCar brandCar) throws SQLException {
+        brandCar.setId(brandCars.size()+1);
         brandCars.add(brandCar);
         return true;
     }
