@@ -1,4 +1,4 @@
-package pl.robertburek;
+package pl.robertburek.swing;
 
 import javax.swing.*;
 import java.awt.*;
