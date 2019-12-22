@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/CarDealer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/CarDealer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -44,15 +44,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="99">
               <caret line="7" column="28" selection-start-line="7" selection-start-column="28" selection-end-line="7" selection-end-column="28" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/robertburek/db/OptionsDb.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="6" column="63" selection-start-line="6" selection-start-column="63" selection-end-line="6" selection-end-column="63" />
             </state>
           </provider>
         </entry>
@@ -98,7 +89,7 @@
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/CarDealer.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="198">
-              <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="32" />
+              <caret line="14" column="32" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -106,15 +97,27 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1062">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
+            <state relative-caret-position="216">
+              <caret line="68" column="52" lean-forward="true" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#232#233#0" expanded="true" />
                 <element signature="e#263#264#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+              <folding>
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -171,7 +174,9 @@
         <option value="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/CarDealer.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/CarDealer.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventHandling.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java" />
       </list>
     </option>
   </component>
@@ -228,7 +233,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1576946609346" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577023505553" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -417,7 +422,14 @@
       <option name="project" value="LOCAL" />
       <updated>1576939074241</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Zbudowanie layoutu appi&#10;&#10;  klasa WindowCars jest layoutem aplikacji">
+      <created>1576946739659</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1576946739659</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView">
@@ -497,7 +509,8 @@
     <MESSAGE value="Usuwanie samochodu dla obu Dao" />
     <MESSAGE value="Usuwanie samochodu dla obu Dao cd&#10;&#10;  poprawiłem wyświetlanie listy samochodów (właściwy numer id." />
     <MESSAGE value="Przymiarka do app okienkowej&#10;&#10;  swign app okienkowa, przeniosę apklikację do okienke, będą dwie&#10;  wersje, do wyboru." />
-    <option name="LAST_COMMIT_MESSAGE" value="Przymiarka do app okienkowej&#10;&#10;  swign app okienkowa, przeniosę apklikację do okienke, będą dwie&#10;  wersje, do wyboru." />
+    <MESSAGE value="Zbudowanie layoutu appi&#10;&#10;  klasa WindowCars jest layoutem aplikacji" />
+    <option name="LAST_COMMIT_MESSAGE" value="Zbudowanie layoutu appi&#10;&#10;  klasa WindowCars jest layoutem aplikacji" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1576419516249">
@@ -694,7 +707,7 @@
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/CarDealer.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
-          <caret line="14" column="32" lean-forward="true" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="32" />
+          <caret line="14" column="32" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="32" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -703,12 +716,22 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1062">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
+        <state relative-caret-position="216">
+          <caret line="68" column="52" lean-forward="true" selection-start-line="68" selection-start-column="52" selection-end-line="68" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#232#233#0" expanded="true" />
             <element signature="e#263#264#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="24" selection-start-line="23" selection-start-column="24" selection-end-line="23" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
