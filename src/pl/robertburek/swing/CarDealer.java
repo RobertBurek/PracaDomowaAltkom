@@ -15,15 +15,7 @@ public class CarDealer {
         frame.setSize(650, 500);
 
         //Creating the MenuBar and adding components
-        JMenuBar mb = new JMenuBar();
-        JMenu m1 = new JMenu("Dane");
-        JMenu m2 = new JMenu("Help");
-        mb.add(m1);
-        mb.add(m2);
-        JMenuItem m11 = new JMenuItem("Baza sql");
-        JMenuItem m22 = new JMenuItem("Testowa");
-        m1.add(m11);
-        m1.add(m22);
+        JMenuBar mb = getjMenuBar();
 
         //Creating the panel at bottom and adding components
         JPanel panel = new JPanel(); // the panel is not visible in output
@@ -46,5 +38,18 @@ public class CarDealer {
         frame.getContentPane().add(BorderLayout.NORTH, mb);
         frame.getContentPane().add(BorderLayout.CENTER, ta);
         frame.setVisible(true);
+    }
+
+    private static JMenuBar getjMenuBar() {
+        JMenuBar mb = new JMenuBar();
+        JMenu m1 = new JMenu("Dane");
+        JMenu m2 = new JMenu("Help");
+        mb.add(m1);
+        mb.add(m2);
+        JMenuItem m11 = new JMenuItem("Baza sql");
+        JMenuItem m22 = new JMenuItem("Testowa");
+        m1.add(m11);
+        m1.add(m22);
+        return mb;
     }
 }

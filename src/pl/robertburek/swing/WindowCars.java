@@ -14,17 +14,45 @@ public class WindowCars extends JFrame {
 
     public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel) {
         this.brandCarDefaultListModel = brandCarDefaultListModel;
+
+        JMenuBar panelMenuBar = createMenu();
+        this.getContentPane().add(BorderLayout.NORTH, panelMenuBar);
+
+        JPanel panelMain = createPanelMain();
+        add(BorderLayout.CENTER, panelMain);
+
         JPanel panelSearch = createPanelSearch();
-        add(panelSearch, BorderLayout.NORTH);
+        panelMain.add(panelSearch, BorderLayout.NORTH);
 
         JPanel panelResualtSearch = createPanelResualtSearch();
-        add(panelResualtSearch, BorderLayout.CENTER);
+        panelMain.add(panelResualtSearch, BorderLayout.CENTER);
 
         JPanel panelModification = createPanelModification();
-        add(panelModification, BorderLayout.EAST);
+        panelMain.add(panelModification, BorderLayout.EAST);
 
         pack();
         setVisible(true);
+    }
+
+    private JPanel createPanelMain() {
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+        panel.setBorder(BorderFactory.createTitledBorder(
+                BorderFactory.createLineBorder(Color.BLACK)));
+        return panel;
+    }
+
+    private JMenuBar createMenu() {
+        JMenuBar menuBar = new JMenuBar();
+        JMenu menuDane = new JMenu("Dane");
+        JMenu menuHelp = new JMenu("Help");
+        menuBar.add(menuDane);
+        menuBar.add(menuHelp);
+        JMenuItem jMenuItemBazaSql = new JMenuItem("Baza sql");
+        JMenuItem menuItemTestowa = new JMenuItem("Testowa");
+        menuDane.add(jMenuItemBazaSql);
+        menuDane.add(menuItemTestowa);
+        return menuBar;
     }
 
     private JPanel createPanelModification() {
@@ -87,6 +115,5 @@ public class WindowCars extends JFrame {
         panel.add(new JScrollPane(listBrandcars));
         return panel;
     }
-
 
 }

@@ -59,8 +59,8 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     break;
                 case "6":
                     brandCars = dao.getCars();
-                    DefaultListModel<BrandCar> defaultListModel=new DefaultListModel();
-                    for (BrandCar brandCar:brandCars){
+                    DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
+                    for (BrandCar brandCar : brandCars) {
                         defaultListModel.addElement(brandCar);
                     }
                     new WindowCars(defaultListModel);
