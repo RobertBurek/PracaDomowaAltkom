@@ -27,6 +27,6 @@ public class BrandCar extends ModelCar {
 
     @Override
     public String toString() {
-        return String.format("Dane samochodu: %s", brand) + super.toString();
+        return String.format("%s", brand) + super.toString();
     }
 }

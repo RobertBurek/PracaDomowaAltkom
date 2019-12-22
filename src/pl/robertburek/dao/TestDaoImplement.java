@@ -16,18 +16,42 @@ public class TestDaoImplement implements Dao {
     static List<BrandCar> brandCars = new ArrayList<>();
 
     static {
-        BrandCar fordFocus = new BrandCar("2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
-        BrandCar audiQuatro = new BrandCar("3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
-        BrandCar nissanPulsar = new BrandCar("3d21gf3e", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 6), "Srebrny");
-        BrandCar fiatUno = new BrandCar("2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
-        fordFocus.setId(1);
-        audiQuatro.setId(2);
-        nissanPulsar.setId(3);
-        fiatUno.setId(4);
-        brandCars.add(fordFocus);
-        brandCars.add(audiQuatro);
-        brandCars.add(nissanPulsar);
-        brandCars.add(fiatUno);
+        BrandCar ford = new BrandCar("2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
+        BrandCar ford1 = new BrandCar("2q54ad3v", "FORD", "GT", LocalDate.of(2011, 12, 22), "Biały");
+        BrandCar ford2 = new BrandCar("2q54ad3v", "FORD", "Fiesta", LocalDate.of(2012, 8, 2), "Biały");
+        BrandCar audi = new BrandCar("3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
+        BrandCar audi1 = new BrandCar("3g354dyt", "AUDI", "1000", LocalDate.of(2010, 12, 18), "Czarny");
+        BrandCar audi2 = new BrandCar("3g354dyt", "AUDI", "200", LocalDate.of(2010, 12, 18), "Czarny");
+        BrandCar nissan = new BrandCar("3dy1gfye", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 16), "Srebrny");
+        BrandCar nissan1 = new BrandCar("3d265f3e", "NISSAN", "Primera", LocalDate.of(2015, 7, 6), "Metalik");
+        BrandCar nissan2 = new BrandCar("3d265f3e", "NISSAN", "Mikra", LocalDate.of(2015, 7, 6), "Metalik");
+        BrandCar fiat = new BrandCar("2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
+        BrandCar fiat1 = new BrandCar("2yysa3w6", "FIAT", "Punto", LocalDate.of(2005, 8, 4), "Niebieski");
+        BrandCar fiat2 = new BrandCar("2yysa3w6", "FIAT", "Uno", LocalDate.of(2005, 8, 4), "Niebieski");
+        ford.setId(1);
+        audi.setId(2);
+        nissan.setId(3);
+        fiat.setId(4);
+        ford1.setId(5);
+        audi1.setId(6);
+        nissan1.setId(7);
+        fiat1.setId(8);
+        ford2.setId(9);
+        audi2.setId(10);
+        nissan2.setId(11);
+        fiat2.setId(12);
+        brandCars.add(ford);
+        brandCars.add(audi);
+        brandCars.add(nissan);
+        brandCars.add(fiat);
+        brandCars.add(ford1);
+        brandCars.add(audi1);
+        brandCars.add(nissan1);
+        brandCars.add(fiat1);
+        brandCars.add(ford2);
+        brandCars.add(audi2);
+        brandCars.add(nissan2);
+        brandCars.add(fiat2);
     }
 
     @Override

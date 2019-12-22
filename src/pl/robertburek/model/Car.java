@@ -55,6 +55,6 @@ public class Car {
 
     @Override
     public String toString() {
-        return String.format(" (id:%d; VIN:%s; data produkcji:%s; kolor:%s)", id, VIN, productionDate, color);
+        return String.format(" (id: %d; VIN: %s; data produkcji: %s; kolor: %s)", id, VIN, productionDate, color);
     }
 }

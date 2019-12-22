@@ -4,7 +4,9 @@ import pl.robertburek.dao.Dao;
 import pl.robertburek.dao.DaoProvider;
 import pl.robertburek.dao.Sources;
 import pl.robertburek.model.BrandCar;
+import pl.robertburek.swing.WindowCars;
 
+import javax.swing.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,16 +16,21 @@ import java.util.Scanner;
 /**
  * Created by Robert Burek
  */
-public class CarShowroom implements DaoProvider {
+public class CarShowroom extends WindowCars implements DaoProvider {
 
     static List<BrandCar> brandCars = new ArrayList<>();
     static Dao dao;
 
+    public CarShowroom(DefaultListModel<BrandCar> brandCarDefaultListModel) {
+        super(brandCarDefaultListModel);
+    }
+
     public static void main(String[] args) throws SQLException {
 
-        dao = DaoProvider.getDao(Sources.DB);
+        dao = DaoProvider.getDao(Sources.TEST);
         System.out.println(dao.getNameDao());
         String numberOption;
+
         do {
             numberOption = getOption("Wybierz opcje:\n"
                     + "[1] - Dodaj samochód\n"
@@ -31,7 +38,8 @@ public class CarShowroom implements DaoProvider {
                     + "[3] - Usuń samochód\n"
                     + "[4] - Pokaż samochód\n"
                     + "[5] - Lista samochodów\n"
-                    + "[6] - Wyjdź \n");
+                    + "[6] - Interfejs okienkowy\n"
+                    + "[9] - Wyjdź \n");
             switch (numberOption) {
                 case "1":
                     if (dao.addCar(getNewCar())) System.out.println("DANE ZAPISANE POPRAWNIE");
@@ -49,8 +57,16 @@ public class CarShowroom implements DaoProvider {
                 case "5":
                     showCars();
                     break;
+                case "6":
+                    brandCars = dao.getCars();
+                    DefaultListModel<BrandCar> defaultListModel=new DefaultListModel();
+                    for (BrandCar brandCar:brandCars){
+                        defaultListModel.addElement(brandCar);
+                    }
+                    new WindowCars(defaultListModel);
+                    break;
             }
-        } while (!numberOption.equalsIgnoreCase("6"));
+        } while (!numberOption.equalsIgnoreCase("9"));
     }
 
     private static int updateCar() {
