@@ -110,6 +110,11 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
             }
     }
 
+    @Override
+    public boolean updateCar(BrandCar brandCar) throws SQLException {
+        return false;
+    }
+
     private void resultSetCar(ResultSet resultSet, BrandCar brandCar) throws SQLException {
         brandCar.setId(resultSet.getInt(1));
         brandCar.setVIN(resultSet.getString(2));

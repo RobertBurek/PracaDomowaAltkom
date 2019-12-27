@@ -46,7 +46,11 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     else System.out.println("BĄD W ZAPISYWANIU DANYCH!!!");
                     break;
                 case "2":
-                    brandCars.set(updateCar(), getNewCar());
+                    readNumberCar();
+                    BrandCar newBrandCar=getNewCar();
+                    newBrandCar.setId(readNumberCar()+1);
+//                    brandCars.set(readNumberCar(), getNewCar());
+                    dao.updateCar(newBrandCar);
                     break;
                 case "3":
                     deleteCar();
@@ -69,8 +73,8 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         } while (!numberOption.equalsIgnoreCase("9"));
     }
 
-    private static int updateCar() {
-//        showCars();
+    private static int readNumberCar() throws SQLException {
+        showCars();
         System.out.print("Podaj numer samochodu: ");
         Scanner choiceOption = new Scanner(System.in);
         return Integer.valueOf(choiceOption.next()) - 1;

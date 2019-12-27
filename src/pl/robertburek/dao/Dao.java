@@ -25,6 +25,8 @@ public interface Dao {
 
     boolean addCar(BrandCar brandCar) throws SQLException;
 
+    boolean updateCar(BrandCar brandCar) throws SQLException;
+
 //    void closeDB() throws SQLException;
 
     void operationsDB(OptionsDb... options) throws SQLException;

@@ -83,6 +83,12 @@ public class TestDaoImplement implements Dao {
     }
 
     @Override
+    public boolean updateCar(BrandCar brandCar) throws SQLException {
+        brandCars.set(brandCar.getId(),brandCar);
+        return true;
+    }
+
+    @Override
     public void operationsDB(OptionsDb... options) throws SQLException {
 
     }
