@@ -49,7 +49,6 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     int numberCar = readNumberCar();
                     BrandCar newBrandCar = getNewCar();
                     newBrandCar.setId(numberCar+1);
-//                    brandCars.set(readNumberCar(), getNewCar());
                     dao.updateCar(newBrandCar);
                     break;
                 case "3":
@@ -86,7 +85,6 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         System.out.print("Który samochód usunąć: ");
         Scanner choiceOption = new Scanner(System.in);
         String numberOption = choiceOption.next();
-//        System.out.println("Usunięto : " + brandCars.get(Integer.valueOf(numberOption) - 1));
         dao.deleteCarById(Integer.valueOf(numberOption));
     }
 
@@ -119,12 +117,12 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         Scanner readData = new Scanner(System.in);
         String VIN = getVIN(readData);
         System.out.print("Podaj markę: ");
-        String brand = readData.next().toUpperCase();
+        String brand = readData.nextLine().toUpperCase();
         System.out.print("Podaj model: ");
-        String model = changeUpperFristChar(readData.next());
+        String model = changeUpperFristChar(readData.nextLine());
         LocalDate productionDate = getProductionDate(readData);
         System.out.print("Podaj kolor: ");
-        String color = readData.next();
+        String color = changeUpperFristChar(readData.nextLine());
         return new BrandCar(VIN, brand.toUpperCase(), model, productionDate, color);
     }
 
@@ -132,7 +130,10 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         String prodDate;
         do {
             System.out.print("Podaj datę produkcji (dd/mm/yyyy): ");
-            prodDate = readData.next();
+            prodDate = readData.nextLine();
+            if(prodDate.isEmpty()){
+                prodDate="01/01/0001";
+            }
         }
         while (prodDate.length() != 10);
         return LocalDate.of(Integer.parseInt(prodDate.substring(6, 10)),
@@ -144,7 +145,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         String vin;
         do {
             System.out.print("Podaj VIN (max 8 znaków): ");
-            vin = readData.next();
+            vin = readData.nextLine();
         }
         while (vin.length() > 8);
         return vin;
@@ -152,7 +153,9 @@ public class CarShowroom extends WindowCars implements DaoProvider {
 
     private static String changeUpperFristChar(String model) {
         char[] modelNew = model.toCharArray();
-        modelNew[0] = Character.toUpperCase(modelNew[0]);
+        if (!model.isEmpty()) {
+            modelNew[0] = Character.toUpperCase(modelNew[0]);
+        }
         return new String(modelNew);
     }
 }
