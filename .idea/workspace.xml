@@ -3,10 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/dao/Dao.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/dao/Dao.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/dao/Dao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/dao/Dao.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,8 +19,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/Dao.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="320">
-              <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
+            <state relative-caret-position="207">
+              <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,8 +31,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="231">
-              <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+            <state relative-caret-position="222">
+              <caret line="52" column="47" lean-forward="true" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#626#627#0" expanded="true" />
@@ -242,7 +241,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577481138633" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577481745116" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -459,7 +458,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577052538080</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="Modyfikacja wybranego samochodu w TestDao&#10;&#10;  konieczne przetestowanie zaimplementowanej &#10;  funkcjonalności">
+      <created>1577481401587</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1577481401588</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TodoView">
@@ -544,7 +550,8 @@
     <MESSAGE value="Wstepna implementacja buttom SZUKAJ&#10;&#10;  wyskakuje okno wypisujące wprowadzone dane do&#10;  szukania. w nastepnym etapie zaimplemantuję&#10;  wyszukiwaznie w kolekcji." />
     <MESSAGE value="Dodałem opcję 6 - konsola okienkowa&#10;&#10;  po otwarciu intefejsu okienkowego pojawia się&#10;  pełna lista samochodów. Opcja wyjscia zmieniona&#10;  na 9." />
     <MESSAGE value="Dodałem manu do app&#10;&#10;  w menu jest możliwość wyboru bazy samochodów,&#10;  na razie niezaimplementowane." />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodałem manu do app&#10;&#10;  w menu jest możliwość wyboru bazy samochodów,&#10;  na razie niezaimplementowane." />
+    <MESSAGE value="Modyfikacja wybranego samochodu w TestDao&#10;&#10;  konieczne przetestowanie zaimplementowanej &#10;  funkcjonalności" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modyfikacja wybranego samochodu w TestDao&#10;&#10;  konieczne przetestowanie zaimplementowanej &#10;  funkcjonalności" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1576419516249">
@@ -734,16 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/Dao.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="27" column="55" selection-start-line="27" selection-start-column="55" selection-end-line="27" selection-end-column="55" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="405">
@@ -761,6 +758,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/Dao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="27" column="12" selection-start-line="27" selection-start-column="12" selection-end-line="27" selection-end-column="12" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="351">
@@ -775,8 +782,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="231">
-          <caret line="50" column="57" lean-forward="true" selection-start-line="50" selection-start-column="57" selection-end-line="50" selection-end-column="57" />
+        <state relative-caret-position="222">
+          <caret line="52" column="47" lean-forward="true" selection-start-line="52" selection-start-column="47" selection-end-line="52" selection-end-column="47" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#626#627#0" expanded="true" />

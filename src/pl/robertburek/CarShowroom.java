@@ -46,9 +46,9 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     else System.out.println("BĄD W ZAPISYWANIU DANYCH!!!");
                     break;
                 case "2":
-                    readNumberCar();
-                    BrandCar newBrandCar=getNewCar();
-                    newBrandCar.setId(readNumberCar()+1);
+                    int numberCar = readNumberCar();
+                    BrandCar newBrandCar = getNewCar();
+                    newBrandCar.setId(numberCar+1);
 //                    brandCars.set(readNumberCar(), getNewCar());
                     dao.updateCar(newBrandCar);
                     break;
