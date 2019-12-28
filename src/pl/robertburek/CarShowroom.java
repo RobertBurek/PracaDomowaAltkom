@@ -20,9 +20,14 @@ public class CarShowroom extends WindowCars implements DaoProvider {
 
     static List<BrandCar> brandCars = new ArrayList<>();
     static Dao dao;
+    private static String nameDaoInMenuItem;
 
     public CarShowroom(DefaultListModel<BrandCar> brandCarDefaultListModel) {
-        super(brandCarDefaultListModel);
+        super(brandCarDefaultListModel,"Baza sql");
+    }
+
+    public static Dao getDao() {
+        return dao;
     }
 
     public static void main(String[] args) throws SQLException {
@@ -39,6 +44,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     + "[4] - Pokaż samochód\n"
                     + "[5] - Lista samochodów\n"
                     + "[6] - Interfejs okienkowy\n"
+                    + "[7] - Zmiana bazy\n"
                     + "[9] - Wyjdź \n");
             switch (numberOption) {
                 case "1":
@@ -48,7 +54,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                 case "2":
                     int numberCar = readNumberCar();
                     BrandCar newBrandCar = getNewCar();
-                    newBrandCar.setId(numberCar+1);
+                    newBrandCar.setId(numberCar + 1);
                     dao.updateCar(newBrandCar);
                     break;
                 case "3":
@@ -61,15 +67,37 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     showCars();
                     break;
                 case "6":
-                    brandCars = dao.getCars();
-                    DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
-                    for (BrandCar brandCar : brandCars) {
-                        defaultListModel.addElement(brandCar);
+                    if(CarShowroom.getDao().getClass().getSimpleName().equals("DbDaoImplement")){
+                        nameDaoInMenuItem = "Testowa";
+                    } else {
+                        nameDaoInMenuItem = "Baza sql";
                     }
-                    new WindowCars(defaultListModel);
+//                    DefaultListModel<BrandCar> defaultListModel = createListModelCars();
+                    new WindowCars(createListModelCars(),nameDaoInMenuItem);
+                    break;
+                case "7":
+                    changeDao();
                     break;
             }
         } while (!numberOption.equalsIgnoreCase("9"));
+    }
+
+    public static DefaultListModel<BrandCar> createListModelCars() throws SQLException {
+        brandCars = dao.getCars();
+        DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
+        for (BrandCar brandCar : brandCars) {
+            defaultListModel.addElement(brandCar);
+        }
+        return defaultListModel;
+    }
+
+    public static void changeDao() {
+        if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
+            dao = DaoProvider.getDao(Sources.TEST);
+        } else {
+            dao = DaoProvider.getDao(Sources.DB);
+        }
+        System.out.println(dao.getNameDao());
     }
 
     private static int readNumberCar() throws SQLException {
@@ -131,8 +159,8 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         do {
             System.out.print("Podaj datę produkcji (dd/mm/yyyy): ");
             prodDate = readData.nextLine();
-            if(prodDate.isEmpty()){
-                prodDate="01/01/0001";
+            if (prodDate.isEmpty()) {
+                prodDate = "01/01/0001";
             }
         }
         while (prodDate.length() != 10);

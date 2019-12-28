@@ -12,10 +12,15 @@ public class WindowCars extends JFrame {
 
     private DefaultListModel<BrandCar> brandCarDefaultListModel;
 
-    public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel) {
+    public void setBrandCarDefaultListModel(DefaultListModel<BrandCar> brandCarDefaultListModel) {
+        this.brandCarDefaultListModel = brandCarDefaultListModel;
+    }
+
+
+    public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,String currentDao) {
         this.brandCarDefaultListModel = brandCarDefaultListModel;
 
-        JMenuBar panelMenuBar = createMenu();
+        JMenuBar panelMenuBar = createMenu(currentDao);
         this.getContentPane().add(BorderLayout.NORTH, panelMenuBar);
 
         JPanel panelMain = createPanelMain();
@@ -42,16 +47,16 @@ public class WindowCars extends JFrame {
         return panel;
     }
 
-    private JMenuBar createMenu() {
+    private JMenuBar createMenu(String currentDao) {
+        EventDataBase eventDataBase = new EventDataBase();
         JMenuBar menuBar = new JMenuBar();
         JMenu menuDane = new JMenu("Dane");
         JMenu menuHelp = new JMenu("Help");
         menuBar.add(menuDane);
         menuBar.add(menuHelp);
-        JMenuItem jMenuItemBazaSql = new JMenuItem("Baza sql");
-        JMenuItem menuItemTestowa = new JMenuItem("Testowa");
-        menuDane.add(jMenuItemBazaSql);
-        menuDane.add(menuItemTestowa);
+        JMenuItem jMenuItemBaza = new JMenuItem(currentDao);
+        jMenuItemBaza.addActionListener(eventDataBase);
+        menuDane.add(jMenuItemBaza);
         return menuBar;
     }
 
