@@ -11,7 +11,7 @@ class ParametersDb {
     static final private String PASSWORD = "uzytkownik";
     static final private String PARAM_STRING = "useSSL=false&serverTimezone=UTC";
 
-    static int getPORT(){
+    static int getPORT() {
         return PORT;
     }
 

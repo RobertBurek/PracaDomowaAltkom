@@ -67,45 +67,35 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public List<BrandCar> searchCar(Map<String, String> param) {
-//        param.put("brand", "FIAT");
-//        param.put("model", "Uno");
-//        param.put("VIN", "2c21sa3w");
-//        param.put("productionDate", "2009-08-24");
-        param.put("color", "Niebieski");
         List<BrandCar> temp1BrandCars = new ArrayList<>();
         List<BrandCar> temp2BrandCars = new ArrayList<>();
         List<BrandCar> temp3BrandCars = new ArrayList<>();
         List<BrandCar> temp4BrandCars = new ArrayList<>();
         List<BrandCar> temp5BrandCars = new ArrayList<>();
-
         if (param.get("brand") != null) {
             for (BrandCar brandCar : brandCars) {
                 if (brandCar.getBrand().equals(param.get("brand")))
                     temp1BrandCars.add(brandCar);
             }
         } else temp1BrandCars.addAll(brandCars);
-
         if (param.get("model") != null) {
             for (BrandCar brandCar : temp1BrandCars) {
                 if (brandCar.getModel().equals(param.get("model")))
                     temp2BrandCars.add(brandCar);
             }
         } else temp2BrandCars.addAll(temp1BrandCars);
-
         if (param.get("productionDate") != null) {
             for (BrandCar brandCar : temp2BrandCars) {
                 if (brandCar.getProductionDate().toString().equals(param.get("productionDate")))
                     temp3BrandCars.add(brandCar);
             }
         } else temp3BrandCars.addAll(temp2BrandCars);
-
         if (param.get("VIN") != null) {
             for (BrandCar brandCar : temp3BrandCars) {
                 if (brandCar.getVIN().equals(param.get("VIN")))
                     temp4BrandCars.add(brandCar);
             }
         } else temp4BrandCars.addAll(temp3BrandCars);
-
         if (param.get("color") != null) {
             for (BrandCar brandCar : temp4BrandCars) {
                 if (brandCar.getColor().equals(param.get("color")))
@@ -116,31 +106,31 @@ public class TestDaoImplement implements Dao {
     }
 
     @Override
-    public BrandCar getCarById(int id) throws SQLException {
+    public BrandCar getCarById(int id) {
         return brandCars.get(id - 1);
     }
 
     @Override
-    public boolean deleteCarById(int id) throws SQLException {
+    public boolean deleteCarById(int id) {
         brandCars.remove(id - 1);
         return true;
     }
 
     @Override
-    public boolean addCar(BrandCar brandCar) throws SQLException {
+    public boolean addCar(BrandCar brandCar) {
         brandCar.setId(brandCars.size() + 1);
         brandCars.add(brandCar);
         return true;
     }
 
     @Override
-    public boolean updateCar(BrandCar brandCar) throws SQLException {
+    public boolean updateCar(BrandCar brandCar) {
         brandCars.set(brandCar.getId() - 1, brandCar);
         return true;
     }
 
     @Override
-    public void operationsDB(OptionsDb... options) throws SQLException {
+    public void operationsDB(OptionsDb... options) {
 
     }
 }

@@ -1,10 +1,11 @@
 package pl.robertburek.dao;
 
-import pl.robertburek.db.CreateDatebase;
 import pl.robertburek.db.OptionsDb;
+import pl.robertburek.db.SupportDatabase;
 import pl.robertburek.model.BrandCar;
 
 import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.Map;
 /**
  * Created by Robert Burek
  */
-public class DbDaoImplement extends CreateDatebase implements Dao {
+public class DbDaoImplement extends SupportDatabase implements Dao {
 
     static {
 //     FRAGMENT KODU - DLA MNIE INFORMACYJNIE
@@ -35,17 +36,10 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
     @Override
     public List<BrandCar> getCars() throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
-//        System.out.println("\n\nODCZYT DANYCH Z TABELI...");
         final String SQL_SELECT = "SELECT * FROM cars";
         List<BrandCar> cars = new ArrayList<>();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-//            ResultSetMetaData rsmd = resultSet.getMetaData();
-//            int columns = rsmd.getColumnCount();
-//            System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
-//            for (int i = 1; i <= columns; i++) {
-//                System.out.print(rsmd.getColumnName(i) + "        ");
-//            }
-//            System.out.println();
+//            columnsFromTableDB(resultSet);
             while (resultSet.next()) {
                 BrandCar brandCar = new BrandCar();
                 resultSetCar(resultSet, brandCar);
@@ -54,6 +48,15 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
         }
         operationsDB(OptionsDb.CLOSE_CONNETION);
         return cars;
+    }
+
+    private void columnsFromTableDB(ResultSet resultSet) throws SQLException {
+        ResultSetMetaData rsmd = resultSet.getMetaData();
+        int columns = rsmd.getColumnCount();
+        System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
+        for (int i = 1; i <= columns; i++) {
+            System.out.print(rsmd.getColumnName(i) + "        ");
+        }
     }
 
     @Override
@@ -102,13 +105,7 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
         final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
         BrandCar brandCar = new BrandCar();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-//            ResultSetMetaData rsmd = resultSet.getMetaData();
-//            int columns = rsmd.getColumnCount();
-//            System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
-//            for (int i = 1; i <= columns; i++) {
-//                System.out.print("      " + rsmd.getColumnName(i));
-//            }
-//            System.out.println();
+//            columnsFromTableDB(resultSet);
             if (resultSet.next()) {
                 resultSetCar(resultSet, brandCar);
             }

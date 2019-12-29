@@ -119,24 +119,25 @@ public class CarShowroom extends WindowCars implements DaoProvider {
     }
 
     private static void showCars() throws SQLException {
-        System.out.printf("%3s  %10s  %10s \n", "id", "Marka", "Model");
-        System.out.println("---------------------------");
+        System.out.println("--------------- Samochody ---------------");
+        System.out.printf("%3s  %10s  %10s %12s \n", "id", "Marka", "Model", "DataProd.");
+        System.out.println("-----------------------------------------");
         brandCars = dao.getCars();
         for (BrandCar car : brandCars) {
-            System.out.printf("%3s  %10s  %10s \n", car.getId(),
-                    car.getBrand(), car.getModel());
+            System.out.printf("%3s  %10s  %10s %12s \n", car.getId(), car.getBrand(), car.getModel(),
+                    car.getProductionDate());
         }
-        System.out.println("---------------------------");
+        System.out.println("-----------------------------------------");
     }
 
-    private static void showFoundCars(Map<String, String> param) throws SQLException {
+    public static void showFoundCars(Map<String, String> param) throws SQLException {
         System.out.println("----------------------- WYNIKI WYSZUKIWANIA --------------------");
-        System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", "id", "Marka", "Model","VIN","DataProd.", "Kolor");
+        System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", "id", "Marka", "Model", "VIN", "DataProd.", "Kolor");
         System.out.println("----------------------------------------------------------------");
         brandCars = dao.searchCar(param);
         for (BrandCar car : brandCars) {
             System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", car.getId(),
-                    car.getBrand(), car.getModel(),car.getVIN(), car.getProductionDate(), car.getColor());
+                    car.getBrand(), car.getModel(), car.getVIN(), car.getProductionDate(), car.getColor());
         }
         System.out.println("----------------------------------------------------------------");
     }

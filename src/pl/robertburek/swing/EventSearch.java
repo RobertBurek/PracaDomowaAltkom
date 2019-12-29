@@ -5,8 +5,13 @@ import pl.robertburek.model.BrandCar;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+
+import static pl.robertburek.CarShowroom.showFoundCars;
 
 /**
  * Created by Robert Burek
@@ -24,6 +29,26 @@ public class EventSearch implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+//        informationWindow();
+        Map<String,String> param = new HashMap<>();
+        if(isNotEmpty(markaTextField))
+            param.put("brand", markaTextField.getText());
+        if(isNotEmpty(modelTextField))
+            param.put("model", modelTextField.getText());
+        if(isNotEmpty(rokProdTextField))
+            param.put("productionDate", rokProdTextField.getText());
+        if(isNotEmpty(vinTextField))
+            param.put("VIN", vinTextField.getText());
+        if(isNotEmpty(colorTextField))
+            param.put("color", colorTextField.getText());
+        try {
+            showFoundCars(param);
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
+    }
+
+    private void informationWindow() {
         JOptionPane.showConfirmDialog(panel, "Szukane dane"
                 + "\n   Marka:  " + markaTextField.getText()
                 + "\n   Model:  " + modelTextField.getText()
@@ -31,19 +56,10 @@ public class EventSearch implements ActionListener {
                 + "\n   VIN:  " + vinTextField.getText()
                 + "\n   color:  " + colorTextField.getText(),
                 "Uwaga", JOptionPane.PLAIN_MESSAGE);
-        String[] parameters={markaTextField.getText(),modelTextField.getText(),rokProdTextField.getText(),
-                vinTextField.getText(), colorTextField.getText()};
-
-        searchBrandcars(parameters,brandCars);
-
     }
 
-    private void searchBrandcars(String[] parameters, List<BrandCar> brandCars) {
-//        List<BrandCar> resualtListBrandcars = new ArrayList<BrandCar>(new DefaultListModel<>());
-//        for (BrandCar brandCar: brandCars){
-
-//        }
+    private boolean isNotEmpty(JTextField markaTextField) {
+        return markaTextField != null && markaTextField.getText().isEmpty() == false;
     }
-
 
 }

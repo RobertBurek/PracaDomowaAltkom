@@ -25,5 +25,10 @@ public class EventDataBase implements ActionListener {
             ((JMenuItem) e.getSource()).setText("Baza sql");
         }
         CarShowroom.changeDao();
+        try {
+            createListModelCars();
+        } catch (SQLException e1) {
+            e1.printStackTrace();
+        }
     }
 }

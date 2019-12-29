@@ -14,13 +14,9 @@ public interface Dao {
 
     String getNameDao();
 
-//    void openDB() throws SQLException;
-
-//    void saveCars(Car... cars) throws SQLException;
-
     List<BrandCar> getCars() throws SQLException;
 
-    List<BrandCar> searchCar(Map<String,String> param) throws SQLException;
+    List<BrandCar> searchCar(Map<String, String> param) throws SQLException;
 
     BrandCar getCarById(int id) throws SQLException;
 
@@ -29,8 +25,6 @@ public interface Dao {
     boolean addCar(BrandCar brandCar) throws SQLException;
 
     boolean updateCar(BrandCar brandCar) throws SQLException;
-
-//    void closeDB() throws SQLException;
 
     void operationsDB(OptionsDb... options) throws SQLException;
 
