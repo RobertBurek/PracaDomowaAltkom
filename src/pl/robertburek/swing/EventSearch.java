@@ -11,6 +11,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static pl.robertburek.CarShowroom.changeUpperFristChar;
 import static pl.robertburek.CarShowroom.showFoundCars;
 
 /**
@@ -32,15 +33,15 @@ public class EventSearch implements ActionListener {
 //        informationWindow();
         Map<String,String> param = new HashMap<>();
         if(isNotEmpty(markaTextField))
-            param.put("brand", markaTextField.getText());
+            param.put("brand", markaTextField.getText().toUpperCase());
         if(isNotEmpty(modelTextField))
-            param.put("model", modelTextField.getText());
+            param.put("model", changeUpperFristChar(modelTextField.getText()));
         if(isNotEmpty(rokProdTextField))
             param.put("productionDate", rokProdTextField.getText());
         if(isNotEmpty(vinTextField))
             param.put("VIN", vinTextField.getText());
         if(isNotEmpty(colorTextField))
-            param.put("color", colorTextField.getText());
+            param.put("color", changeUpperFristChar(colorTextField.getText()));
         try {
             showFoundCars(param);
         } catch (SQLException e1) {

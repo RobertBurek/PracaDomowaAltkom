@@ -27,7 +27,7 @@ public class TestDaoImplement implements Dao {
         BrandCar nissan1 = new BrandCar("3d265f3e", "NISSAN", "Primera", LocalDate.of(2015, 7, 6), "Metalik");
         BrandCar nissan2 = new BrandCar("3d265f3e", "NISSAN", "Mikra", LocalDate.of(2015, 7, 6), "Metalik");
         BrandCar fiat = new BrandCar("2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
-        BrandCar fiat1 = new BrandCar("2yysa3w6", "FIAT", "Punto", LocalDate.of(2005, 8, 4), "Niebieski");
+        BrandCar fiat1 = new BrandCar("2y24w3w6", "FIAT", "Punto", LocalDate.of(2005, 8, 14), "Niebieski");
         BrandCar fiat2 = new BrandCar("2yysa3w6", "FIAT", "Uno", LocalDate.of(2005, 8, 4), "Niebieski");
         ford.setId(1);
         audi.setId(2);

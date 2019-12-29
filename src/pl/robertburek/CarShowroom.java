@@ -14,8 +14,10 @@ import java.util.*;
 /**
  * Created by Robert Burek
  */
+
 public class CarShowroom extends WindowCars implements DaoProvider {
 
+    public static final String ZERO_DATE_PROD = "0001-01-01";
     static List<BrandCar> brandCars = new ArrayList<>();
     static Dao dao;
     private static String nameDaoInMenuItem;
@@ -149,7 +151,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         if (searchedCar.getBrand().length() > 0) param.put("brand", searchedCar.getBrand());
         if (searchedCar.getModel().length() > 0) param.put("model", searchedCar.getModel());
         if (searchedCar.getVIN().length() > 0) param.put("VIN", searchedCar.getVIN());
-        if (!(searchedCar.getProductionDate().toString().equals("0001-01-01")))
+        if (!(searchedCar.getProductionDate().toString().equals(ZERO_DATE_PROD)))
             param.put("productionDate", searchedCar.getProductionDate().toString());
         if (searchedCar.getColor().length() > 0) param.put("color", searchedCar.getColor());
         return param;
@@ -185,16 +187,17 @@ public class CarShowroom extends WindowCars implements DaoProvider {
     private static LocalDate getProductionDate(Scanner readData) {
         String prodDate;
         do {
-            System.out.print("Podaj datę produkcji (dd/mm/yyyy): ");
+            System.out.print("Podaj datę produkcji (yyyy-mm-dd): ");
             prodDate = readData.nextLine();
             if (prodDate.isEmpty()) {
-                prodDate = "01/01/0001";
+                prodDate = ZERO_DATE_PROD;
             }
         }
         while (prodDate.length() != 10);
-        return LocalDate.of(Integer.parseInt(prodDate.substring(6, 10)),
-                Integer.parseInt(prodDate.substring(3, 5)),
-                Integer.parseInt(prodDate.substring(0, 2)));
+        System.out.println(prodDate.substring(0, 4)+"-"+prodDate.substring(5, 7)+"-"+prodDate.substring(8, 10));
+        return LocalDate.of(Integer.parseInt(prodDate.substring(0, 4)),
+                Integer.parseInt(prodDate.substring(5, 7)),
+                Integer.parseInt(prodDate.substring(8, 10)));
     }
 
     private static String getVIN(Scanner readData) {
@@ -207,7 +210,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         return vin;
     }
 
-    private static String changeUpperFristChar(String model) {
+    public static String changeUpperFristChar(String model) {
         char[] modelNew = model.toCharArray();
         if (!model.isEmpty()) {
             modelNew[0] = Character.toUpperCase(modelNew[0]);

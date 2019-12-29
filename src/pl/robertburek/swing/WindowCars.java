@@ -95,7 +95,7 @@ public class WindowCars extends JFrame {
         panel.add(new JLabel("Model: "));
         JTextField modelTextField = new JTextField(7);
         panel.add(modelTextField);
-        panel.add(new JLabel("Rok prod. (dd/mm/rrrr): "));
+        panel.add(new JLabel("Rok prod. (dd-mm-rrrr): "));
         JTextField rokProdTextField = new JTextField(6);
         panel.add(rokProdTextField);
         panel.add(new JLabel("VIN (8 znaków): "));
