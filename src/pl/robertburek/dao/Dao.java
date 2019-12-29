@@ -5,6 +5,7 @@ import pl.robertburek.model.BrandCar;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Robert Burek
@@ -18,6 +19,8 @@ public interface Dao {
 //    void saveCars(Car... cars) throws SQLException;
 
     List<BrandCar> getCars() throws SQLException;
+
+    List<BrandCar> searchCar(Map<String,String> param) throws SQLException;
 
     BrandCar getCarById(int id) throws SQLException;
 

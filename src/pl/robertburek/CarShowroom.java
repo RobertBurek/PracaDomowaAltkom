@@ -9,9 +9,7 @@ import pl.robertburek.swing.WindowCars;
 import javax.swing.*;
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
+import java.util.*;
 
 /**
  * Created by Robert Burek
@@ -35,7 +33,6 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         dao = DaoProvider.getDao(Sources.TEST);
         System.out.println(dao.getNameDao());
         String numberOption;
-
         do {
             numberOption = getOption("Wybierz opcje:\n"
                     + "[1] - Dodaj samochód\n"
@@ -43,8 +40,9 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     + "[3] - Usuń samochód\n"
                     + "[4] - Pokaż samochód\n"
                     + "[5] - Lista samochodów\n"
-                    + "[6] - Interfejs okienkowy\n"
-                    + "[7] - Zmiana bazy\n"
+                    + "[6] - Wyszukiwanie samochodu\n"
+                    + "[7] - Interfejs okienkowy\n"
+                    + "[8] - Zmiana bazy\n"
                     + "[9] - Wyjdź \n");
             switch (numberOption) {
                 case "1":
@@ -67,6 +65,9 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     showCars();
                     break;
                 case "6":
+                    showFoundCars();
+                    break;
+                case "7":
                     if(CarShowroom.getDao().getClass().getSimpleName().equals("DbDaoImplement")){
                         nameDaoInMenuItem = "Testowa";
                     } else {
@@ -75,7 +76,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
 //                    DefaultListModel<BrandCar> defaultListModel = createListModelCars();
                     new WindowCars(createListModelCars(),nameDaoInMenuItem);
                     break;
-                case "7":
+                case "8":
                     changeDao();
                     break;
             }
@@ -120,6 +121,21 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         System.out.printf("%3s  %10s  %10s \n", "id", "Marka", "Model");
         System.out.println("---------------------------");
         brandCars = dao.getCars();
+        for (BrandCar car : brandCars) {
+            System.out.printf("%3s  %10s  %10s \n", car.getId(),
+                    car.getBrand(), car.getModel());
+        }
+        System.out.println("---------------------------");
+    }
+
+    private static void showFoundCars() throws SQLException {
+        Map<String,String> param = new HashMap<>();
+        System.out.println("Podaj szukane dane:");
+        BrandCar searchedCar = getNewCar();
+//        implementacja param - map<>
+        System.out.printf("%3s  %10s  %10s \n", "id", "Marka", "Model");
+        System.out.println("---------------------------");
+        brandCars = dao.searchCar(param);
         for (BrandCar car : brandCars) {
             System.out.printf("%3s  %10s  %10s \n", car.getId(),
                     car.getBrand(), car.getModel());

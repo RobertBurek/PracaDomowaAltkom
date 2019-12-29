@@ -16,8 +16,10 @@ public class WindowCars extends JFrame {
         this.brandCarDefaultListModel = brandCarDefaultListModel;
     }
 
+    public WindowCars() throws HeadlessException {
+    }
 
-    public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,String currentDao) {
+    public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel, String currentDao) {
         this.brandCarDefaultListModel = brandCarDefaultListModel;
 
         JMenuBar panelMenuBar = createMenu(currentDao);

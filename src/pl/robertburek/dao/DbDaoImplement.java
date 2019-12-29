@@ -9,6 +9,7 @@ import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Robert Burek
@@ -45,6 +46,23 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
 //                System.out.print(rsmd.getColumnName(i) + "        ");
 //            }
 //            System.out.println();
+            while (resultSet.next()) {
+                BrandCar brandCar = new BrandCar();
+                resultSetCar(resultSet, brandCar);
+                cars.add(brandCar);
+            }
+        }
+        operationsDB(OptionsDb.CLOSE_CONNETION);
+        return cars;
+    }
+
+    @Override
+    public List<BrandCar> searchCar(Map<String,String> param) throws SQLException {
+        operationsDB(OptionsDb.INIT_CONNECTION);
+        final String SQL_SELECT = "SELECT * FROM cars WHERE brand='FIAT'";
+        List<BrandCar> cars = new ArrayList<>();
+        try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
+
             while (resultSet.next()) {
                 BrandCar brandCar = new BrandCar();
                 resultSetCar(resultSet, brandCar);

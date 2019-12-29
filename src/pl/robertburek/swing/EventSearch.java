@@ -32,11 +32,11 @@ public class EventSearch implements ActionListener {
         String[] parameters={markaTextField.getText(),modelTextField.getText(),rokProdTextField.getText(),
                 vinTextField.getText()};
 
-        szukajBrandcars(parameters,brandCars);
+        searchBrandcars(parameters,brandCars);
 
     }
 
-    private void szukajBrandcars(String[] parameters, List<BrandCar> brandCars) {
+    private void searchBrandcars(String[] parameters, List<BrandCar> brandCars) {
 //        List<BrandCar> resualtListBrandcars = new ArrayList<BrandCar>(new DefaultListModel<>());
 //        for (BrandCar brandCar: brandCars){
 
