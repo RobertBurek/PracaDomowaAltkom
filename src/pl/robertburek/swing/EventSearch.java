@@ -18,8 +18,9 @@ public class EventSearch implements ActionListener {
     JTextField modelTextField = new JTextField();
     JTextField rokProdTextField = new JTextField();
     JTextField vinTextField = new JTextField();
+    JTextField colorTextField = new JTextField();
     List<BrandCar> brandCars = new ArrayList<>();
-//    DefaultListModel<BrandCar> brandCarDefaultListModel;
+    DefaultListModel<BrandCar> brandCarDefaultListModel;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -27,10 +28,11 @@ public class EventSearch implements ActionListener {
                 + "\n   Marka:  " + markaTextField.getText()
                 + "\n   Model:  " + modelTextField.getText()
                 + "\n   Rok prod.:  " + rokProdTextField.getText()
-                + "\n   VIN:  " + vinTextField.getText(),
+                + "\n   VIN:  " + vinTextField.getText()
+                + "\n   color:  " + colorTextField.getText(),
                 "Uwaga", JOptionPane.PLAIN_MESSAGE);
         String[] parameters={markaTextField.getText(),modelTextField.getText(),rokProdTextField.getText(),
-                vinTextField.getText()};
+                vinTextField.getText(), colorTextField.getText()};
 
         searchBrandcars(parameters,brandCars);
 

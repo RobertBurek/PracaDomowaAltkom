@@ -90,25 +90,29 @@ public class WindowCars extends JFrame {
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Wyszukiwanie samochodów "));
         panel.add(new JLabel("Marka: "));
-        JTextField markaTextField = new JTextField(10);
+        JTextField markaTextField = new JTextField(7);
         panel.add(markaTextField);
         panel.add(new JLabel("Model: "));
-        JTextField modelTextField = new JTextField(10);
+        JTextField modelTextField = new JTextField(7);
         panel.add(modelTextField);
         panel.add(new JLabel("Rok prod. (dd/mm/rrrr): "));
-        JTextField rokProdTextField = new JTextField(8);
+        JTextField rokProdTextField = new JTextField(6);
         panel.add(rokProdTextField);
         panel.add(new JLabel("VIN (8 znaków): "));
-        JTextField vinTextField = new JTextField(6);
+        JTextField vinTextField = new JTextField(5);
         panel.add(vinTextField);
-        JButton szukaj = new JButton("Szukaj");
+        panel.add(new JLabel("Kolor: "));
+        JTextField colorTextField = new JTextField(6);
+        panel.add(colorTextField);
+        JButton searchButton = new JButton("Szukaj");
         eventSearch.markaTextField = markaTextField;
         eventSearch.modelTextField = modelTextField;
         eventSearch.rokProdTextField = rokProdTextField;
         eventSearch.vinTextField = vinTextField;
+        eventSearch.colorTextField = colorTextField;
         eventSearch.panel = panel;
-        szukaj.addActionListener(eventSearch);
-        panel.add(szukaj);
+        searchButton.addActionListener(eventSearch);
+        panel.add(searchButton);
         return panel;
     }
 

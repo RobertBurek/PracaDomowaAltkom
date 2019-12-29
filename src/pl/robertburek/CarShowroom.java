@@ -21,7 +21,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
     private static String nameDaoInMenuItem;
 
     public CarShowroom(DefaultListModel<BrandCar> brandCarDefaultListModel) {
-        super(brandCarDefaultListModel,"Baza sql");
+        super(brandCarDefaultListModel, "Baza sql");
     }
 
     public static Dao getDao() {
@@ -65,16 +65,17 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     showCars();
                     break;
                 case "6":
-                    showFoundCars();
+                    Map<String, String> param = createParamMap();
+                    showFoundCars(param);
                     break;
                 case "7":
-                    if(CarShowroom.getDao().getClass().getSimpleName().equals("DbDaoImplement")){
+                    if (CarShowroom.getDao().getClass().getSimpleName().equals("DbDaoImplement")) {
                         nameDaoInMenuItem = "Testowa";
                     } else {
                         nameDaoInMenuItem = "Baza sql";
                     }
 //                    DefaultListModel<BrandCar> defaultListModel = createListModelCars();
-                    new WindowCars(createListModelCars(),nameDaoInMenuItem);
+                    new WindowCars(createListModelCars(), nameDaoInMenuItem);
                     break;
                 case "8":
                     changeDao();
@@ -128,19 +129,29 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         System.out.println("---------------------------");
     }
 
-    private static void showFoundCars() throws SQLException {
-        Map<String,String> param = new HashMap<>();
-        System.out.println("Podaj szukane dane:");
-        BrandCar searchedCar = getNewCar();
-//        implementacja param - map<>
-        System.out.printf("%3s  %10s  %10s \n", "id", "Marka", "Model");
-        System.out.println("---------------------------");
+    private static void showFoundCars(Map<String, String> param) throws SQLException {
+        System.out.println("----------------------- WYNIKI WYSZUKIWANIA --------------------");
+        System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", "id", "Marka", "Model","VIN","DataProd.", "Kolor");
+        System.out.println("----------------------------------------------------------------");
         brandCars = dao.searchCar(param);
         for (BrandCar car : brandCars) {
-            System.out.printf("%3s  %10s  %10s \n", car.getId(),
-                    car.getBrand(), car.getModel());
+            System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", car.getId(),
+                    car.getBrand(), car.getModel(),car.getVIN(), car.getProductionDate(), car.getColor());
         }
-        System.out.println("---------------------------");
+        System.out.println("----------------------------------------------------------------");
+    }
+
+    private static Map<String, String> createParamMap() {
+        Map<String, String> param = new HashMap<>();
+        System.out.println("Podaj szukane dane:");
+        BrandCar searchedCar = getNewCar();
+        if (searchedCar.getBrand().length() > 0) param.put("brand", searchedCar.getBrand());
+        if (searchedCar.getModel().length() > 0) param.put("model", searchedCar.getModel());
+        if (searchedCar.getVIN().length() > 0) param.put("VIN", searchedCar.getVIN());
+        if (!(searchedCar.getProductionDate().toString().equals("0001-01-01")))
+            param.put("productionDate", searchedCar.getProductionDate().toString());
+        if (searchedCar.getColor().length() > 0) param.put("color", searchedCar.getColor());
+        return param;
     }
 
     private static void findCar() throws SQLException {

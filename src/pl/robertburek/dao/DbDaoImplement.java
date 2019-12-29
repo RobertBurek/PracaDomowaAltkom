@@ -57,12 +57,34 @@ public class DbDaoImplement extends CreateDatebase implements Dao {
     }
 
     @Override
-    public List<BrandCar> searchCar(Map<String,String> param) throws SQLException {
+    public List<BrandCar> searchCar(Map<String, String> param) throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
-        final String SQL_SELECT = "SELECT * FROM cars WHERE brand='FIAT'";
+        String SQL_SELECT = "SELECT * FROM cars";
+        if (param.get("brand") != null) {
+            SQL_SELECT += " WHERE brand = '" + param.get("brand") + "'";
+        }
+        if (param.get("model") != null) {
+            if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";
+            else SQL_SELECT += " WHERE ";
+            SQL_SELECT += " model = '" + param.get("model") + "'";
+        }
+        if (param.get("productionDate") != null) {
+            if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";
+            else SQL_SELECT += " WHERE ";
+            SQL_SELECT += "productionDate = '" + param.get("productionDate") + "'";
+        }
+        if (param.get("VIN") != null) {
+            if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";
+            else SQL_SELECT += " WHERE ";
+            SQL_SELECT += "VIN = '" + param.get("VIN") + "'";
+        }
+        if (param.get("color") != null) {
+            if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";
+            else SQL_SELECT += " WHERE ";
+            SQL_SELECT += "color = '" + param.get("color") + "'";
+        }
         List<BrandCar> cars = new ArrayList<>();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-
             while (resultSet.next()) {
                 BrandCar brandCar = new BrandCar();
                 resultSetCar(resultSet, brandCar);
