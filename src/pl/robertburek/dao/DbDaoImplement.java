@@ -75,6 +75,9 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
             if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";
             else SQL_SELECT += " WHERE ";
             SQL_SELECT += "productionDate = '" + param.get("productionDate") + "'";
+//            wariant z wprowadzaniem roku a nie całej daty
+//            SQL_SELECT += "productionDate >= '" + param.get("productionDate") + "-01-01' AND productionDate <= '"
+//                    + param.get("productionDate")+"-12-31'";
         }
         if (param.get("VIN") != null) {
             if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";

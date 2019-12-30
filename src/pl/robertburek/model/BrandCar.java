@@ -27,6 +27,10 @@ public class BrandCar extends ModelCar {
 
     @Override
     public String toString() {
-        return String.format("%s", brand) + super.toString();
+//        System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", getId(),
+//                getBrand(), getModel(), getVIN(), getProductionDate(), getColor());
+//        return String.format("%s", brand) + super.toString();
+        return String.format("%3s  %10s  %10s  %10s  %12s  %11s ", getId(),
+                getBrand(), getModel(), getVIN(), getProductionDate(), getColor());
     }
 }

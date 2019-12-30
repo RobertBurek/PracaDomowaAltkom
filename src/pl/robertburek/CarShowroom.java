@@ -15,16 +15,21 @@ import java.util.*;
  * Created by Robert Burek
  */
 
-public class CarShowroom extends WindowCars implements DaoProvider {
+public class CarShowroom implements DaoProvider {
 
     public static final String ZERO_DATE_PROD = "0001-01-01";
-    static List<BrandCar> brandCars = new ArrayList<>();
-    static Dao dao;
-    private static String nameDaoInMenuItem;
+    private static List<BrandCar> brandCars = new ArrayList<>();
+    private static Dao dao;
+    //    private static WindowCars windowCars;
+    private static DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
 
-    public CarShowroom(DefaultListModel<BrandCar> brandCarDefaultListModel) {
-        super(brandCarDefaultListModel, "Baza sql");
-    }
+//    public static List<BrandCar> getBrandCars() {
+//        return brandCars;
+//    }
+
+//    public CarShowroom(DefaultListModel<BrandCar> brandCarDefaultListModel) {
+//        super(brandCarDefaultListModel, "Baza sql");
+//    }
 
     public static Dao getDao() {
         return dao;
@@ -32,7 +37,9 @@ public class CarShowroom extends WindowCars implements DaoProvider {
 
     public static void main(String[] args) throws SQLException {
 
+//        CarShowroom salonDomaniewska = new CarShowroom();
         dao = DaoProvider.getDao(Sources.TEST);
+        brandCars = dao.getCars();
         System.out.println(dao.getNameDao());
         String numberOption;
         do {
@@ -46,6 +53,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     + "[7] - Interfejs okienkowy\n"
                     + "[8] - Zmiana bazy\n"
                     + "[9] - Wyjdź \n");
+            String nameDaoInMenuItem;
             switch (numberOption) {
                 case "1":
                     if (dao.addCar(getNewCar())) System.out.println("DANE ZAPISANE POPRAWNIE");
@@ -71,7 +79,7 @@ public class CarShowroom extends WindowCars implements DaoProvider {
                     showFoundCars(param);
                     break;
                 case "7":
-                    if (CarShowroom.getDao().getClass().getSimpleName().equals("DbDaoImplement")) {
+                    if (getDao().getClass().getSimpleName().equals("DbDaoImplement")) {
                         nameDaoInMenuItem = "Testowa";
                     } else {
                         nameDaoInMenuItem = "Baza sql";
@@ -86,22 +94,25 @@ public class CarShowroom extends WindowCars implements DaoProvider {
         } while (!numberOption.equalsIgnoreCase("9"));
     }
 
-    public static DefaultListModel<BrandCar> createListModelCars() throws SQLException {
-        brandCars = dao.getCars();
-        DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
+    public static DefaultListModel<BrandCar> createListModelCars() {
+//        brandCars = dao.getCars();
+//        defaultListModel = new DefaultListModel();
         for (BrandCar brandCar : brandCars) {
             defaultListModel.addElement(brandCar);
         }
         return defaultListModel;
     }
 
-    public static void changeDao() {
+    public static void changeDao() throws SQLException {
         if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
             dao = DaoProvider.getDao(Sources.TEST);
         } else {
             dao = DaoProvider.getDao(Sources.DB);
         }
         System.out.println(dao.getNameDao());
+        brandCars = dao.getCars();
+        defaultListModel.removeAllElements();
+        defaultListModel=createListModelCars();
     }
 
     private static int readNumberCar() throws SQLException {
@@ -194,7 +205,6 @@ public class CarShowroom extends WindowCars implements DaoProvider {
             }
         }
         while (prodDate.length() != 10);
-        System.out.println(prodDate.substring(0, 4)+"-"+prodDate.substring(5, 7)+"-"+prodDate.substring(8, 10));
         return LocalDate.of(Integer.parseInt(prodDate.substring(0, 4)),
                 Integer.parseInt(prodDate.substring(5, 7)),
                 Integer.parseInt(prodDate.substring(8, 10)));

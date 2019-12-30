@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
+import static pl.robertburek.CarShowroom.changeDao;
 import static pl.robertburek.CarShowroom.createListModelCars;
 
 
@@ -16,7 +17,6 @@ import static pl.robertburek.CarShowroom.createListModelCars;
  */
 public class EventDataBase implements ActionListener {
 
-
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Baza sql")) {
@@ -24,11 +24,11 @@ public class EventDataBase implements ActionListener {
         } else {
             ((JMenuItem) e.getSource()).setText("Baza sql");
         }
-        CarShowroom.changeDao();
         try {
-            createListModelCars();
+            changeDao();
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
     }
+
 }

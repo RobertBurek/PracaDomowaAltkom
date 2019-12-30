@@ -10,14 +10,17 @@ import java.awt.*;
  */
 public class WindowCars extends JFrame {
 
-    private DefaultListModel<BrandCar> brandCarDefaultListModel;
+    EventSearch eventSearch = new EventSearch();
+    EventDataBase eventDateBase = new EventDataBase();
+    static DefaultListModel<BrandCar> brandCarDefaultListModel;
 
-    public void setBrandCarDefaultListModel(DefaultListModel<BrandCar> brandCarDefaultListModel) {
-        this.brandCarDefaultListModel = brandCarDefaultListModel;
-    }
 
-    public WindowCars() throws HeadlessException {
-    }
+//    public void setBrandCarDefaultListModel(DefaultListModel<BrandCar> brandCarDefaultListModel) {
+//        this.brandCarDefaultListModel = brandCarDefaultListModel;
+//    }
+
+//    public WindowCars() throws HeadlessException {
+//    }
 
     public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel, String currentDao) {
         this.brandCarDefaultListModel = brandCarDefaultListModel;
@@ -85,8 +88,7 @@ public class WindowCars extends JFrame {
     }
 
     private JPanel createPanelSearch() {
-        EventSearch eventSearch = new EventSearch();
-        JPanel panel = new JPanel();
+        JPanel panel= new JPanel();
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Wyszukiwanie samochodów "));
         panel.add(new JLabel("Marka: "));
@@ -95,9 +97,9 @@ public class WindowCars extends JFrame {
         panel.add(new JLabel("Model: "));
         JTextField modelTextField = new JTextField(7);
         panel.add(modelTextField);
-        panel.add(new JLabel("Rok prod. (dd-mm-rrrr): "));
-        JTextField rokProdTextField = new JTextField(6);
-        panel.add(rokProdTextField);
+        panel.add(new JLabel("Data prod. (rrrr-mm-dd): "));
+        JTextField dateProdTextField = new JTextField(6);
+        panel.add(dateProdTextField);
         panel.add(new JLabel("VIN (8 znaków): "));
         JTextField vinTextField = new JTextField(5);
         panel.add(vinTextField);
@@ -105,26 +107,28 @@ public class WindowCars extends JFrame {
         JTextField colorTextField = new JTextField(6);
         panel.add(colorTextField);
         JButton searchButton = new JButton("Szukaj");
-        eventSearch.markaTextField = markaTextField;
-        eventSearch.modelTextField = modelTextField;
-        eventSearch.rokProdTextField = rokProdTextField;
-        eventSearch.vinTextField = vinTextField;
-        eventSearch.colorTextField = colorTextField;
-        eventSearch.panel = panel;
+        eventSearch.setMarkaTextField(markaTextField);
+        eventSearch.setModelTextField(modelTextField);
+        eventSearch.setDateProdTextField(dateProdTextField);
+        eventSearch.setVinTextField(vinTextField);
+        eventSearch.setColorTextField(colorTextField);
+        eventSearch.setPanel(panel);
         searchButton.addActionListener(eventSearch);
         panel.add(searchButton);
         return panel;
     }
 
     private JPanel createPanelResualtSearch() {
-        JPanel panel = new JPanel();
-        panel.setBorder(BorderFactory.createTitledBorder(
+        JPanel panelResualt = new JPanel();
+        panelResualt.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Lista samochodów "));
         JList<BrandCar> listBrandcars = new JList<>(brandCarDefaultListModel);
         listBrandcars.setFixedCellHeight(25);
         listBrandcars.setFixedCellWidth(570);
-        panel.add(new JScrollPane(listBrandcars));
-        return panel;
+        panelResualt.add(new JScrollPane(listBrandcars));
+        eventSearch.setListBrandcars(listBrandcars);
+        eventSearch.setBrandCarDefaultListModel(brandCarDefaultListModel);
+        return panelResualt;
     }
 
 }
