@@ -1,15 +1,11 @@
 package pl.robertburek.swing;
 
-import pl.robertburek.CarShowroom;
-import pl.robertburek.model.BrandCar;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
 
 import static pl.robertburek.CarShowroom.changeDao;
-import static pl.robertburek.CarShowroom.createListModelCars;
 
 
 /**
@@ -17,12 +13,16 @@ import static pl.robertburek.CarShowroom.createListModelCars;
  */
 public class EventDataBase implements ActionListener {
 
+    static JMenu typeDB = new JMenu();
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Baza sql")) {
             ((JMenuItem) e.getSource()).setText("Testowa");
+            typeDB.setText("Produkcyjna - SQL");
         } else {
             ((JMenuItem) e.getSource()).setText("Baza sql");
+            typeDB.setText("Testowa - kolekcja");
         }
         try {
             changeDao();

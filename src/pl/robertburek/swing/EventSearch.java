@@ -1,7 +1,5 @@
 package pl.robertburek.swing;
 
-import pl.robertburek.model.BrandCar;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -9,7 +7,8 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static pl.robertburek.CarShowroom.*;
+import static pl.robertburek.CarShowroom.changeUpperFristChar;
+import static pl.robertburek.CarShowroom.showFoundCars;
 
 /**
  * Created by Robert Burek
@@ -22,9 +21,6 @@ public class EventSearch implements ActionListener {
     private JTextField dateProdTextField = new JTextField();
     private JTextField vinTextField = new JTextField();
     private JTextField colorTextField = new JTextField();
-    private JList<BrandCar> listBrandcars;
-    private DefaultListModel<BrandCar> brandCarDefaultListModel;
-
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -42,9 +38,6 @@ public class EventSearch implements ActionListener {
             param.put("color", changeUpperFristChar(colorTextField.getText()));
         try {
             showFoundCars(param);
-            brandCarDefaultListModel.removeAllElements();
-            brandCarDefaultListModel = createListModelCars();
-            listBrandcars = new JList<>(brandCarDefaultListModel);
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
@@ -88,11 +81,4 @@ public class EventSearch implements ActionListener {
         this.colorTextField = colorTextField;
     }
 
-    public void setListBrandcars(JList<BrandCar> listBrandcars) {
-        this.listBrandcars = listBrandcars;
-    }
-
-    public void setBrandCarDefaultListModel(DefaultListModel<BrandCar> brandCarDefaultListModel) {
-        this.brandCarDefaultListModel = brandCarDefaultListModel;
-    }
 }

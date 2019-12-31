@@ -20,28 +20,30 @@ public class CarShowroom implements DaoProvider {
     public static final String ZERO_DATE_PROD = "0001-01-01";
     private static List<BrandCar> brandCars = new ArrayList<>();
     private static Dao dao;
-    //    private static WindowCars windowCars;
     private static DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
+    private static Map<String, String> whatDao = new HashMap<>();
 
-//    public static List<BrandCar> getBrandCars() {
-//        return brandCars;
-//    }
-
-//    public CarShowroom(DefaultListModel<BrandCar> brandCarDefaultListModel) {
-//        super(brandCarDefaultListModel, "Baza sql");
-//    }
 
     public static Dao getDao() {
+        if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
+            whatDao.clear();
+            whatDao.put("nameDaoInMenuItem", "Testowa");
+            whatDao.put("currentDao", "Produkcyjna - SQL");
+        } else {
+            whatDao.clear();
+            whatDao.put("nameDaoInMenuItem", "Baza sql");
+            whatDao.put("currentDao", "Testowa - kolekcja");
+        }
         return dao;
     }
 
     public static void main(String[] args) throws SQLException {
 
-//        CarShowroom salonDomaniewska = new CarShowroom();
         dao = DaoProvider.getDao(Sources.TEST);
         brandCars = dao.getCars();
         System.out.println(dao.getNameDao());
         String numberOption;
+
         do {
             numberOption = getOption("Wybierz opcje:\n"
                     + "[1] - Dodaj samochód\n"
@@ -53,7 +55,7 @@ public class CarShowroom implements DaoProvider {
                     + "[7] - Interfejs okienkowy\n"
                     + "[8] - Zmiana bazy\n"
                     + "[9] - Wyjdź \n");
-            String nameDaoInMenuItem;
+
             switch (numberOption) {
                 case "1":
                     if (dao.addCar(getNewCar())) System.out.println("DANE ZAPISANE POPRAWNIE");
@@ -79,13 +81,9 @@ public class CarShowroom implements DaoProvider {
                     showFoundCars(param);
                     break;
                 case "7":
-                    if (getDao().getClass().getSimpleName().equals("DbDaoImplement")) {
-                        nameDaoInMenuItem = "Testowa";
-                    } else {
-                        nameDaoInMenuItem = "Baza sql";
-                    }
-//                    DefaultListModel<BrandCar> defaultListModel = createListModelCars();
-                    new WindowCars(createListModelCars(), nameDaoInMenuItem);
+                    brandCars = dao.getCars();
+                    getDao();
+                    new WindowCars(createListModelCars(), whatDao);
                     break;
                 case "8":
                     changeDao();
@@ -95,8 +93,7 @@ public class CarShowroom implements DaoProvider {
     }
 
     public static DefaultListModel<BrandCar> createListModelCars() {
-//        brandCars = dao.getCars();
-//        defaultListModel = new DefaultListModel();
+        if (defaultListModel != null) defaultListModel.removeAllElements();
         for (BrandCar brandCar : brandCars) {
             defaultListModel.addElement(brandCar);
         }
@@ -110,9 +107,9 @@ public class CarShowroom implements DaoProvider {
             dao = DaoProvider.getDao(Sources.DB);
         }
         System.out.println(dao.getNameDao());
+        getDao();
         brandCars = dao.getCars();
-        defaultListModel.removeAllElements();
-        defaultListModel=createListModelCars();
+        defaultListModel = createListModelCars();
     }
 
     private static int readNumberCar() throws SQLException {
@@ -120,7 +117,6 @@ public class CarShowroom implements DaoProvider {
         System.out.print("Podaj numer samochodu: ");
         Scanner choiceOption = new Scanner(System.in);
         return Integer.valueOf(choiceOption.next()) - 1;
-
     }
 
     private static void deleteCar() throws SQLException {
@@ -153,6 +149,7 @@ public class CarShowroom implements DaoProvider {
                     car.getBrand(), car.getModel(), car.getVIN(), car.getProductionDate(), car.getColor());
         }
         System.out.println("----------------------------------------------------------------");
+        defaultListModel = createListModelCars();
     }
 
     private static Map<String, String> createParamMap() {

@@ -4,6 +4,9 @@ import pl.robertburek.model.BrandCar;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Map;
+
+import static pl.robertburek.swing.EventDataBase.typeDB;
 
 /**
  * Created by Robert Burek
@@ -11,21 +14,19 @@ import java.awt.*;
 public class WindowCars extends JFrame {
 
     EventSearch eventSearch = new EventSearch();
-    EventDataBase eventDateBase = new EventDataBase();
     static DefaultListModel<BrandCar> brandCarDefaultListModel;
+    private String nameDaoInMenuItem;
+    private String currentDao;
 
 
-//    public void setBrandCarDefaultListModel(DefaultListModel<BrandCar> brandCarDefaultListModel) {
-//        this.brandCarDefaultListModel = brandCarDefaultListModel;
-//    }
 
-//    public WindowCars() throws HeadlessException {
-//    }
-
-    public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel, String currentDao) {
+    public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,
+                      Map<String, String> whatDao) {
         this.brandCarDefaultListModel = brandCarDefaultListModel;
+        this.nameDaoInMenuItem = whatDao.get("nameDaoInMenuItem");
+        this.currentDao = whatDao.get("currentDao");
 
-        JMenuBar panelMenuBar = createMenu(currentDao);
+        JMenuBar panelMenuBar = createMenu(nameDaoInMenuItem, currentDao);
         this.getContentPane().add(BorderLayout.NORTH, panelMenuBar);
 
         JPanel panelMain = createPanelMain();
@@ -52,14 +53,20 @@ public class WindowCars extends JFrame {
         return panel;
     }
 
-    private JMenuBar createMenu(String currentDao) {
+    private JMenuBar createMenu(String nameDaoInMenuItem, String currentDao) {
         EventDataBase eventDataBase = new EventDataBase();
         JMenuBar menuBar = new JMenuBar();
         JMenu menuDane = new JMenu("Dane");
         JMenu menuHelp = new JMenu("Help");
+        JMenu menuSpace = new JMenu("                  ");
+        JMenu menuDB = new JMenu("Baza:");
+        typeDB.setText(currentDao);
         menuBar.add(menuDane);
         menuBar.add(menuHelp);
-        JMenuItem jMenuItemBaza = new JMenuItem(currentDao);
+        menuBar.add(menuSpace).setEnabled(false);
+        menuBar.add(menuDB).setEnabled(false);
+        menuBar.add(typeDB).setEnabled(false);
+        JMenuItem jMenuItemBaza = new JMenuItem(nameDaoInMenuItem);
         jMenuItemBaza.addActionListener(eventDataBase);
         menuDane.add(jMenuItemBaza);
         return menuBar;
@@ -88,7 +95,7 @@ public class WindowCars extends JFrame {
     }
 
     private JPanel createPanelSearch() {
-        JPanel panel= new JPanel();
+        JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Wyszukiwanie samochodów "));
         panel.add(new JLabel("Marka: "));
@@ -122,13 +129,11 @@ public class WindowCars extends JFrame {
         JPanel panelResualt = new JPanel();
         panelResualt.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Lista samochodów "));
+        System.out.println(currentDao);
         JList<BrandCar> listBrandcars = new JList<>(brandCarDefaultListModel);
         listBrandcars.setFixedCellHeight(25);
         listBrandcars.setFixedCellWidth(570);
         panelResualt.add(new JScrollPane(listBrandcars));
-        eventSearch.setListBrandcars(listBrandcars);
-        eventSearch.setBrandCarDefaultListModel(brandCarDefaultListModel);
         return panelResualt;
     }
-
 }

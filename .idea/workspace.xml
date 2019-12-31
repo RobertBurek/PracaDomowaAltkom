@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/model/BrandCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/model/BrandCar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" afterDir="false" />
@@ -77,12 +75,10 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="886">
-              <caret line="207" selection-start-line="207" selection-end-line="207" />
+            <state relative-caret-position="161">
+              <caret line="126" selection-start-line="126" selection-end-line="126" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#709#710#0" expanded="true" />
-                <element signature="e#735#736#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,8 +103,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="418">
-              <caret line="33" selection-start-line="33" selection-end-line="33" />
+            <state relative-caret-position="93">
+              <caret line="21" column="45" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="45" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -131,8 +127,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
+            <state relative-caret-position="1278">
+              <caret line="83" selection-start-line="83" selection-end-line="83" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2546#2547#0" expanded="true" />
@@ -147,18 +143,16 @@
                 <element signature="e#3048#3049#0" expanded="true" />
                 <element signature="e#3112#3113#0" expanded="true" />
                 <element signature="e#3164#3165#0" expanded="true" />
-                <element signature="e#3231#3232#0" expanded="true" />
-                <element signature="e#3281#3282#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1797">
-              <caret line="22" column="7" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="22" selection-end-column="7" />
+            <state relative-caret-position="162">
+              <caret line="62" selection-start-line="62" selection-end-line="62" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -166,11 +160,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="88" column="19" lean-forward="true" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
+            <state relative-caret-position="1025">
+              <caret line="109" column="37" lean-forward="true" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="37" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#4480#4481#0" expanded="true" />
@@ -220,10 +214,10 @@
         <option value="$PROJECT_DIR$/src/pl/robertburek/model/Car.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" />
-        <option value="$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" />
       </list>
     </option>
@@ -302,7 +296,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577738019788" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577748748047" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -576,7 +570,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577657928715</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Panel wyświetlający listę samochodów&#10;&#10;  poprawiłem działanie panelu wyświetlającego listę&#10;  samochodów w intefejsie okienkowym.">
+      <created>1577738270451</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1577738270451</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TodoView">
@@ -590,9 +591,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.13826367" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13826367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="Designer" order="3" />
@@ -601,14 +601,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.49528936" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.28263795" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32974428" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32974428" />
+      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.32974428" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32974428" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -669,7 +669,8 @@
     <MESSAGE value="Wyszukiwanie samochodu oba Dao&#10;&#10;  został jeszcze interfejs okienkowy" />
     <MESSAGE value="Refaktor całości i porządki&#10;&#10;  osobna klasa do tworzenia bazy danych, wydzielenie&#10;  metod pomocniczych" />
     <MESSAGE value="Poprawiłem zapis daty do jednego formatu&#10;&#10;  ustawiłem stałą datę zerową 0001-01-01 dla zapisu&#10;  bez daty produkcji." />
-    <option name="LAST_COMMIT_MESSAGE" value="Poprawiłem zapis daty do jednego formatu&#10;&#10;  ustawiłem stałą datę zerową 0001-01-01 dla zapisu&#10;  bez daty produkcji." />
+    <MESSAGE value="Panel wyświetlający listę samochodów&#10;&#10;  poprawiłem działanie panelu wyświetlającego listę&#10;  samochodów w intefejsie okienkowym." />
+    <option name="LAST_COMMIT_MESSAGE" value="Panel wyświetlający listę samochodów&#10;&#10;  poprawiłem działanie panelu wyświetlającego listę&#10;  samochodów w intefejsie okienkowym." />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1576419516249">
@@ -954,69 +955,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="126">
-          <caret line="19" column="40" selection-start-line="19" selection-start-column="40" selection-end-line="19" selection-end-column="40" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2546#2547#0" expanded="true" />
-            <element signature="e#2580#2581#0" expanded="true" />
-            <element signature="e#2644#2645#0" expanded="true" />
-            <element signature="e#2696#2697#0" expanded="true" />
-            <element signature="e#2760#2761#0" expanded="true" />
-            <element signature="e#2812#2813#0" expanded="true" />
-            <element signature="e#2882#2883#0" expanded="true" />
-            <element signature="e#2940#2941#0" expanded="true" />
-            <element signature="e#3000#3001#0" expanded="true" />
-            <element signature="e#3048#3049#0" expanded="true" />
-            <element signature="e#3112#3113#0" expanded="true" />
-            <element signature="e#3164#3165#0" expanded="true" />
-            <element signature="e#3231#3232#0" expanded="true" />
-            <element signature="e#3281#3282#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/Dao.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="181">
           <caret line="16" column="19" selection-start-line="16" selection-start-column="19" selection-end-line="16" selection-end-column="19" />
           <folding>
             <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="418">
-          <caret line="33" selection-start-line="33" selection-end-line="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="88" column="19" lean-forward="true" selection-start-line="88" selection-start-column="19" selection-end-line="88" selection-end-column="19" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4480#4481#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="886">
-          <caret line="207" selection-start-line="207" selection-end-line="207" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#709#710#0" expanded="true" />
-            <element signature="e#735#736#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1034,12 +978,65 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1797">
-          <caret line="22" column="7" lean-forward="true" selection-start-line="21" selection-start-column="17" selection-end-line="22" selection-end-column="7" />
+        <state relative-caret-position="1278">
+          <caret line="83" selection-start-line="83" selection-end-line="83" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#2546#2547#0" expanded="true" />
+            <element signature="e#2580#2581#0" expanded="true" />
+            <element signature="e#2644#2645#0" expanded="true" />
+            <element signature="e#2696#2697#0" expanded="true" />
+            <element signature="e#2760#2761#0" expanded="true" />
+            <element signature="e#2812#2813#0" expanded="true" />
+            <element signature="e#2882#2883#0" expanded="true" />
+            <element signature="e#2940#2941#0" expanded="true" />
+            <element signature="e#3000#3001#0" expanded="true" />
+            <element signature="e#3048#3049#0" expanded="true" />
+            <element signature="e#3112#3113#0" expanded="true" />
+            <element signature="e#3164#3165#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="21" column="45" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="45" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="162">
+          <caret line="62" selection-start-line="62" selection-end-line="62" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="126" selection-start-line="126" selection-end-line="126" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1025">
+          <caret line="109" column="37" lean-forward="true" selection-start-line="109" selection-start-column="37" selection-end-line="109" selection-end-column="37" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#4480#4481#0" expanded="true" />
           </folding>
         </state>
       </provider>
