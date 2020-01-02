@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/model/BrandCar.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/model/BrandCar.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -64,8 +62,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2129">
-              <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
+            <state relative-caret-position="125">
+              <caret line="73" selection-start-line="73" selection-end-line="73" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -124,16 +122,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="117" column="20" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+            <state relative-caret-position="143">
+              <caret line="115" column="34" lean-forward="true" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2375#2376#0" expanded="true" />
                 <element signature="e#2426#2427#0" expanded="true" />
-                <element signature="e#4436#4437#0" expanded="true" />
-                <element signature="e#4480#4481#0" expanded="true" />
-                <element signature="e#4746#4747#0" expanded="true" />
-                <element signature="e#4790#4791#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -267,7 +261,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577962288701" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577965871334" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -555,7 +549,14 @@
       <option name="project" value="LOCAL" />
       <updated>1577793021174</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Usuwanie rekordu o właściwym Id w bazie tymczasowej">
+      <created>1577963024747</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1577963024747</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TodoView">
@@ -569,6 +570,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13826367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -579,14 +581,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.6554509" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.4306864" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32974428" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info active="true" anchor="bottom" id="Version Control" order="9" visible="true" weight="0.18304172" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.18304172" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32974428" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -649,7 +651,8 @@
     <MESSAGE value="Poprawiłem zapis daty do jednego formatu&#10;&#10;  ustawiłem stałą datę zerową 0001-01-01 dla zapisu&#10;  bez daty produkcji." />
     <MESSAGE value="Panel wyświetlający listę samochodów&#10;&#10;  poprawiłem działanie panelu wyświetlającego listę&#10;  samochodów w intefejsie okienkowym." />
     <MESSAGE value="Dodałem wyświetlanie nazwy bazy danych w menu górnym&#10;&#10;  w pozycji menu dodałem nieaktywny przycisk menu,&#10;  który zmienia nazwę w zależności od używaniej bazy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodałem wyświetlanie nazwy bazy danych w menu górnym&#10;&#10;  w pozycji menu dodałem nieaktywny przycisk menu,&#10;  który zmienia nazwę w zależności od używaniej bazy" />
+    <MESSAGE value="Usuwanie rekordu o właściwym Id w bazie tymczasowej" />
+    <option name="LAST_COMMIT_MESSAGE" value="Usuwanie rekordu o właściwym Id w bazie tymczasowej" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1576419516249">
@@ -937,16 +940,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2129">
-          <caret line="133" column="12" selection-start-line="133" selection-start-column="12" selection-end-line="133" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -962,23 +955,29 @@
     </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/stream/Stream.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="168" column="13" lean-forward="true" selection-start-line="168" selection-start-column="4" selection-end-line="168" selection-end-column="13" />
+        <state relative-caret-position="-1727">
+          <caret line="183" column="18" selection-start-line="183" selection-start-column="18" selection-end-line="183" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="73" selection-start-line="73" selection-end-line="73" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="101">
-          <caret line="117" column="20" selection-start-line="117" selection-start-column="20" selection-end-line="117" selection-end-column="20" />
+        <state relative-caret-position="143">
+          <caret line="115" column="34" lean-forward="true" selection-start-line="115" selection-start-column="34" selection-end-line="115" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2375#2376#0" expanded="true" />
             <element signature="e#2426#2427#0" expanded="true" />
-            <element signature="e#4436#4437#0" expanded="true" />
-            <element signature="e#4480#4481#0" expanded="true" />
-            <element signature="e#4746#4747#0" expanded="true" />
-            <element signature="e#4790#4791#0" expanded="true" />
           </folding>
         </state>
       </provider>

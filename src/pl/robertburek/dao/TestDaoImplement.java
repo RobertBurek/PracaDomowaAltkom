@@ -8,7 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.function.Predicate;
+import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -63,7 +63,7 @@ public class TestDaoImplement implements Dao {
     }
 
     @Override
-    public List<BrandCar> getCars() throws SQLException {
+    public List<BrandCar> getCars(){
         return brandCars;
     }
 
@@ -109,18 +109,18 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public BrandCar getCarById(int id) {
-        return brandCars.get(id - 1);
+        List<BrandCar> oneBrandcar = brandCars.stream()
+                .filter(brandCar -> brandCar.getId()==id)
+                .collect(Collectors.toList());
+        if (oneBrandcar.size()==0) oneBrandcar.add(new BrandCar());
+        return oneBrandcar.get(0);
     }
 
     @Override
     public boolean deleteCarById(int id) {
-//        brandCars.remove(id - 1);
-        brandCars = brandCars.stream().filter(new Predicate<BrandCar>() {
-            @Override
-            public boolean test(BrandCar brandCar) {
-                return brandCar.getId()!=id;
-            }
-        }).collect(Collectors.toList());
+        brandCars = brandCars.stream()
+                .filter(brandCar -> brandCar.getId() != id)
+                .collect(Collectors.toList());
         return true;
     }
 
