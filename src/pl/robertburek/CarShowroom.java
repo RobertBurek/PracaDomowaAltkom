@@ -19,23 +19,24 @@ public class CarShowroom implements DaoProvider {
 
     public static final String ZERO_DATE_PROD = "0001-01-01";
     private static List<BrandCar> brandCars = new ArrayList<>();
+    private static Map<String, BrandCar> brandCarsMap = new HashMap<>();
     private static Dao dao;
     private static DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
-    private static Map<String, String> whatDao = new HashMap<>();
+//    private static Map<String, String> whatDao = new HashMap<>();
 
 
-    public static Dao getDao() {
-        if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
-            whatDao.clear();
-            whatDao.put("nameDaoInMenuItem", "Testowa");
-            whatDao.put("currentDao", "Produkcyjna - SQL");
-        } else {
-            whatDao.clear();
-            whatDao.put("nameDaoInMenuItem", "Baza sql");
-            whatDao.put("currentDao", "Testowa - kolekcja");
-        }
-        return dao;
-    }
+//    public static Dao getDao() {
+//        if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
+//            whatDao.clear();
+//            whatDao.put("nameDaoInMenuItem", "Testowa");
+//            whatDao.put("currentDao", "Produkcyjna - SQL");
+//        } else {
+//            whatDao.clear();
+//            whatDao.put("nameDaoInMenuItem", "Baza sql");
+//            whatDao.put("currentDao", "Testowa - kolekcja");
+//        }
+//        return dao;
+//    }
 
     public static void main(String[] args) throws SQLException {
 
@@ -82,7 +83,7 @@ public class CarShowroom implements DaoProvider {
                     break;
                 case "7":
                     brandCars = dao.getCars();
-                    getDao();
+//                    getDao();
                     new WindowCars(createListModelCars(), whatDao);
                     break;
                 case "8":
@@ -107,7 +108,7 @@ public class CarShowroom implements DaoProvider {
             dao = DaoProvider.getDao(Sources.DB);
         }
         System.out.println(dao.getNameDao());
-        getDao();
+//        getDao();
         brandCars = dao.getCars();
         defaultListModel = createListModelCars();
     }

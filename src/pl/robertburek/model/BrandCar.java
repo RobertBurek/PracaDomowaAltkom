@@ -27,10 +27,12 @@ public class BrandCar extends ModelCar {
 
     @Override
     public String toString() {
-//        System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", getId(),
-//                getBrand(), getModel(), getVIN(), getProductionDate(), getColor());
+        System.out.printf("%s)  %s   %s [VIN: %s, dataProd: %s, kolor: %s]", getId(),
+                getBrand(), getModel(), getVIN(), getProductionDate(), getColor());
 //        return String.format("%s", brand) + super.toString();
-        return String.format("%3s  %10s  %10s  %10s  %12s  %11s ", getId(),
+        String.format("%10s  %10s  %10s  %12s  %11s ",
+                getBrand(), getModel(), getVIN(), getProductionDate(), getColor());
+        return String.format("%s)  %s   %s [VIN: %s, dataProd: %s, kolor: %s]", getId(),
                 getBrand(), getModel(), getVIN(), getProductionDate(), getColor());
     }
 }

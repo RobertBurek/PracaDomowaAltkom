@@ -5,9 +5,8 @@ import pl.robertburek.model.BrandCar;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Created by Robert Burek
@@ -15,6 +14,7 @@ import java.util.Map;
 public class TestDaoImplement implements Dao {
 
     static List<BrandCar> brandCars = new ArrayList<>();
+    static Map<String,BrandCar> brandCarsMap = new HashMap<>();
 
     static {
         BrandCar ford = new BrandCar("2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
@@ -41,18 +41,30 @@ public class TestDaoImplement implements Dao {
         audi2.setId(10);
         nissan2.setId(11);
         fiat2.setId(12);
-        brandCars.add(ford);
-        brandCars.add(audi);
-        brandCars.add(nissan);
-        brandCars.add(fiat);
-        brandCars.add(ford1);
-        brandCars.add(audi1);
-        brandCars.add(nissan1);
-        brandCars.add(fiat1);
-        brandCars.add(ford2);
-        brandCars.add(audi2);
-        brandCars.add(nissan2);
-        brandCars.add(fiat2);
+//        brandCars.add(ford);
+//        brandCars.add(audi);
+//        brandCars.add(nissan);
+//        brandCars.add(fiat);
+//        brandCars.add(ford1);
+//        brandCars.add(audi1);
+//        brandCars.add(nissan1);
+//        brandCars.add(fiat1);
+//        brandCars.add(ford2);
+//        brandCars.add(audi2);
+//        brandCars.add(nissan2);
+//        brandCars.add(fiat2);
+        brandCarsMap.put("1",ford);
+        brandCarsMap.put("2",audi);
+        brandCarsMap.put("3",nissan);
+        brandCarsMap.put("4",fiat);
+        brandCarsMap.put("5",ford1);
+        brandCarsMap.put("6",audi1);
+        brandCarsMap.put("7",nissan1);
+        brandCarsMap.put("8",fiat1);
+        brandCarsMap.put("9",ford2);
+        brandCarsMap.put("10",audi2);
+        brandCarsMap.put("11",nissan2);
+        brandCarsMap.put("12",fiat2);
     }
 
     @Override
@@ -61,12 +73,23 @@ public class TestDaoImplement implements Dao {
     }
 
     @Override
-    public List<BrandCar> getCars() throws SQLException {
-        return brandCars;
+    public List<BrandCar> getCars() {
+        brandCars.clear();
+        brandCarsMap.forEach((s, brandCar) -> brandCars.add(brandCar));
+        List<BrandCar> brandCars2=new ArrayList<>();
+        brandCars2=brandCars.stream().sorted(new Comparator<BrandCar>() {
+            @Override
+            public int compare(BrandCar o1, BrandCar o2) {
+                return o1.getId()-o2.getId();
+            }
+        }).collect(Collectors.toList());
+        return brandCars2;
     }
 
     @Override
     public List<BrandCar> searchCar(Map<String, String> param) {
+        brandCars.clear();
+        brandCarsMap.forEach((s, brandCar) -> brandCars.add(brandCar));
         List<BrandCar> temp1BrandCars = new ArrayList<>();
         List<BrandCar> temp2BrandCars = new ArrayList<>();
         List<BrandCar> temp3BrandCars = new ArrayList<>();
@@ -107,11 +130,15 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public BrandCar getCarById(int id) {
+        brandCars.clear();
+        brandCarsMap.forEach((s, brandCar) -> brandCars.add(brandCar));
         return brandCars.get(id - 1);
     }
 
     @Override
     public boolean deleteCarById(int id) {
+        brandCars.clear();
+        brandCarsMap.forEach((s, brandCar) -> brandCars.add(brandCar));
         brandCars.remove(id - 1);
         return true;
     }
