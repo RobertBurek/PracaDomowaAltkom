@@ -4,10 +4,6 @@
     <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/dao/DaoProvider.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/dao/DaoProvider.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,11 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DaoProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="378">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
+            <state relative-caret-position="216">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
             </state>
           </provider>
         </entry>
@@ -55,7 +48,7 @@
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="341">
-              <caret line="35" column="83" lean-forward="true" selection-start-line="35" selection-start-column="83" selection-end-line="35" selection-end-column="83" />
+              <caret line="35" column="83" selection-start-line="35" selection-start-column="83" selection-end-line="35" selection-end-column="83" />
               <folding>
                 <element signature="e#411#412#0" expanded="true" />
                 <element signature="e#439#440#0" expanded="true" />
@@ -69,8 +62,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="293">
-              <caret line="134" column="12" lean-forward="true" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
+            <state relative-caret-position="394">
+              <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2436">
+              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -91,42 +96,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="77" selection-start-line="77" selection-end-line="77" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1278">
-              <caret line="83" selection-start-line="83" selection-end-line="83" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2546#2547#0" expanded="true" />
-                <element signature="e#2580#2581#0" expanded="true" />
-                <element signature="e#2644#2645#0" expanded="true" />
-                <element signature="e#2696#2697#0" expanded="true" />
-                <element signature="e#2760#2761#0" expanded="true" />
-                <element signature="e#2812#2813#0" expanded="true" />
-                <element signature="e#2882#2883#0" expanded="true" />
-                <element signature="e#2940#2941#0" expanded="true" />
-                <element signature="e#3000#3001#0" expanded="true" />
-                <element signature="e#3048#3049#0" expanded="true" />
-                <element signature="e#3112#3113#0" expanded="true" />
-                <element signature="e#3164#3165#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1080">
@@ -141,10 +110,14 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+            <state relative-caret-position="166">
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#2381#2382#0" expanded="true" />
+                <element signature="e#2432#2433#0" expanded="true" />
+                <element signature="e#2485#2486#0" expanded="true" />
+                <element signature="e#2517#2518#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -163,6 +136,11 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -188,22 +166,21 @@
         <option value="$PROJECT_DIR$/src/pl/robertburek/dao/Dao.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/db/CreateDatabase.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/model/Car.java" />
-        <option value="$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" />
-        <option value="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/dao/DaoProvider.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-9" />
-    <option name="y" value="-3" />
-    <option name="width" value="1616" />
-    <option name="height" value="876" />
+    <option name="x" value="-7" />
+    <option name="width" value="1614" />
+    <option name="height" value="867" />
   </component>
   <component name="ProjectId" id="1V0n5nvfXxv8a0aVarouIhxKzQs" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -273,7 +250,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577960329696" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1577977991397" />
     <property name="extract.method.default.visibility" value="private" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -561,7 +538,28 @@
       <option name="project" value="LOCAL" />
       <updated>1577793021174</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Usuwanie rekordu o właściwym Id w bazie tymczasowej">
+      <created>1577963024747</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1577963024747</updated>
+    </task>
+    <task id="LOCAL-00025" summary="Wyszukanie rekordu o właściwym Id w bazie tymczasowej">
+      <created>1577966065848</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1577966065848</updated>
+    </task>
+    <task id="LOCAL-00026" summary="Modyfikacja rekordu o właściwym Id w bazie tymczasowej">
+      <created>1577976958729</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1577976958729</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView">
@@ -575,7 +573,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.13826367" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -586,14 +583,14 @@
       <window_info id="Favorites" order="6" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32974428" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.28263795" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.48317632" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39973083" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32974428" />
       <window_info anchor="bottom" id="Terminal" order="7" weight="0.32974428" />
       <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32974428" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.42261103" />
       <window_info anchor="bottom" id="Messages" order="10" weight="0.32974428" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -631,9 +628,22 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Kolejny etap&#10;&#10;   Dwie implemantacje DAO. &#10;   DbDaoImplement - dane z bazy,&#10;   TestDaoImplement - dane z Listy&lt;BrandCar&gt;" />
     <MESSAGE value="Zmiana sposobu wyświetlania danych" />
     <MESSAGE value="Zapis nowego samochodu oba DAO&#10;&#10;  poza tym, uwzględniono incrementacje w momencie&#10;  zapisu danych" />
     <MESSAGE value="Zapis nowego samochodu poprawiono id w TestDao" />
@@ -656,78 +666,36 @@
     <MESSAGE value="Poprawiłem zapis daty do jednego formatu&#10;&#10;  ustawiłem stałą datę zerową 0001-01-01 dla zapisu&#10;  bez daty produkcji." />
     <MESSAGE value="Panel wyświetlający listę samochodów&#10;&#10;  poprawiłem działanie panelu wyświetlającego listę&#10;  samochodów w intefejsie okienkowym." />
     <MESSAGE value="Dodałem wyświetlanie nazwy bazy danych w menu górnym&#10;&#10;  w pozycji menu dodałem nieaktywny przycisk menu,&#10;  który zmienia nazwę w zależności od używaniej bazy" />
-    <option name="LAST_COMMIT_MESSAGE" value="Dodałem wyświetlanie nazwy bazy danych w menu górnym&#10;&#10;  w pozycji menu dodałem nieaktywny przycisk menu,&#10;  który zmienia nazwę w zależności od używaniej bazy" />
+    <MESSAGE value="Usuwanie rekordu o właściwym Id w bazie tymczasowej" />
+    <MESSAGE value="Wyszukanie rekordu o właściwym Id w bazie tymczasowej" />
+    <MESSAGE value="Modyfikacja rekordu o właściwym Id w bazie tymczasowej" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modyfikacja rekordu o właściwym Id w bazie tymczasowej" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1576419516249">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" timestamp="1576419516249" />
-    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1576418193177">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1576418193177" />
-    <state width="1877" height="210" key="GridCell.Tab.0.bottom" timestamp="1576419992273">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="210" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1576419992273" />
-    <state width="1877" height="210" key="GridCell.Tab.0.center" timestamp="1576419992273">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="210" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1576419992273" />
-    <state width="1877" height="210" key="GridCell.Tab.0.left" timestamp="1576419992272">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="210" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1576419992272" />
-    <state width="1877" height="210" key="GridCell.Tab.0.right" timestamp="1576419992273">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="210" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1576419992273" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1576418253159">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1576418253159" />
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" timestamp="1576398703040">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1576398703040" />
-    <state x="342" y="140" key="new project wizard" timestamp="1576399654378">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1576399654378" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" />
+    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1040@0.0.1920.1040" />
+    <state x="666" y="261" key="FileChooserDialogImpl" />
+    <state x="666" y="261" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="210" key="GridCell.Tab.0.bottom" />
+    <state width="1877" height="210" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="210" key="GridCell.Tab.0.center" />
+    <state width="1877" height="210" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="210" key="GridCell.Tab.0.left" />
+    <state width="1877" height="210" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" />
+    <state width="1877" height="210" key="GridCell.Tab.0.right" />
+    <state width="1877" height="210" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" />
+    <state x="440" y="94" key="SettingsEditor" />
+    <state x="440" y="94" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" />
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog" />
+    <state x="661" y="343" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" />
+    <state x="342" y="140" key="new project wizard" />
+    <state x="342" y="140" key="new project wizard/0.0.1920.1040@0.0.1920.1040" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/ParamDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="5" selection-start-line="5" selection-end-line="12" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/db/NewDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="22" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/db/CreateDb.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="9" column="13" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/strategy/DataCars.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/ParamDb.java" />
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/db/NewDb.java" />
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/db/CreateDb.java" />
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/strategy/DataCars.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/javax/swing/AbstractButton.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -781,16 +749,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/CarDealer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="17" column="36" lean-forward="true" selection-start-line="37" selection-start-column="31" selection-end-line="37" selection-end-column="59" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/CarDealer.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/awt/Component.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -802,18 +761,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/DisableEnableInSwing.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="46" column="66" lean-forward="true" selection-start-line="46" selection-start-column="37" selection-end-line="46" selection-end-column="66" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2093#2094#0" expanded="true" />
-            <element signature="e#2160#2161#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/DisableEnableInSwing.java" />
     <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/time/temporal/ChronoField.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="154">
@@ -831,9 +779,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hs_err_pid21848.log">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/hs_err_pid21848.log" />
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/db/ParametersDb.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="342">
@@ -917,16 +863,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="77" selection-start-line="77" selection-end-line="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1278">
@@ -988,28 +924,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DaoProvider.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="378">
-          <caret line="21" selection-start-line="21" selection-end-line="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="134" column="12" lean-forward="true" selection-start-line="134" selection-start-column="12" selection-end-line="134" selection-end-column="12" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="216">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
-          <caret line="35" column="83" lean-forward="true" selection-start-line="35" selection-start-column="83" selection-end-line="35" selection-end-column="83" />
+          <caret line="35" column="83" selection-start-line="35" selection-start-column="83" selection-end-line="35" selection-end-column="83" />
           <folding>
             <element signature="e#411#412#0" expanded="true" />
             <element signature="e#439#440#0" expanded="true" />
@@ -1019,12 +942,43 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="431">
-          <caret line="85" column="40" selection-start-line="85" selection-start-column="40" selection-end-line="85" selection-end-column="40" />
+        <state relative-caret-position="394">
+          <caret line="68" column="27" lean-forward="true" selection-start-line="68" selection-start-column="27" selection-end-line="68" selection-end-column="27" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/stream/Stream.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="929">
+          <caret line="934" column="16" selection-start-line="934" selection-start-column="16" selection-end-line="934" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2436">
+          <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/TestDaoImplement.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#2381#2382#0" expanded="true" />
+            <element signature="e#2432#2433#0" expanded="true" />
+            <element signature="e#2485#2486#0" expanded="true" />
+            <element signature="e#2517#2518#0" expanded="true" />
           </folding>
         </state>
       </provider>
