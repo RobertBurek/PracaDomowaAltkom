@@ -8,6 +8,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 /**
  * Created by Robert Burek
@@ -112,7 +114,13 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public boolean deleteCarById(int id) {
-        brandCars.remove(id - 1);
+//        brandCars.remove(id - 1);
+        brandCars = brandCars.stream().filter(new Predicate<BrandCar>() {
+            @Override
+            public boolean test(BrandCar brandCar) {
+                return brandCar.getId()!=id;
+            }
+        }).collect(Collectors.toList());
         return true;
     }
 
