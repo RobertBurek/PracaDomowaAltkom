@@ -124,7 +124,7 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public boolean addCar(BrandCar brandCar) {
-        brandCar.setId(brandCars.size() + 1);
+        brandCar.setId(brandCars.get(brandCars.size()-1).getId() + 1);
         brandCars.add(brandCar);
         return true;
     }
