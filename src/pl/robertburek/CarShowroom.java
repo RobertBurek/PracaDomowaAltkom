@@ -45,15 +45,15 @@ public class CarShowroom implements DaoProvider {
         String numberOption;
 
         do {
-            numberOption = getOption("Wybierz opcje:\n"
-                    + "[1] - Dodaj samochód\n"
-                    + "[2] - Edytuj samochód\n"
-                    + "[3] - Usuń samochód\n"
-                    + "[4] - Pokaż samochód\n"
-                    + "[5] - Lista samochodów\n"
-                    + "[6] - Wyszukiwanie samochodu\n"
-                    + "[7] - Interfejs okienkowy\n"
-                    + "[8] - Zmiana bazy\n"
+            numberOption = getOption("Wybierz opcje: \n"
+                    + "[1] - Dodaj samochód \n"
+                    + "[2] - Edytuj samochód \n"
+                    + "[3] - Usuń samochód \n"
+                    + "[4] - Pokaż samochód \n"
+                    + "[5] - Lista samochodów \n"
+                    + "[6] - Wyszukiwanie samochodu \n"
+                    + "[7] - Interfejs okienkowy \n"
+                    + "[8] - Zmiana bazy \n"
                     + "[9] - Wyjdź \n");
 
             switch (numberOption) {
@@ -64,7 +64,7 @@ public class CarShowroom implements DaoProvider {
                 case "2":
                     int numberCar = readNumberCar();
                     BrandCar newBrandCar = getNewCar();
-                    newBrandCar.setId(numberCar + 1);
+                    newBrandCar.setId(numberCar);
                     dao.updateCar(newBrandCar);
                     break;
                 case "3":
@@ -116,7 +116,7 @@ public class CarShowroom implements DaoProvider {
         showCars();
         System.out.print("Podaj numer samochodu: ");
         Scanner choiceOption = new Scanner(System.in);
-        return Integer.valueOf(choiceOption.next()) - 1;
+        return Integer.valueOf(choiceOption.next());
     }
 
     private static void deleteCar() throws SQLException {

@@ -3,12 +3,10 @@ package pl.robertburek.dao;
 import pl.robertburek.db.OptionsDb;
 import pl.robertburek.model.BrandCar;
 
-import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collector;
 import java.util.stream.Collectors;
 
 /**
@@ -63,7 +61,7 @@ public class TestDaoImplement implements Dao {
     }
 
     @Override
-    public List<BrandCar> getCars(){
+    public List<BrandCar> getCars() {
         return brandCars;
     }
 
@@ -110,9 +108,9 @@ public class TestDaoImplement implements Dao {
     @Override
     public BrandCar getCarById(int id) {
         List<BrandCar> oneBrandcar = brandCars.stream()
-                .filter(brandCar -> brandCar.getId()==id)
+                .filter(brandCar -> brandCar.getId() == id)
                 .collect(Collectors.toList());
-        if (oneBrandcar.size()==0) oneBrandcar.add(new BrandCar());
+        if (oneBrandcar.size() == 0) oneBrandcar.add(new BrandCar());
         return oneBrandcar.get(0);
     }
 
@@ -133,7 +131,15 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public boolean updateCar(BrandCar brandCar) {
-        brandCars.set(brandCar.getId() - 1, brandCar);
+        int i = 0;
+        for (BrandCar element : brandCars) {
+            if (element.getId() != brandCar.getId()) {
+                i++;
+            } else {
+                brandCars.set(i, brandCar);
+                break;
+            }
+        }
         return true;
     }
 
