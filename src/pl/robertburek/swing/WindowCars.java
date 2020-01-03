@@ -13,11 +13,12 @@ import static pl.robertburek.swing.EventDataBase.typeDB;
  */
 public class WindowCars extends JFrame {
 
-    EventSearch eventSearch = new EventSearch();
+    private EventSearch eventSearch = new EventSearch();
     static DefaultListModel<BrandCar> brandCarDefaultListModel;
+    //    JList<BrandCar> listBrandcars;
     private String nameDaoInMenuItem;
     private String currentDao;
-
+    private EventMouseChoiceCar eventMouseChoiceCar = new EventMouseChoiceCar();
 
 
     public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,
@@ -28,6 +29,7 @@ public class WindowCars extends JFrame {
 
         JMenuBar panelMenuBar = createMenu(nameDaoInMenuItem, currentDao);
         this.getContentPane().add(BorderLayout.NORTH, panelMenuBar);
+//        setJMenuBar(panelMenuBar);
 
         JPanel panelMain = createPanelMain();
         add(BorderLayout.CENTER, panelMain);
@@ -76,21 +78,36 @@ public class WindowCars extends JFrame {
         JPanel panel = new JPanel();
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Edycja samochodu "));
-        panel.setLayout(new GridLayout(7, 2, 5, 5));
+        panel.setLayout(new GridLayout(8, 2, 5, 5));
         panel.add(new JLabel("Id", JLabel.RIGHT));
-        panel.add(new JTextField(2));
+        JTextField idTextField = new JTextField(2);
+        idTextField.setEnabled(false);
+        panel.add(idTextField);
         panel.add(new JLabel("Marka", JLabel.RIGHT));
-        panel.add(new JTextField(10));
+        JTextField markaTextField = new JTextField(10);
+        panel.add(markaTextField);
         panel.add(new JLabel("Model", JLabel.RIGHT));
-        panel.add(new JTextField(10));
-        panel.add(new JLabel("Rok prod.", JLabel.RIGHT));
-        panel.add(new JTextField(8));
+        JTextField modelTextField = new JTextField(10);
+        panel.add(modelTextField);
+        panel.add(new JLabel("Data prod.", JLabel.RIGHT));
+        JTextField dateProdTextField = new JTextField(8);
+        panel.add(dateProdTextField);
         panel.add(new JLabel("VIN", JLabel.RIGHT));
-        panel.add(new JTextField(6));
+        JTextField vinTextField = new JTextField(6);
+        panel.add(vinTextField);
         panel.add(new JLabel("Kolor", JLabel.RIGHT));
-        panel.add(new JTextField(10));
+        JTextField colorTextField = new JTextField(10);
+        panel.add(colorTextField);
+        eventMouseChoiceCar.setIdTextField(idTextField);
+        eventMouseChoiceCar.setMarkaTextField(markaTextField);
+        eventMouseChoiceCar.setModelTextField(modelTextField);
+        eventMouseChoiceCar.setDateProdTextField(dateProdTextField);
+        eventMouseChoiceCar.setVinTextField(vinTextField);
+        eventMouseChoiceCar.setColorTextField(colorTextField);
         panel.add(new JButton("Dodaj nowy"));
         panel.add(new JButton("Zapisz zmiany"));
+        panel.add(new JButton("Usuń samochód"));
+        panel.add(new JButton("Wyczyść dane"));
         return panel;
     }
 
@@ -131,8 +148,10 @@ public class WindowCars extends JFrame {
                 BorderFactory.createLineBorder(Color.BLACK), " Lista samochodów "));
         System.out.println(currentDao);
         JList<BrandCar> listBrandcars = new JList<>(brandCarDefaultListModel);
-        listBrandcars.setFixedCellHeight(25);
-        listBrandcars.setFixedCellWidth(570);
+        listBrandcars.setFixedCellHeight(30);
+        listBrandcars.setFixedCellWidth(600);
+        eventMouseChoiceCar.setListBrandcars(listBrandcars);
+        listBrandcars.addMouseListener(eventMouseChoiceCar);
         panelResualt.add(new JScrollPane(listBrandcars));
         return panelResualt;
     }

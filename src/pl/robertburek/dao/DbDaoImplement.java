@@ -130,7 +130,7 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
     @Override
     public boolean addCar(BrandCar brandCar) throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
-        System.out.println("\nWSTAWIANIE DANYCH...");
+        System.out.println("\n\nWSTAWIANIE DANYCH...");
         String insert = String.format(
                 "INSERT INTO cars(VIN, brand, model, productionDate,color) VALUES ('%s','%s','%s','%s', '%s')",
                 brandCar.getVIN(),
@@ -153,7 +153,7 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
     @Override
     public boolean updateCar(BrandCar brandCar) throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
-        System.out.println("\nMODYFIKACJA DANYCH...");
+        System.out.println("\n\nMODYFIKACJA DANYCH...");
         String updateSQL = String.format(
                 "UPDATE cars SET VIN='%s', brand='%s', model='%s', productionDate='%s',color='%s' WHERE id='%s'",
                 brandCar.getVIN(),

@@ -16,7 +16,7 @@ import static pl.robertburek.CarShowroom.showFoundCars;
 public class EventSearch implements ActionListener {
 
     private JPanel panel = new JPanel();
-    private JTextField markaTextField;// = new JTextField();
+    private JTextField markaTextField = new JTextField();
     private JTextField modelTextField = new JTextField();
     private JTextField dateProdTextField = new JTextField();
     private JTextField vinTextField = new JTextField();

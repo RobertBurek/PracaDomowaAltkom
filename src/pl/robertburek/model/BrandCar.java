@@ -27,7 +27,7 @@ public class BrandCar extends ModelCar {
 
     @Override
     public String toString() {
-        return String.format("%s)  %s   %s [VIN: %s, dataProd: %s, kolor: %s]", getId(),
+        return String.format("%s)  %s   %s   [VIN: %s, dataProd: %s, kolor: %s]", getId(),
                 getBrand(), getModel(), getVIN(), getProductionDate(), getColor());
     }
 }
