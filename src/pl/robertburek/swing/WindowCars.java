@@ -11,14 +11,14 @@ import static pl.robertburek.swing.EventDataBase.typeDB;
 /**
  * Created by Robert Burek
  */
-public class WindowCars extends JFrame {
+public class WindowCars extends JFrame implements AllEvents {
 
     private EventSearch eventSearch = new EventSearch();
     static DefaultListModel<BrandCar> brandCarDefaultListModel;
-    //    JList<BrandCar> listBrandcars;
     private String nameDaoInMenuItem;
     private String currentDao;
     private EventMouseChoiceCar eventMouseChoiceCar = new EventMouseChoiceCar();
+    private EventClearChoice eventClearChoice = new EventClearChoice();
 
 
     public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,
@@ -80,34 +80,24 @@ public class WindowCars extends JFrame {
                 BorderFactory.createLineBorder(Color.BLACK), " Edycja samochodu "));
         panel.setLayout(new GridLayout(8, 2, 5, 5));
         panel.add(new JLabel("Id", JLabel.RIGHT));
-        JTextField idTextField = new JTextField(2);
         idTextField.setEnabled(false);
         panel.add(idTextField);
         panel.add(new JLabel("Marka", JLabel.RIGHT));
-        JTextField markaTextField = new JTextField(10);
         panel.add(markaTextField);
         panel.add(new JLabel("Model", JLabel.RIGHT));
-        JTextField modelTextField = new JTextField(10);
         panel.add(modelTextField);
         panel.add(new JLabel("Data prod.", JLabel.RIGHT));
-        JTextField dateProdTextField = new JTextField(8);
         panel.add(dateProdTextField);
         panel.add(new JLabel("VIN", JLabel.RIGHT));
-        JTextField vinTextField = new JTextField(6);
         panel.add(vinTextField);
         panel.add(new JLabel("Kolor", JLabel.RIGHT));
-        JTextField colorTextField = new JTextField(10);
         panel.add(colorTextField);
-        eventMouseChoiceCar.setIdTextField(idTextField);
-        eventMouseChoiceCar.setMarkaTextField(markaTextField);
-        eventMouseChoiceCar.setModelTextField(modelTextField);
-        eventMouseChoiceCar.setDateProdTextField(dateProdTextField);
-        eventMouseChoiceCar.setVinTextField(vinTextField);
-        eventMouseChoiceCar.setColorTextField(colorTextField);
         panel.add(new JButton("Dodaj nowy"));
         panel.add(new JButton("Zapisz zmiany"));
         panel.add(new JButton("Usuń samochód"));
-        panel.add(new JButton("Wyczyść dane"));
+        JButton clearData = new JButton("Wyczyść dane");
+        clearData.addActionListener(eventClearChoice);
+        panel.add(clearData);
         return panel;
     }
 
@@ -116,27 +106,16 @@ public class WindowCars extends JFrame {
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Wyszukiwanie samochodów "));
         panel.add(new JLabel("Marka: "));
-        JTextField markaTextField = new JTextField(7);
-        panel.add(markaTextField);
+        panel.add(markaTextFieldSearch);
         panel.add(new JLabel("Model: "));
-        JTextField modelTextField = new JTextField(7);
-        panel.add(modelTextField);
+        panel.add(modelTextFieldSearch);
         panel.add(new JLabel("Data prod. (rrrr-mm-dd): "));
-        JTextField dateProdTextField = new JTextField(6);
-        panel.add(dateProdTextField);
+        panel.add(dateProdTextFieldSearch);
         panel.add(new JLabel("VIN (8 znaków): "));
-        JTextField vinTextField = new JTextField(5);
-        panel.add(vinTextField);
+        panel.add(vinTextFieldSearch);
         panel.add(new JLabel("Kolor: "));
-        JTextField colorTextField = new JTextField(6);
-        panel.add(colorTextField);
+        panel.add(colorTextFieldSearch);
         JButton searchButton = new JButton("Szukaj");
-        eventSearch.setMarkaTextField(markaTextField);
-        eventSearch.setModelTextField(modelTextField);
-        eventSearch.setDateProdTextField(dateProdTextField);
-        eventSearch.setVinTextField(vinTextField);
-        eventSearch.setColorTextField(colorTextField);
-        eventSearch.setPanel(panel);
         searchButton.addActionListener(eventSearch);
         panel.add(searchButton);
         return panel;

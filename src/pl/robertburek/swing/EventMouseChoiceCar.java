@@ -11,15 +11,9 @@ import static pl.robertburek.swing.WindowCars.brandCarDefaultListModel;
 /**
  * Created by Robert Burek
  */
-public class EventMouseChoiceCar implements MouseListener {
+public class EventMouseChoiceCar implements MouseListener, AllEvents {
 
     private JList<BrandCar> listBrandcars;
-    private JTextField idTextField;
-    private JTextField markaTextField;
-    private JTextField modelTextField;
-    private JTextField dateProdTextField;
-    private JTextField vinTextField;
-    private JTextField colorTextField;
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -57,29 +51,5 @@ public class EventMouseChoiceCar implements MouseListener {
 
     public void setListBrandcars(JList<BrandCar> listBrandcars) {
         this.listBrandcars = listBrandcars;
-    }
-
-    public void setIdTextField(JTextField idTextField) {
-        this.idTextField = idTextField;
-    }
-
-    public void setMarkaTextField(JTextField markaTextField) {
-        this.markaTextField = markaTextField;
-    }
-
-    public void setModelTextField(JTextField modelTextField) {
-        this.modelTextField = modelTextField;
-    }
-
-    public void setDateProdTextField(JTextField dateProdTextField) {
-        this.dateProdTextField = dateProdTextField;
-    }
-
-    public void setVinTextField(JTextField vinTextField) {
-        this.vinTextField = vinTextField;
-    }
-
-    public void setColorTextField(JTextField colorTextField) {
-        this.colorTextField = colorTextField;
     }
 }

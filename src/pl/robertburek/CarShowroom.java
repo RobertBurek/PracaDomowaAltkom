@@ -4,6 +4,7 @@ import pl.robertburek.dao.Dao;
 import pl.robertburek.dao.DaoProvider;
 import pl.robertburek.dao.Sources;
 import pl.robertburek.model.BrandCar;
+import pl.robertburek.swing.AllEvents;
 import pl.robertburek.swing.WindowCars;
 
 import javax.swing.*;
@@ -15,28 +16,14 @@ import java.util.*;
  * Created by Robert Burek
  */
 
-public class CarShowroom implements DaoProvider {
+public class CarShowroom implements DaoProvider, AllEvents {
 
     public static final String ZERO_DATE_PROD = "0001-01-01";
     private static List<BrandCar> brandCars = new ArrayList<>();
     private static Map<String, BrandCar> brandCarsMap = new HashMap<>();
     private static Dao dao;
     private static DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
-//    private static Map<String, String> whatDao = new HashMap<>();
 
-
-//    public static Dao getDao() {
-//        if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
-//            whatDao.clear();
-//            whatDao.put("nameDaoInMenuItem", "Testowa");
-//            whatDao.put("currentDao", "Produkcyjna - SQL");
-//        } else {
-//            whatDao.clear();
-//            whatDao.put("nameDaoInMenuItem", "Baza sql");
-//            whatDao.put("currentDao", "Testowa - kolekcja");
-//        }
-//        return dao;
-//    }
 
     public static void main(String[] args) throws SQLException {
 
