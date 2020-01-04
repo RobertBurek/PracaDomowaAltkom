@@ -6,12 +6,12 @@ import java.awt.event.ActionListener;
 /**
  * Created by Robert Burek
  */
-public class EventClearChoice implements ActionListener, AllEvents {
+public class EventClearChoice implements ActionListener, FieldsAllEvents {
 
     @Override
     public void actionPerformed(ActionEvent e) {
         idTextField.setText("");
-        markaTextField.setText("");
+        brandTextField.setText("");
         modelTextField.setText("");
         dateProdTextField.setText("");
         vinTextField.setText("");

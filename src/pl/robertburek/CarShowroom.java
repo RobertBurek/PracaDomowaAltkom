@@ -4,7 +4,7 @@ import pl.robertburek.dao.Dao;
 import pl.robertburek.dao.DaoProvider;
 import pl.robertburek.dao.Sources;
 import pl.robertburek.model.BrandCar;
-import pl.robertburek.swing.AllEvents;
+import pl.robertburek.swing.FieldsAllEvents;
 import pl.robertburek.swing.WindowCars;
 
 import javax.swing.*;
@@ -16,11 +16,10 @@ import java.util.*;
  * Created by Robert Burek
  */
 
-public class CarShowroom implements DaoProvider, AllEvents {
+public class CarShowroom implements DaoProvider, FieldsAllEvents {
 
     public static final String ZERO_DATE_PROD = "0001-01-01";
     private static List<BrandCar> brandCars = new ArrayList<>();
-    private static Map<String, BrandCar> brandCarsMap = new HashMap<>();
     private static Dao dao;
     private static DefaultListModel<BrandCar> defaultListModel = new DefaultListModel();
 
@@ -53,7 +52,7 @@ public class CarShowroom implements DaoProvider, AllEvents {
                     int numberCar = readNumberCar();
                     BrandCar newBrandCar = getNewCar();
                     newBrandCar.setId(numberCar);
-                    dao.updateCar(newBrandCar);
+                    updateBrandcar(newBrandCar);
                     break;
                 case "3":
                     deleteCar();
@@ -70,7 +69,6 @@ public class CarShowroom implements DaoProvider, AllEvents {
                     break;
                 case "7":
                     brandCars = dao.getCars();
-//                    getDao();
                     new WindowCars(createListModelCars(), whatDao);
                     break;
                 case "8":
@@ -78,6 +76,10 @@ public class CarShowroom implements DaoProvider, AllEvents {
                     break;
             }
         } while (!numberOption.equalsIgnoreCase("9"));
+    }
+
+    public static void updateBrandcar(BrandCar newBrandCar) throws SQLException {
+        dao.updateCar(newBrandCar);
     }
 
     public static DefaultListModel<BrandCar> createListModelCars() {
@@ -95,7 +97,6 @@ public class CarShowroom implements DaoProvider, AllEvents {
             dao = DaoProvider.getDao(Sources.DB);
         }
         System.out.println(dao.getNameDao());
-//        getDao();
         brandCars = dao.getCars();
         defaultListModel = createListModelCars();
     }
@@ -190,6 +191,10 @@ public class CarShowroom implements DaoProvider, AllEvents {
             }
         }
         while (prodDate.length() != 10);
+        return stringToDate(prodDate);
+    }
+
+    public static LocalDate stringToDate(String prodDate) {
         return LocalDate.of(Integer.parseInt(prodDate.substring(0, 4)),
                 Integer.parseInt(prodDate.substring(5, 7)),
                 Integer.parseInt(prodDate.substring(8, 10)));
@@ -205,9 +210,9 @@ public class CarShowroom implements DaoProvider, AllEvents {
         return vin;
     }
 
-    public static String changeUpperFristChar(String model) {
-        char[] modelNew = model.toCharArray();
-        if (!model.isEmpty()) {
+    public static String changeUpperFristChar(String text) {
+        char[] modelNew = text.toCharArray();
+        if (!text.isEmpty()) {
             modelNew[0] = Character.toUpperCase(modelNew[0]);
         }
         return new String(modelNew);

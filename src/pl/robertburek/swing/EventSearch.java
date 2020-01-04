@@ -13,14 +13,14 @@ import static pl.robertburek.CarShowroom.showFoundCars;
 /**
  * Created by Robert Burek
  */
-public class EventSearch implements ActionListener, AllEvents {
+public class EventSearch implements ActionListener, FieldsAllEvents {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        informationWindow();
+//        informationWindow("Szukane dane");
         Map<String, String> param = new HashMap<>();
-        if (isNotEmpty(markaTextFieldSearch))
-            param.put("brand", markaTextFieldSearch.getText().toUpperCase());
+        if (isNotEmpty(brandTextFieldSearch))
+            param.put("brand", brandTextFieldSearch.getText().toUpperCase());
         if (isNotEmpty(modelTextFieldSearch))
             param.put("model", changeUpperFristChar(modelTextFieldSearch.getText()));
         if (isNotEmpty(dateProdTextFieldSearch))
@@ -36,17 +36,17 @@ public class EventSearch implements ActionListener, AllEvents {
         }
     }
 
-    private void informationWindow() {
-        JOptionPane.showConfirmDialog(panel, "Szukane dane"
-                        + "\n   Marka:  " + markaTextFieldSearch.getText()
-                        + "\n   Model:  " + modelTextFieldSearch.getText()
-                        + "\n   Rok prod.:  " + dateProdTextFieldSearch.getText()
-                        + "\n   VIN:  " + vinTextFieldSearch.getText()
-                        + "\n   color:  " + colorTextFieldSearch.getText(),
-                "Uwaga", JOptionPane.PLAIN_MESSAGE);
-    }
-
     private boolean isNotEmpty(JTextField TextField) {
         return TextField != null && TextField.getText().isEmpty() == false;
     }
+
+//    private void informationWindow() {
+//        JOptionPane.showConfirmDialog(panel, "Szukane dane"
+//                        + "\n   Marka:  " + brandTextFieldSearch.getText()
+//                        + "\n   Model:  " + modelTextFieldSearch.getText()
+//                        + "\n   Rok prod.:  " + dateProdTextFieldSearch.getText()
+//                        + "\n   VIN:  " + vinTextFieldSearch.getText()
+//                        + "\n   color:  " + colorTextFieldSearch.getText(),
+//                "Uwaga", JOptionPane.PLAIN_MESSAGE);
+//    }
 }

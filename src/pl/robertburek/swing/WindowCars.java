@@ -11,7 +11,7 @@ import static pl.robertburek.swing.EventDataBase.typeDB;
 /**
  * Created by Robert Burek
  */
-public class WindowCars extends JFrame implements AllEvents {
+public class WindowCars extends JFrame implements FieldsAllEvents {
 
     private EventSearch eventSearch = new EventSearch();
     static DefaultListModel<BrandCar> brandCarDefaultListModel;
@@ -19,6 +19,7 @@ public class WindowCars extends JFrame implements AllEvents {
     private String currentDao;
     private EventMouseChoiceCar eventMouseChoiceCar = new EventMouseChoiceCar();
     private EventClearChoice eventClearChoice = new EventClearChoice();
+    private EventSaveChanges eventSaveChanges= new EventSaveChanges();
 
 
     public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,
@@ -83,7 +84,7 @@ public class WindowCars extends JFrame implements AllEvents {
         idTextField.setEnabled(false);
         panel.add(idTextField);
         panel.add(new JLabel("Marka", JLabel.RIGHT));
-        panel.add(markaTextField);
+        panel.add(brandTextField);
         panel.add(new JLabel("Model", JLabel.RIGHT));
         panel.add(modelTextField);
         panel.add(new JLabel("Data prod.", JLabel.RIGHT));
@@ -93,7 +94,9 @@ public class WindowCars extends JFrame implements AllEvents {
         panel.add(new JLabel("Kolor", JLabel.RIGHT));
         panel.add(colorTextField);
         panel.add(new JButton("Dodaj nowy"));
-        panel.add(new JButton("Zapisz zmiany"));
+        JButton saveChanges = new JButton("Zapisz zmiany");
+        saveChanges.addActionListener(eventSaveChanges);
+        panel.add(saveChanges);
         panel.add(new JButton("Usuń samochód"));
         JButton clearData = new JButton("Wyczyść dane");
         clearData.addActionListener(eventClearChoice);
@@ -106,7 +109,7 @@ public class WindowCars extends JFrame implements AllEvents {
         panel.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Wyszukiwanie samochodów "));
         panel.add(new JLabel("Marka: "));
-        panel.add(markaTextFieldSearch);
+        panel.add(brandTextFieldSearch);
         panel.add(new JLabel("Model: "));
         panel.add(modelTextFieldSearch);
         panel.add(new JLabel("Data prod. (rrrr-mm-dd): "));

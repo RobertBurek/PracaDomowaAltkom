@@ -8,10 +8,12 @@ import java.awt.event.MouseListener;
 
 import static pl.robertburek.swing.WindowCars.brandCarDefaultListModel;
 
+//import static pl.robertburek.swing.WindowCars.brandCarDefaultListModel;
+
 /**
  * Created by Robert Burek
  */
-public class EventMouseChoiceCar implements MouseListener, AllEvents {
+public class EventMouseChoiceCar implements MouseListener, FieldsAllEvents {
 
     private JList<BrandCar> listBrandcars;
 
@@ -26,7 +28,7 @@ public class EventMouseChoiceCar implements MouseListener, AllEvents {
 
     private void showChoiceCar(BrandCar brandCar) {
         idTextField.setText(String.valueOf(brandCar.getId()));
-        markaTextField.setText(brandCar.getBrand());
+        brandTextField.setText(brandCar.getBrand());
         modelTextField.setText(brandCar.getModel());
         dateProdTextField.setText(brandCar.getProductionDate().toString());
         vinTextField.setText(brandCar.getVIN());
