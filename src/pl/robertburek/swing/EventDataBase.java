@@ -14,6 +14,7 @@ import static pl.robertburek.CarShowroom.changeDao;
 public class EventDataBase implements ActionListener {
 
     static JMenu typeDB = new JMenu();
+    EventClearChoice eventClearChoice;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -26,6 +27,7 @@ public class EventDataBase implements ActionListener {
         }
         try {
             changeDao();
+            eventClearChoice.actionPerformed(e);
         } catch (SQLException e1) {
             e1.printStackTrace();
         }

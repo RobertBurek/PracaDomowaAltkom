@@ -19,7 +19,7 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
     private String currentDao;
     private EventMouseChoiceCar eventMouseChoiceCar = new EventMouseChoiceCar();
     private EventClearChoice eventClearChoice = new EventClearChoice();
-    private EventSaveChanges eventSaveChanges= new EventSaveChanges();
+    private EventSaveChanges eventSaveChanges = new EventSaveChanges();
 
 
     public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,
@@ -58,6 +58,7 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
 
     private JMenuBar createMenu(String nameDaoInMenuItem, String currentDao) {
         EventDataBase eventDataBase = new EventDataBase();
+        eventDataBase.eventClearChoice = eventClearChoice;
         JMenuBar menuBar = new JMenuBar();
         JMenu menuDane = new JMenu("Dane");
         JMenu menuHelp = new JMenu("Help");
