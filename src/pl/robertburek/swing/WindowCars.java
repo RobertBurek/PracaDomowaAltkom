@@ -19,6 +19,7 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
     private String currentDao;
     private EventMouseChoiceCar eventMouseChoiceCar = new EventMouseChoiceCar();
     private EventClearChoice eventClearChoice = new EventClearChoice();
+    private EventClearSearch eventClearSearch = new EventClearSearch();
     private EventSaveChanges eventSaveChanges = new EventSaveChanges();
 
 
@@ -59,11 +60,12 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
     private JMenuBar createMenu(String nameDaoInMenuItem, String currentDao) {
         EventDataBase eventDataBase = new EventDataBase();
         eventDataBase.eventClearChoice = eventClearChoice;
+        eventDataBase.eventClearSearch = eventClearSearch;
         JMenuBar menuBar = new JMenuBar();
         JMenu menuDane = new JMenu("Dane");
         JMenu menuHelp = new JMenu("Help");
-        JMenu menuSpace = new JMenu("                  ");
-        JMenu menuDB = new JMenu("Baza:");
+        JMenu menuSpace = new JMenu("                                                                             ");
+        JMenu menuDB = new JMenu("                           Baza:");
         typeDB.setText(currentDao);
         menuBar.add(menuDane);
         menuBar.add(menuHelp);
@@ -99,7 +101,7 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
         saveChanges.addActionListener(eventSaveChanges);
         panel.add(saveChanges);
         panel.add(new JButton("Usuń samochód"));
-        JButton clearData = new JButton("Wyczyść dane");
+        JButton clearData = new JButton("Wyczyść");
         clearData.addActionListener(eventClearChoice);
         panel.add(clearData);
         return panel;
@@ -122,6 +124,9 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
         JButton searchButton = new JButton("Szukaj");
         searchButton.addActionListener(eventSearch);
         panel.add(searchButton);
+        JButton clearSearchButton = new JButton("Wyczyść");
+        clearSearchButton.addActionListener(eventClearSearch);
+        panel.add(clearSearchButton);
         return panel;
     }
 
@@ -131,8 +136,8 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
                 BorderFactory.createLineBorder(Color.BLACK), " Lista samochodów "));
         System.out.println(currentDao);
         JList<BrandCar> listBrandcars = new JList<>(brandCarDefaultListModel);
-        listBrandcars.setFixedCellHeight(30);
-        listBrandcars.setFixedCellWidth(600);
+        listBrandcars.setFixedCellHeight(32);
+        listBrandcars.setFixedCellWidth(720);
         eventMouseChoiceCar.setListBrandcars(listBrandcars);
         listBrandcars.addMouseListener(eventMouseChoiceCar);
         panelResualt.add(new JScrollPane(listBrandcars));

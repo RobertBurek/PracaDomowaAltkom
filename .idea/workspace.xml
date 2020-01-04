@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/EventClearSearch.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" afterDir="false" />
@@ -28,18 +29,6 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/robertburek/dao/DbDaoImplement.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="163" column="34" lean-forward="true" selection-start-line="163" selection-start-column="34" selection-end-line="163" selection-end-column="34" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/model/BrandCar.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="252">
@@ -57,8 +46,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/FieldsAllEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36">
-              <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+            <state relative-caret-position="162">
+              <caret line="18" selection-start-line="18" selection-end-line="22" selection-end-column="56" />
             </state>
           </provider>
         </entry>
@@ -87,11 +76,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+            <state relative-caret-position="326">
+              <caret line="31" selection-start-line="31" selection-end-line="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -100,10 +89,22 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventClearSearch.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="92">
-              <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+            <state relative-caret-position="326">
+              <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -114,7 +115,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-322">
+            <state relative-caret-position="-52">
               <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -192,8 +193,9 @@
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventMouseChoiceCar.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventSaveChanges.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/CarShowroom.java" />
-        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventClearSearch.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java" />
       </list>
     </option>
   </component>
@@ -270,7 +272,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578159672385" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578161880241" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -607,7 +609,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578158500263</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Czyszczenie pól edycji przy zmianie bazy danych">
+      <created>1578159945193</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1578159945193</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView">
@@ -692,7 +701,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Dodano DaoProvider - wybór danych do app" />
     <MESSAGE value="Usuwanie samochodu dla obu Dao" />
     <MESSAGE value="Usuwanie samochodu dla obu Dao cd&#10;&#10;  poprawiłem wyświetlanie listy samochodów (właściwy numer id." />
     <MESSAGE value="Przymiarka do app okienkowej&#10;&#10;  swign app okienkowa, przeniosę apklikację do okienke, będą dwie&#10;  wersje, do wyboru." />
@@ -717,7 +725,8 @@
     <MESSAGE value="Wyświetlanie wybranych danych w oknie edycji&#10;&#10;  interfejs okienkowy, podwójne klikniecie w sa-&#10;  mochód powoduje wyświetlenie informacji o nim&#10;  w oknie do edycji" />
     <MESSAGE value="Wyczyść dane -panel edycji oraz zmiana koncepcji przekazywania danych &#10;do pól w interfejsie okien.&#10;&#10;  dodałem interfejs AllEnents z polami dla wszystkich EventListenerów,&#10;  poprzez niego przekazuję referencje do pól okienkowych." />
     <MESSAGE value="Zapisywanie zmian w wybranym samochodzie&#10;&#10;  zmianiłem nazwę interfejsu AllEvens na FieldsAllEvents" />
-    <option name="LAST_COMMIT_MESSAGE" value="Zapisywanie zmian w wybranym samochodzie&#10;&#10;  zmianiłem nazwę interfejsu AllEvens na FieldsAllEvents" />
+    <MESSAGE value="Czyszczenie pól edycji przy zmianie bazy danych" />
+    <option name="LAST_COMMIT_MESSAGE" value="Czyszczenie pól edycji przy zmianie bazy danych" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" />
@@ -991,26 +1000,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventClearChoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="11" column="31" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-322">
-          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSaveChanges.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
@@ -1023,15 +1012,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/FieldsAllEvents.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        <state relative-caret-position="162">
+          <caret line="18" selection-start-line="18" selection-end-line="22" selection-end-column="56" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventClearChoice.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="60" column="58" selection-start-line="60" selection-start-column="58" selection-end-line="60" selection-end-column="58" />
+        <state relative-caret-position="198">
+          <caret line="11" column="31" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventClearSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="16" column="41" lean-forward="true" selection-start-line="16" selection-start-column="41" selection-end-line="16" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventSearch.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-52">
+          <caret line="15" column="13" selection-start-line="15" selection-start-column="13" selection-end-line="15" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1040,8 +1049,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/EventDataBase.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="29" column="48" lean-forward="true" selection-start-line="29" selection-start-column="48" selection-end-line="29" selection-end-column="48" />
+        <state relative-caret-position="326">
+          <caret line="31" selection-start-line="31" selection-end-line="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/WindowCars.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="326">
+          <caret line="67" column="61" selection-start-line="67" selection-start-column="61" selection-end-line="67" selection-end-column="61" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

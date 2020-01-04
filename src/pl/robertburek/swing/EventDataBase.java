@@ -15,6 +15,7 @@ public class EventDataBase implements ActionListener {
 
     static JMenu typeDB = new JMenu();
     EventClearChoice eventClearChoice;
+    EventClearSearch eventClearSearch;
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -28,6 +29,7 @@ public class EventDataBase implements ActionListener {
         try {
             changeDao();
             eventClearChoice.actionPerformed(e);
+            eventClearSearch.actionPerformed(e);
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
