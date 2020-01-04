@@ -1,4 +1,4 @@
-package pl.robertburek.swing;
+package pl.robertburek.swing.Events;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

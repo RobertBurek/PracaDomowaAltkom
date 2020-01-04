@@ -4,7 +4,7 @@ import pl.robertburek.dao.Dao;
 import pl.robertburek.dao.DaoProvider;
 import pl.robertburek.dao.Sources;
 import pl.robertburek.model.BrandCar;
-import pl.robertburek.swing.FieldsAllEvents;
+import pl.robertburek.swing.Events.FieldsAllEvents;
 import pl.robertburek.swing.WindowCars;
 
 import javax.swing.*;
@@ -52,7 +52,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
                     int numberCar = readNumberCar();
                     BrandCar newBrandCar = getNewCar();
                     newBrandCar.setId(numberCar);
-                    updateBrandcar(newBrandCar);
+                    methodsDao("updateCar", newBrandCar);
                     break;
                 case "3":
                     deleteCar();
@@ -78,8 +78,20 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         } while (!numberOption.equalsIgnoreCase("9"));
     }
 
-    public static void updateBrandcar(BrandCar newBrandCar) throws SQLException {
-        dao.updateCar(newBrandCar);
+    public static void methodsDao(String nameMetode, Object o) throws SQLException {
+        switch (nameMetode) {
+            case "deleteCarById":
+                dao.deleteCarById((Integer) o);
+                break;
+            case "updateCar":
+                dao.updateCar((BrandCar) o);
+                break;
+            case "addCar":
+                dao.addCar((BrandCar) o);
+                break;
+        }
+        brandCars = dao.getCars();
+        defaultListModel = createListModelCars();
     }
 
     public static DefaultListModel<BrandCar> createListModelCars() {
@@ -108,7 +120,8 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         return Integer.valueOf(choiceOption.next());
     }
 
-    private static void deleteCar() throws SQLException {
+
+    public static void deleteCar() throws SQLException {
         showCars();
         System.out.print("Który samochód usunąć: ");
         Scanner choiceOption = new Scanner(System.in);

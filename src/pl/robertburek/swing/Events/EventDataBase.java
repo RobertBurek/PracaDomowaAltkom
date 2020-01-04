@@ -1,4 +1,4 @@
-package pl.robertburek.swing;
+package pl.robertburek.swing.Events;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,9 +13,9 @@ import static pl.robertburek.CarShowroom.changeDao;
  */
 public class EventDataBase implements ActionListener {
 
-    static JMenu typeDB = new JMenu();
-    EventClearChoice eventClearChoice;
-    EventClearSearch eventClearSearch;
+    public static JMenu typeDB = new JMenu();
+    public EventClearChoice eventClearChoice;
+    public EventClearSearch eventClearSearch;
 
     @Override
     public void actionPerformed(ActionEvent e) {

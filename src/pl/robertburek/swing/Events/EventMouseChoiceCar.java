@@ -1,4 +1,4 @@
-package pl.robertburek.swing;
+package pl.robertburek.swing.Events;
 
 import pl.robertburek.model.BrandCar;
 
@@ -7,8 +7,6 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 
 import static pl.robertburek.swing.WindowCars.brandCarDefaultListModel;
-
-//import static pl.robertburek.swing.WindowCars.brandCarDefaultListModel;
 
 /**
  * Created by Robert Burek

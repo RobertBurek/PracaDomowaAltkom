@@ -1,4 +1,4 @@
-package pl.robertburek.swing;
+package pl.robertburek.swing.Events;
 
 import pl.robertburek.model.BrandCar;
 
@@ -11,7 +11,8 @@ import static pl.robertburek.CarShowroom.*;
 /**
  * Created by Robert Burek
  */
-public class EventSaveChanges implements ActionListener, FieldsAllEvents {
+public class EventSaveChanges implements ActionListener {
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (vinTextField.getText().length() > 8) vinTextField.setText(vinTextField.getText().substring(0, 8));
@@ -23,7 +24,7 @@ public class EventSaveChanges implements ActionListener, FieldsAllEvents {
                 changeUpperFristChar(colorTextField.getText().toLowerCase()));
         brandCar.setId(Integer.valueOf(idTextField.getText()));
         try {
-            updateBrandcar(brandCar);
+            methodsDao("updateCar",brandCar);
             createListModelCars();
         } catch (SQLException e1) {
             System.out.println("Problem z zapisem zmian.");

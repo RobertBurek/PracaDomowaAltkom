@@ -1,4 +1,4 @@
-package pl.robertburek.swing;
+package pl.robertburek.swing.Events;
 
 import javax.swing.*;
 
