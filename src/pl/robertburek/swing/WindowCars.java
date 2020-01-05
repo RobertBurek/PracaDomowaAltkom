@@ -9,6 +9,7 @@ import java.util.Map;
 
 import static pl.robertburek.swing.Events.EventDataBase.typeDB;
 
+
 /**
  * Created by Robert Burek
  */
@@ -19,10 +20,11 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
     private String nameDaoInMenuItem;
     private String currentDao;
     private EventMouseChoiceCar eventMouseChoiceCar = new EventMouseChoiceCar();
-    private EventClearChoice eventClearChoice = new EventClearChoice();
-    private EventClearSearch eventClearSearch = new EventClearSearch();
+//    private EventClearChoice eventClearChoice = new EventClearChoice();
+//    private EventClearSearch eventClearSearch = new EventClearSearch();
     private EventSaveChanges eventSaveChanges = new EventSaveChanges();
     private EventDeleteSelected eventDeleteSelected = new EventDeleteSelected();
+    private EventAddNewCar eventAddNewCar = new EventAddNewCar();
 
 
     public WindowCars(DefaultListModel<BrandCar> brandCarDefaultListModel,
@@ -61,8 +63,8 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
 
     private JMenuBar createMenu(String nameDaoInMenuItem, String currentDao) {
         EventDataBase eventDataBase = new EventDataBase();
-        eventDataBase.eventClearChoice = eventClearChoice;
-        eventDataBase.eventClearSearch = eventClearSearch;
+//        FieldsAllEvents.eventClearChoice = eventClearChoice;
+//        eventDataBase.eventClearSearch = eventClearSearch;
         JMenuBar menuBar = new JMenuBar();
         JMenu menuDane = new JMenu("Dane");
         JMenu menuHelp = new JMenu("Help");
@@ -98,13 +100,15 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
         panel.add(vinTextField);
         panel.add(new JLabel("Kolor", JLabel.RIGHT));
         panel.add(colorTextField);
-        panel.add(new JButton("Dodaj nowy"));
+        JButton addNewCar = new JButton("Dodaj nowy");
+        addNewCar.addActionListener(eventAddNewCar);
+        panel.add(addNewCar);
         JButton saveChanges = new JButton("Zapisz zmiany");
         saveChanges.addActionListener(eventSaveChanges);
         panel.add(saveChanges);
         JButton deleteSelected = new JButton("Usuń samochód");
         deleteSelected.addActionListener(eventDeleteSelected);
-        eventDeleteSelected.eventClearChoice = eventClearChoice;
+//        FieldsAllEvents.eventClearChoice = eventClearChoice;
         panel.add(deleteSelected);
         JButton clearData = new JButton("Wyczyść");
         clearData.addActionListener(eventClearChoice);

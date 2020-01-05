@@ -40,13 +40,4 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
         return TextField != null && TextField.getText().isEmpty() == false;
     }
 
-//    private void informationWindow() {
-//        JOptionPane.showConfirmDialog(panel, "Szukane dane"
-//                        + "\n   Marka:  " + brandTextFieldSearch.getText()
-//                        + "\n   Model:  " + modelTextFieldSearch.getText()
-//                        + "\n   Rok prod.:  " + dateProdTextFieldSearch.getText()
-//                        + "\n   VIN:  " + vinTextFieldSearch.getText()
-//                        + "\n   color:  " + colorTextFieldSearch.getText(),
-//                "Uwaga", JOptionPane.PLAIN_MESSAGE);
-//    }
 }

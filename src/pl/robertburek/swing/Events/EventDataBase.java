@@ -11,11 +11,10 @@ import static pl.robertburek.CarShowroom.changeDao;
 /**
  * Created by Robert Burek
  */
-public class EventDataBase implements ActionListener {
+public class EventDataBase implements ActionListener,  FieldsAllEvents {
 
     public static JMenu typeDB = new JMenu();
-    public EventClearChoice eventClearChoice;
-    public EventClearSearch eventClearSearch;
+
 
     @Override
     public void actionPerformed(ActionEvent e) {

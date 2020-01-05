@@ -11,8 +11,6 @@ import static pl.robertburek.CarShowroom.methodsDao;
  */
 public class EventDeleteSelected implements ActionListener, FieldsAllEvents {
 
-    public EventClearChoice eventClearChoice;
-
     @Override
     public void actionPerformed(ActionEvent e) {
         int index = Integer.valueOf(idTextField.getText());

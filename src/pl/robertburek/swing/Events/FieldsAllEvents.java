@@ -7,6 +7,9 @@ import javax.swing.*;
  */
 public interface FieldsAllEvents {
 
+    EventClearChoice eventClearChoice =new EventClearChoice();
+    EventClearSearch eventClearSearch = new EventClearSearch();
+
     JPanel panel = new JPanel();
 
     JTextField idTextField = new JTextField(2);

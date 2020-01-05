@@ -8,11 +8,10 @@ import java.sql.SQLException;
 
 import static pl.robertburek.CarShowroom.*;
 
-
 /**
  * Created by Robert Burek
  */
-public class EventSaveChanges implements ActionListener {
+public class EventAddNewCar implements ActionListener, FieldsAllEvents {
 
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -23,11 +22,12 @@ public class EventSaveChanges implements ActionListener {
                 changeUpperFristChar(modelTextField.getText().toLowerCase()),
                 stringToDate(dateProdTextField.getText()),
                 changeUpperFristChar(colorTextField.getText().toLowerCase()));
-        brandCar.setId(Integer.valueOf(idTextField.getText()));
+//        brandCar.setId(Integer.valueOf(idTextField.getText()));
         try {
-            methodsDao("updateCar",brandCar);
+            methodsDao("addCar", brandCar);
+            eventClearChoice.actionPerformed(e);
         } catch (SQLException e1) {
-            System.out.println("Problem z zapisem zmian.");
+            System.out.println("Problem z zapisem nowego rekordu.");
             e1.printStackTrace();
         }
     }
