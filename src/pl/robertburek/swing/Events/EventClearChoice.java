@@ -1,5 +1,6 @@
 package pl.robertburek.swing.Events;
 
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -16,5 +17,7 @@ public class EventClearChoice implements ActionListener, FieldsAllEvents {
         dateProdTextField.setText("");
         vinTextField.setText("");
         colorTextField.setText("");
+        vinTextField.setForeground(Color.BLACK);
+        dateProdTextField.setForeground(Color.BLACK);
     }
 }

@@ -4,7 +4,11 @@ import pl.robertburek.model.BrandCar;
 import pl.robertburek.swing.Events.*;
 
 import javax.swing.*;
+import javax.swing.text.TextAction;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.beans.PropertyChangeEvent;
+import java.beans.PropertyChangeListener;
 import java.util.Map;
 
 import static pl.robertburek.swing.Events.EventDataBase.typeDB;
