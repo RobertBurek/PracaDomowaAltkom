@@ -169,7 +169,9 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
 
     private static void findCar() throws SQLException {
         showCars();
-        System.out.println(dao.getCarById(Integer.valueOf(getOption("Podaj numer: "))));
+        BrandCar findBrandcar = dao.getCarById(Integer.valueOf(getOption("Podaj numer: ")));
+        if (findBrandcar.getBrand()!=null) System.out.println(findBrandcar);
+        else System.out.println("Brak danych");
         System.out.println();
     }
 
