@@ -11,7 +11,7 @@ import static pl.robertburek.CarShowroom.changeDao;
 /**
  * Created by Robert Burek
  */
-public class EventDataBase implements ActionListener,  FieldsAllEvents {
+public class EventDataBase implements ActionListener, FieldsAllEvents {
 
     public static JMenu typeDB = new JMenu();
 

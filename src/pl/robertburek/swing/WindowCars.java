@@ -98,9 +98,9 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
         panel.add(brandTextField);
         panel.add(new JLabel("Model", JLabel.RIGHT));
         panel.add(modelTextField);
-        panel.add(new JLabel("Data prod.", JLabel.RIGHT));
+        panel.add(new JLabel("Data prod. (rrrr-mm-dd)", JLabel.RIGHT));
         panel.add(dateProdTextField);
-        panel.add(new JLabel("VIN", JLabel.RIGHT));
+        panel.add(new JLabel("VIN (8 znaków)", JLabel.RIGHT));
         panel.add(vinTextField);
         panel.add(new JLabel("Kolor", JLabel.RIGHT));
         panel.add(colorTextField);

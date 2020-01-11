@@ -19,10 +19,9 @@ public class EventAddNewCar implements ActionListener, FieldsAllEvents {
         BrandCar brandCar = new BrandCar(
                 vinTextField.getText(),
                 brandTextField.getText().toUpperCase(),
-                changeUpperFristChar(modelTextField.getText().toLowerCase()),
+                changeUpperFirstChar(modelTextField.getText().toLowerCase()),
                 stringToDate(dateProdTextField.getText()),
-                changeUpperFristChar(colorTextField.getText().toLowerCase()));
-//        brandCar.setId(Integer.valueOf(idTextField.getText()));
+                changeUpperFirstChar(colorTextField.getText().toLowerCase()));
         try {
             methodsDao("addCar", brandCar);
             eventClearChoice.actionPerformed(e);

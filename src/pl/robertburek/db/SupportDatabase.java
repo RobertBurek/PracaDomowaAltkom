@@ -16,7 +16,6 @@ public class SupportDatabase {
     protected static Statement statement;
 
 
-
     public void operationsDB(OptionsDb... options) throws SQLException {
         for (OptionsDb option : options) {
             switch (option) {

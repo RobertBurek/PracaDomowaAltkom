@@ -5,7 +5,6 @@ import pl.robertburek.db.SupportDatabase;
 import pl.robertburek.model.BrandCar;
 
 import java.sql.ResultSet;
-import java.sql.ResultSetMetaData;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -16,17 +15,6 @@ import java.util.Map;
  * Created by Robert Burek
  */
 public class DbDaoImplement extends SupportDatabase implements Dao {
-
-    static {
-//     FRAGMENT KODU - DLA MNIE INFORMACYJNIE
-//        try {
-//            System.out.println("REJESTROWANIE STEROWNIKA...");
-//            Class.forName("com.mysql.cj.jdbc.Driver");
-//        } catch (ClassNotFoundException e) {
-//            System.out.println("Niezarejestrowany sterownik\n" + e);
-//            System.exit(0);
-//        }
-    }
 
     @Override
     public String getNameDao() {
@@ -39,7 +27,6 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
         final String SQL_SELECT = "SELECT * FROM cars";
         List<BrandCar> cars = new ArrayList<>();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-//            columnsFromTableDB(resultSet);
             while (resultSet.next()) {
                 BrandCar brandCar = new BrandCar();
                 resultSetCar(resultSet, brandCar);
@@ -48,15 +35,6 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
         }
         operationsDB(OptionsDb.CLOSE_CONNETION);
         return cars;
-    }
-
-    private void columnsFromTableDB(ResultSet resultSet) throws SQLException {
-        ResultSetMetaData rsmd = resultSet.getMetaData();
-        int columns = rsmd.getColumnCount();
-        System.out.printf("Tabela 'cars' zawiera %d kolumn o nazwach: \n  ", columns);
-        for (int i = 1; i <= columns; i++) {
-            System.out.print(rsmd.getColumnName(i) + "        ");
-        }
     }
 
     @Override
@@ -75,9 +53,6 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
             if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";
             else SQL_SELECT += " WHERE ";
             SQL_SELECT += "productionDate = '" + param.get("productionDate") + "'";
-//            wariant z wprowadzaniem roku a nie całej daty
-//            SQL_SELECT += "productionDate >= '" + param.get("productionDate") + "-01-01' AND productionDate <= '"
-//                    + param.get("productionDate")+"-12-31'";
         }
         if (param.get("VIN") != null) {
             if (SQL_SELECT.contains("WHERE")) SQL_SELECT += " AND ";
@@ -108,7 +83,6 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
         final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
         BrandCar brandCar = new BrandCar();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-//            columnsFromTableDB(resultSet);
             if (resultSet.next()) {
                 resultSetCar(resultSet, brandCar);
             }

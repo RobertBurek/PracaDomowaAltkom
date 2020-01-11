@@ -170,7 +170,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
     private static void findCar() throws SQLException {
         showCars();
         BrandCar findBrandcar = dao.getCarById(Integer.valueOf(getOption("Podaj numer: ")));
-        if (findBrandcar.getBrand()!=null) System.out.println(findBrandcar);
+        if (findBrandcar.getBrand() != null) System.out.println(findBrandcar);
         else System.out.println("Brak danych");
         System.out.println();
     }
@@ -189,23 +189,31 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         System.out.print("Podaj markę: ");
         String brand = readData.nextLine().toUpperCase();
         System.out.print("Podaj model: ");
-        String model = changeUpperFristChar(readData.nextLine());
+        String model = changeUpperFirstChar(readData.nextLine());
         LocalDate productionDate = getProductionDate(readData);
         System.out.print("Podaj kolor: ");
-        String color = changeUpperFristChar(readData.nextLine());
+        String color = changeUpperFirstChar(readData.nextLine());
         return new BrandCar(VIN, brand.toUpperCase(), model, productionDate, color);
     }
 
     private static LocalDate getProductionDate(Scanner readData) {
         String prodDate;
+        boolean ok;
         do {
-            System.out.print("Podaj datę produkcji (yyyy-mm-dd): ");
+            System.out.print("Podaj datę produkcji (rrrr-mm-dd): ");
             prodDate = readData.nextLine();
             if (prodDate.isEmpty()) {
                 prodDate = ZERO_DATE_PROD;
             }
+            try {
+                ok = true;
+                stringToDate(prodDate);
+            } catch (Exception e) {
+                System.out.println("Data nie jest w poprawnym formacie!!!");
+                ok = false;
+            }
         }
-        while (prodDate.length() != 10);
+        while (!ok);
         return stringToDate(prodDate);
     }
 
@@ -218,14 +226,14 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
     private static String getVIN(Scanner readData) {
         String vin;
         do {
-            System.out.print("Podaj VIN (max 8 znaków): ");
+            System.out.print("Podaj VIN (8 znaków): ");
             vin = readData.nextLine();
         }
-        while (vin.length() > 8);
+        while (vin.length() != 8);
         return vin;
     }
 
-    public static String changeUpperFristChar(String text) {
+    public static String changeUpperFirstChar(String text) {
         char[] modelNew = text.toCharArray();
         if (!text.isEmpty()) {
             modelNew[0] = Character.toUpperCase(modelNew[0]);

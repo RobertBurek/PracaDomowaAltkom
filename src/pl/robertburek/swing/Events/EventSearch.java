@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static pl.robertburek.CarShowroom.changeUpperFristChar;
+import static pl.robertburek.CarShowroom.changeUpperFirstChar;
 import static pl.robertburek.CarShowroom.showFoundCars;
 
 /**
@@ -22,13 +22,13 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
         if (isNotEmpty(brandTextFieldSearch))
             param.put("brand", brandTextFieldSearch.getText().toUpperCase());
         if (isNotEmpty(modelTextFieldSearch))
-            param.put("model", changeUpperFristChar(modelTextFieldSearch.getText()));
+            param.put("model", changeUpperFirstChar(modelTextFieldSearch.getText()));
         if (isNotEmpty(dateProdTextFieldSearch))
             param.put("productionDate", dateProdTextFieldSearch.getText());
         if (isNotEmpty(vinTextFieldSearch))
             param.put("VIN", vinTextFieldSearch.getText());
         if (isNotEmpty(colorTextFieldSearch))
-            param.put("color", changeUpperFristChar(colorTextFieldSearch.getText()));
+            param.put("color", changeUpperFirstChar(colorTextFieldSearch.getText()));
         try {
             showFoundCars(param);
         } catch (SQLException e1) {
