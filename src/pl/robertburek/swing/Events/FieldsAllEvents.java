@@ -41,46 +41,31 @@ public interface FieldsAllEvents {
 
     default boolean validationTextField() {
         boolean isValidationOK = true;
-
         if (brandTextField.getText().isEmpty()) {
             brandTextField.setBackground(Color.PINK);
             isValidationOK = false;
         } else brandTextField.setBackground(Color.WHITE);
-
         if (vinTextField.getText().isEmpty()) {
             vinTextField.setBackground(Color.PINK);
             isValidationOK = false;
         } else vinTextField.setBackground(Color.WHITE);
-
         if ((!vinTextField.getText().isEmpty()) && (vinTextField.getText().length() != 8)) {
             vinTextField.setForeground(Color.RED);
             isValidationOK = false;
         } else vinTextField.setForeground(Color.BLACK);
-
         if (dateProdTextField.getText().isEmpty()) {
             dateProdTextField.setBackground(Color.PINK);
             isValidationOK = false;
         } else dateProdTextField.setBackground(Color.WHITE);
-
         Pattern patternDate = Pattern.compile("[0-9]{4}[^\\w][0-9]{2}[^\\w][0-9]{2}");
         if ((!Pattern.matches(String.valueOf(patternDate), dateProdTextField.getText())) &&
                 (!dateProdTextField.getText().isEmpty())) {
             dateProdTextField.setForeground(Color.RED);
-//            dateProdTextField.setBackground(Color.WHITE);
             isValidationOK = false;
-        } else {
-            dateProdTextField.setForeground(Color.BLACK);
-//            dateProdTextField.setBackground(Color.WHITE);
-        }
-
+        } else dateProdTextField.setForeground(Color.BLACK);
         return isValidationOK;
     }
 
-//    default boolean isNotEmpty(JTextField TextField) {
-//        return
-////                TextField != null &&
-//                        TextField.getText().isEmpty() == false;
-//    }
 
     default void stylesDefaultTextField(JTextField textField) {
         textField.setBackground(Color.WHITE);

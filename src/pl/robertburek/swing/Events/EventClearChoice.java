@@ -19,5 +19,8 @@ public class EventClearChoice implements ActionListener, FieldsAllEvents {
         colorTextField.setText("");
         vinTextField.setForeground(Color.BLACK);
         dateProdTextField.setForeground(Color.BLACK);
+        stylesDefaultTextField(brandTextField);
+        stylesDefaultTextField(vinTextField);
+        stylesDefaultTextField(dateProdTextField);
     }
 }

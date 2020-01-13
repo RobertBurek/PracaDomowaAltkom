@@ -1,13 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="Walidacja nowych danych dodawanych do bazy w int. okienkowym&#10;&#10;  wyświetlenie danych auta po kliknięciu prawym klawiszem myszki,&#10;  usuwanie dokumentu zaznaczonego na liście.">
+    <list default="true" id="faf82c4a-1040-4b6d-9702-254bb297c331" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PracaDomowa/pl/robertburek/CarShowroom.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventAddNewCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventAddNewCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventDeleteSelected.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventDeleteSelected.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventMouseChoiceCar.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventMouseChoiceCar.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventSearch.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventSearch.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearChoice.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearChoice.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/FieldsAllEvents.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/pl/robertburek/swing/Events/FieldsAllEvents.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -67,10 +63,10 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventDeleteSelected.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
+            <state relative-caret-position="414">
               <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -93,11 +89,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearChoice.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="223">
-              <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
+            <state relative-caret-position="414">
+              <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,8 +128,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/FieldsAllEvents.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="14" column="29" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="324">
+              <caret line="69" column="39" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="39" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -201,7 +197,6 @@
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventSaveChanges.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/EventDeleteSelected.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearSearch.java" />
-        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearChoice.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/dao/Sources.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/db/OptionsDb.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventDataBase.java" />
@@ -215,9 +210,10 @@
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventSaveChanges.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventSearch.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventAddNewCar.java" />
-        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/FieldsAllEvents.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventMouseChoiceCar.java" />
         <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventDeleteSelected.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/FieldsAllEvents.java" />
+        <option value="$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearChoice.java" />
       </list>
     </option>
   </component>
@@ -303,7 +299,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578955119359" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1578957285786" />
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_opened_file_path" value="D:/ListaZakupow/shopping-list" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -711,7 +707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1578952052868</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="Walidacja nowych danych dodawanych do bazy w int. okienkowym&#10;&#10;  wyświetlenie danych auta po kliknięciu prawym klawiszem myszki,&#10;  usuwanie dokumentu zaznaczonego na liście.">
+      <created>1578955188871</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1578955188871</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TodoView">
@@ -725,7 +728,6 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.16913183" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -797,7 +799,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Modyfikacja wybranego samochodu w DbDao&#10;&#10;  zaimplementowane, przetestowane i poprawione&#10;  działa dla DbDao." />
     <MESSAGE value="Zmiana bazy w terminalu jak i w app okienkowej" />
     <MESSAGE value="Zaimplementowałem wyszukiwanie samaochodu&#10;&#10;  oba Dao zaimplementowane, teraz trzeba zaimple-&#10;  mentować dane do wyszukiwania, param - map&lt;&gt;." />
     <MESSAGE value="Wyszukiwanie samochodu oba Dao&#10;&#10;  został jeszcze interfejs okienkowy" />
@@ -822,7 +823,8 @@
     <MESSAGE value="Walidacja ciąg dalszy&#10;&#10;  Zmiany, zmiany, zmiany." />
     <MESSAGE value="Walidacja ciąg dalszy&#10;&#10;  Przetestowałem podstawowe funkcjonalności na obu bazach i obu&#10;  interfejsach (konsolowym i okienkowym)" />
     <MESSAGE value="Walidacja danych zmienianych w int. okienkowym&#10;&#10;  Wyróżnia kolorem pola obowiązkowe oraz wadliwie wypełnine w oknie&#10;  modyfikującym samochód" />
-    <option name="LAST_COMMIT_MESSAGE" value="Walidacja danych zmienianych w int. okienkowym&#10;&#10;  Wyróżnia kolorem pola obowiązkowe oraz wadliwie wypełnine w oknie&#10;  modyfikującym samochód" />
+    <MESSAGE value="Walidacja nowych danych dodawanych do bazy w int. okienkowym&#10;&#10;  wyświetlenie danych auta po kliknięciu prawym klawiszem myszki,&#10;  usuwanie dokumentu zaznaczonego na liście." />
+    <option name="LAST_COMMIT_MESSAGE" value="Walidacja nowych danych dodawanych do bazy w int. okienkowym&#10;&#10;  wyświetlenie danych auta po kliknięciu prawym klawiszem myszki,&#10;  usuwanie dokumentu zaznaczonego na liście." />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" />
@@ -1101,16 +1103,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearChoice.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="16" column="33" selection-start-line="16" selection-start-column="33" selection-end-line="16" selection-end-column="33" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearSearch.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="324">
@@ -1171,16 +1163,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/FieldsAllEvents.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="8" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventMouseChoiceCar.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="558">
@@ -1195,8 +1177,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventDeleteSelected.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="288">
+        <state relative-caret-position="414">
           <caret line="23" column="9" lean-forward="true" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/FieldsAllEvents.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="69" column="39" selection-start-line="69" selection-start-column="17" selection-end-line="69" selection-end-column="39" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/robertburek/swing/Events/EventClearChoice.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
