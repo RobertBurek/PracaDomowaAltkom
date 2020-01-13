@@ -9,6 +9,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
+import static pl.robertburek.CarShowroom.ZERO_DATE_PROD;
+
 /**
  * Created by Robert Burek
  */
@@ -55,15 +57,24 @@ public class TestDaoImplement implements Dao {
         brandCars.add(fiat2);
     }
 
+
     @Override
     public String getNameDao() {
         return "Dane testowe z kolekcji!!!";
     }
 
+
+    @Override
+    public boolean isIt(int id) {
+        return brandCars.stream().filter(brandCar -> brandCar.getId() == id).count() != 0;
+    }
+
+
     @Override
     public List<BrandCar> getCars() {
         return brandCars;
     }
+
 
     @Override
     public List<BrandCar> searchCar(Map<String, String> param) {
@@ -105,8 +116,10 @@ public class TestDaoImplement implements Dao {
         return temp5BrandCars;
     }
 
+
     @Override
     public BrandCar getCarById(int id) {
+        System.out.println("\n\nODCZYT DANYCH Samochodu numer " + id + ".");
         List<BrandCar> oneBrandcar = brandCars.stream()
                 .filter(brandCar -> brandCar.getId() == id)
                 .collect(Collectors.toList());
@@ -114,13 +127,16 @@ public class TestDaoImplement implements Dao {
         return oneBrandcar.get(0);
     }
 
+
     @Override
     public boolean deleteCarById(int id) {
+        System.out.println("\n\nUsuwanie samochodu z bazy o id=" + id + "\n");
         brandCars = brandCars.stream()
                 .filter(brandCar -> brandCar.getId() != id)
                 .collect(Collectors.toList());
         return true;
     }
+
 
     @Override
     public boolean addCar(BrandCar brandCar) {
@@ -129,19 +145,27 @@ public class TestDaoImplement implements Dao {
         return true;
     }
 
+
     @Override
-    public boolean updateCar(BrandCar brandCar) {
+    public boolean updateCar(BrandCar modifiedBrandCar) {
         int i = 0;
-        for (BrandCar element : brandCars) {
-            if (element.getId() != brandCar.getId()) {
+        for (BrandCar oldBrandCar : brandCars) {
+            if (oldBrandCar.getId() != modifiedBrandCar.getId()) {
                 i++;
             } else {
-                brandCars.set(i, brandCar);
+                if (!modifiedBrandCar.getBrand().equals("")) oldBrandCar.setBrand(modifiedBrandCar.getBrand());
+                if (!modifiedBrandCar.getModel().equals("")) oldBrandCar.setModel(modifiedBrandCar.getModel());
+                if (!modifiedBrandCar.getVIN().equals("")) oldBrandCar.setVIN(modifiedBrandCar.getVIN());
+                if (!modifiedBrandCar.getColor().equals("")) oldBrandCar.setColor(modifiedBrandCar.getColor());
+                if (!modifiedBrandCar.getProductionDate().toString().equals(ZERO_DATE_PROD))
+                    oldBrandCar.setProductionDate(modifiedBrandCar.getProductionDate());
+                brandCars.set(i, oldBrandCar);
                 break;
             }
         }
         return true;
     }
+
 
     @Override
     public void operationsDB(OptionsDb... options) {

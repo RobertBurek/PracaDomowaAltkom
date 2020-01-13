@@ -28,11 +28,11 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
 
         dao = DaoProvider.getDao(Sources.TEST);
         brandCars = dao.getCars();
-        System.out.println(dao.getNameDao());
+        System.out.println(dao.getNameDao() + "\n");
         String numberOption;
 
         do {
-            numberOption = getOption("Wybierz opcje: \n"
+            numberOption = getOption("  Wybierz opcje: \n"
                     + "[1] - Dodaj samochód \n"
                     + "[2] - Edytuj samochód \n"
                     + "[3] - Usuń samochód \n"
@@ -45,14 +45,17 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
 
             switch (numberOption) {
                 case "1":
-                    if (dao.addCar(getNewCar())) System.out.println("DANE ZAPISANE POPRAWNIE");
-                    else System.out.println("BĄD W ZAPISYWANIU DANYCH!!!");
+                    if (dao.addCar(getNewCar(false))) System.out.println("DANE ZAPISANE POPRAWNIE");
+                    else System.out.println("BŁĄD W ZAPISYWANIU DANYCH!!!");
                     break;
                 case "2":
                     int numberCar = readNumberCar();
-                    BrandCar newBrandCar = getNewCar();
-                    newBrandCar.setId(numberCar);
-                    methodsDao("updateCar", newBrandCar);
+                    if (dao.isIt(numberCar)) {
+                        System.out.println("Podaj dane które chcesz zmodyfikować");
+                        BrandCar newBrandCar = getNewCar(true);
+                        newBrandCar.setId(numberCar);
+                        methodsDao("updateCar", newBrandCar);
+                    } else System.out.println("\nBrak samochodu o id= " + numberCar + "\n");
                     break;
                 case "3":
                     deleteCar();
@@ -108,7 +111,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         } else {
             dao = DaoProvider.getDao(Sources.DB);
         }
-        System.out.println(dao.getNameDao());
+        System.out.println("\n\n" + dao.getNameDao() + "\n");
         brandCars = dao.getCars();
         defaultListModel = createListModelCars();
     }
@@ -130,7 +133,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
     }
 
     private static void showCars() throws SQLException {
-        System.out.println("--------------- Samochody ---------------");
+        System.out.println("\n\n--------------- Samochody ---------------");
         System.out.printf("%3s  %10s  %10s %12s \n", "id", "Marka", "Model", "DataProd.");
         System.out.println("-----------------------------------------");
         brandCars = dao.getCars();
@@ -138,11 +141,11 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
             System.out.printf("%3s  %10s  %10s %12s \n", car.getId(), car.getBrand(), car.getModel(),
                     car.getProductionDate());
         }
-        System.out.println("-----------------------------------------");
+        System.out.println("-----------------------------------------\n");
     }
 
     public static void showFoundCars(Map<String, String> param) throws SQLException {
-        System.out.println("----------------------- WYNIKI WYSZUKIWANIA --------------------");
+        System.out.println("\n\n----------------------- WYNIKI WYSZUKIWANIA --------------------");
         System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", "id", "Marka", "Model", "VIN", "DataProd.", "Kolor");
         System.out.println("----------------------------------------------------------------");
         brandCars = dao.searchCar(param);
@@ -150,20 +153,21 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
             System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", car.getId(),
                     car.getBrand(), car.getModel(), car.getVIN(), car.getProductionDate(), car.getColor());
         }
-        System.out.println("----------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------\n");
         defaultListModel = createListModelCars();
     }
 
     private static Map<String, String> createParamMap() {
         Map<String, String> param = new HashMap<>();
-        System.out.println("Podaj szukane dane:");
-        BrandCar searchedCar = getNewCar();
+        System.out.println("\n\nPodaj szukane dane:");
+        BrandCar searchedCar = getNewCar(true);
         if (searchedCar.getBrand().length() > 0) param.put("brand", searchedCar.getBrand());
         if (searchedCar.getModel().length() > 0) param.put("model", searchedCar.getModel());
         if (searchedCar.getVIN().length() > 0) param.put("VIN", searchedCar.getVIN());
         if (!(searchedCar.getProductionDate().toString().equals(ZERO_DATE_PROD)))
             param.put("productionDate", searchedCar.getProductionDate().toString());
         if (searchedCar.getColor().length() > 0) param.put("color", searchedCar.getColor());
+        System.out.print("\n\nParametry wyszukiwania : " + param);
         return param;
     }
 
@@ -183,11 +187,10 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         return numberOption;
     }
 
-    private static BrandCar getNewCar() {
+    private static BrandCar getNewCar(boolean maybeEmpty) {
         Scanner readData = new Scanner(System.in);
-        String VIN = getVIN(readData);
-        System.out.print("Podaj markę: ");
-        String brand = readData.nextLine().toUpperCase();
+        String VIN = getVIN(readData, maybeEmpty);
+        String brand = getBrand(readData, maybeEmpty).toUpperCase();
         System.out.print("Podaj model: ");
         String model = changeUpperFirstChar(readData.nextLine());
         LocalDate productionDate = getProductionDate(readData);
@@ -195,6 +198,18 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         String color = changeUpperFirstChar(readData.nextLine());
         return new BrandCar(VIN, brand.toUpperCase(), model, productionDate, color);
     }
+
+    private static String getBrand(Scanner readData, boolean maybeEmpty) {
+        String brand;
+        do {
+            System.out.print("Podaj markę: ");
+            brand = readData.nextLine();
+            if ((brand.length() == 0) && (!maybeEmpty)) System.out.println("Samochód musi posiadać markę !!!");
+        }
+        while ((brand.length() == 0) && (!maybeEmpty));
+        return brand;
+    }
+
 
     private static LocalDate getProductionDate(Scanner readData) {
         String prodDate;
@@ -223,13 +238,14 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
                 Integer.parseInt(prodDate.substring(8, 10)));
     }
 
-    private static String getVIN(Scanner readData) {
+    private static String getVIN(Scanner readData, boolean maybeEmpty) {
         String vin;
         do {
             System.out.print("Podaj VIN (8 znaków): ");
             vin = readData.nextLine();
+            if ((vin.length() != 8) && (!maybeEmpty)) System.out.println("Numer VIN musi mieć 8 znaków !!!");
         }
-        while (vin.length() != 8);
+        while ((vin.length() != 8) && (!maybeEmpty));
         return vin;
     }
 
