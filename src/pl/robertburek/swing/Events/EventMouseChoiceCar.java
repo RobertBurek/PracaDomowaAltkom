@@ -27,6 +27,7 @@ public class EventMouseChoiceCar implements MouseListener, FieldsAllEvents {
     private void showChoiceCar(BrandCar brandCar) {
         idTextField.setText(String.valueOf(brandCar.getId()));
         brandTextField.setText(brandCar.getBrand());
+
         modelTextField.setText(brandCar.getModel());
         dateProdTextField.setText(brandCar.getProductionDate().toString());
         vinTextField.setText(brandCar.getVIN());
@@ -35,6 +36,11 @@ public class EventMouseChoiceCar implements MouseListener, FieldsAllEvents {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        if (e.getButton() == 1) {
+            int choiceIndex = listBrandcars.locationToIndex(e.getPoint());
+            BrandCar brandCar = brandCarDefaultListModel.getElementAt(choiceIndex);
+            showChoiceCar(brandCar);
+        }
     }
 
     @Override
@@ -43,6 +49,7 @@ public class EventMouseChoiceCar implements MouseListener, FieldsAllEvents {
 
     @Override
     public void mouseEntered(MouseEvent e) {
+
     }
 
     @Override

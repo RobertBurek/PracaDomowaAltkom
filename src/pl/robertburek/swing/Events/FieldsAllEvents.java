@@ -12,6 +12,7 @@ public interface FieldsAllEvents {
     EventClearChoice eventClearChoice = new EventClearChoice();
     EventClearSearch eventClearSearch = new EventClearSearch();
     EventSearch eventSearch = new EventSearch();
+    int indexTListModelActive = 0;
 
     JPanel panel = new JPanel();
 
@@ -67,7 +68,7 @@ public interface FieldsAllEvents {
             dateProdTextField.setForeground(Color.RED);
 //            dateProdTextField.setBackground(Color.WHITE);
             isValidationOK = false;
-        }else{
+        } else {
             dateProdTextField.setForeground(Color.BLACK);
 //            dateProdTextField.setBackground(Color.WHITE);
         }

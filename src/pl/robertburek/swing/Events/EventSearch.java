@@ -16,6 +16,9 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+
+
+        {
 //        informationWindow("Szukane dane");
         Map<String, String> param = new HashMap<>();
         if (!brandTextFieldSearch.getText().isEmpty())
@@ -33,6 +36,7 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
         } catch (SQLException e1) {
             e1.printStackTrace();
         }
+    }
     }
 
 
