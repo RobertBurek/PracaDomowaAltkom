@@ -64,6 +64,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
                     showFoundCars(param);
                     break;
                 case "7":
+                    brandCars = dao.getCars();
                     new WindowCars(createListModelCars(), whatDao);
                     break;
                 case "8":
@@ -168,8 +169,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
     }
 
 
-    public static DefaultListModel<BrandCar> createListModelCars() throws SQLException {
-        brandCars = dao.getCars();
+    public static DefaultListModel<BrandCar> createListModelCars() {
         if (defaultListModel != null) defaultListModel.removeAllElements();
         for (BrandCar brandCar : brandCars) {
             defaultListModel.addElement(brandCar);

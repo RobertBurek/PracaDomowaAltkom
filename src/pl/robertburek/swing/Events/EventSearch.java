@@ -1,6 +1,5 @@
 package pl.robertburek.swing.Events;
 
-import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -19,15 +18,15 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
     public void actionPerformed(ActionEvent e) {
 //        informationWindow("Szukane dane");
         Map<String, String> param = new HashMap<>();
-        if (isNotEmpty(brandTextFieldSearch))
+        if (!brandTextFieldSearch.getText().isEmpty())
             param.put("brand", brandTextFieldSearch.getText().toUpperCase());
-        if (isNotEmpty(modelTextFieldSearch))
+        if (!modelTextFieldSearch.getText().isEmpty())
             param.put("model", changeUpperFirstChar(modelTextFieldSearch.getText()));
-        if (isNotEmpty(dateProdTextFieldSearch))
+        if (!dateProdTextFieldSearch.getText().isEmpty())
             param.put("productionDate", dateProdTextFieldSearch.getText());
-        if (isNotEmpty(vinTextFieldSearch))
+        if (!vinTextFieldSearch.getText().isEmpty())
             param.put("VIN", vinTextFieldSearch.getText());
-        if (isNotEmpty(colorTextFieldSearch))
+        if (!colorTextFieldSearch.getText().isEmpty())
             param.put("color", changeUpperFirstChar(colorTextFieldSearch.getText()));
         try {
             showFoundCars(param);
@@ -36,8 +35,5 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
         }
     }
 
-    private boolean isNotEmpty(JTextField TextField) {
-        return TextField != null && TextField.getText().isEmpty() == false;
-    }
 
 }
