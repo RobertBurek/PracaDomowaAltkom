@@ -3,7 +3,6 @@ package pl.robertburek.dao;
 import pl.robertburek.db.OptionsDb;
 import pl.robertburek.model.BrandCar;
 
-import java.sql.SQLDataException;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Map;
@@ -15,7 +14,9 @@ public interface Dao {
 
     String getNameDao();
 
-    boolean isIt(int id) throws SQLException;
+    boolean addCar(BrandCar brandCar) throws SQLException;
+
+    boolean updateCar(BrandCar brandCar) throws SQLException;
 
     List<BrandCar> getCars() throws SQLException;
 
@@ -25,9 +26,7 @@ public interface Dao {
 
     boolean deleteCarById(int id) throws SQLException;
 
-    boolean addCar(BrandCar brandCar) throws SQLException;
-
-    boolean updateCar(BrandCar brandCar) throws SQLException;
+    boolean isIt(int id) throws SQLException;
 
     void operationsDB(OptionsDb... options) throws SQLException;
 

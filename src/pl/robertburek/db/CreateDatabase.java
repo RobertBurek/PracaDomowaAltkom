@@ -52,6 +52,7 @@ public class CreateDatabase extends SupportDatabase {
         }
     }
 
+
     static void saveCars(BrandCar... cars) {
         System.out.println("\nWSTAWIANIE DANYCH...");
         for (BrandCar car : cars) {

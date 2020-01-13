@@ -12,6 +12,7 @@ import static pl.robertburek.db.ParametersDb.*;
  * Created by Robert Burek
  */
 public class SupportDatabase {
+
     private Connection connection;
     protected static Statement statement;
 
@@ -39,6 +40,7 @@ public class SupportDatabase {
         }
     }
 
+
     private void initConnection() {
         String dbURL = String.format("jdbc:mysql://%s:%d/%s?%s", getHOST_MY(), getPORT(), getDB_NAME(),
                 getPARAM_STRING());
@@ -46,10 +48,11 @@ public class SupportDatabase {
             connection = DriverManager.getConnection(dbURL, getUSER_NAME(), getPASSWORD());
             statement = connection.createStatement();
         } catch (SQLException e) {
-            System.out.println("Problem z połączeniem!!!");
+            System.out.println("PROBLEM Z POŁĄCZENIEM!!!");
             e.printStackTrace();
         }
     }
+
 
     private void createTable() throws SQLException {
         final String SQL_DROP = "DROP TABLE IF EXISTS cars";
@@ -66,16 +69,18 @@ public class SupportDatabase {
         try {
             statement.executeUpdate(SQL_CREATE);
         } catch (SQLException e) {
-            System.out.println("Problem z tworzeniem tablicy!!!");
+            System.out.println("PROBLEM TWORZENIA TABELI!!!");
             e.printStackTrace();
         }
     }
 
+
     protected void dropTable() throws SQLException {
-        System.out.println("\nUSUNIECIE TABELI...");
+        System.out.println("\nUSUNIĘCIE TABELI...");
         final String SQL_DROP = "DROP TABLE IF EXISTS cars";
         statement.executeUpdate(SQL_DROP);
     }
+
 
     private void closeConnection() {
         try {
@@ -84,7 +89,7 @@ public class SupportDatabase {
             if (connection != null)
                 connection.close();
         } catch (SQLException e) {
-            System.out.println("Problem z zamknięciem połączenia!!!");
+            System.out.println("PROBLEM Z ZAMKNIĘCIEM POŁĄCZENIA!!!");
             e.printStackTrace();
         }
     }

@@ -12,29 +12,42 @@ import java.util.List;
 import java.util.Map;
 
 import static pl.robertburek.CarShowroom.ZERO_DATE_PROD;
-import static pl.robertburek.dao.TestDaoImplement.brandCars;
+
 
 /**
  * Created by Robert Burek
  */
 public class DbDaoImplement extends SupportDatabase implements Dao {
 
-    @Override
-    public String getNameDao() {
-        return "Dane produkcyjne z bazy!!!";
-    }
 
     @Override
-    public boolean isIt(int id) throws SQLException {
-        boolean there = false;
-        operationsDB(OptionsDb.INIT_CONNECTION);
-        final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
-        try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
-            if (resultSet.next()) there = true;
-        }
-        operationsDB(OptionsDb.CLOSE_CONNETION);
-        return there;
+    public String getNameDao() {
+        return "DANE PRODUKCYJNE Z BAZY!!!";
     }
+
+
+    @Override
+    public boolean addCar(BrandCar brandCar) throws SQLException {
+        operationsDB(OptionsDb.INIT_CONNECTION);
+        String insert = String.format(
+                "INSERT INTO cars(VIN, brand, model, productionDate,color) VALUES ('%s','%s','%s','%s', '%s')",
+                brandCar.getVIN(),
+                brandCar.getBrand(),
+                brandCar.getModel(),
+                brandCar.getProductionDate().toString(),
+                brandCar.getColor());
+        try {
+            statement.executeUpdate(insert);
+            return true;
+        } catch (SQLException e) {
+            System.out.println("PROBLEM Z ZAPISEM DANYCH DO TABLICY!!!");
+            e.printStackTrace();
+            return false;
+        } finally {
+            operationsDB(OptionsDb.CLOSE_CONNETION);
+        }
+    }
+
 
     @Override
     public List<BrandCar> getCars() throws SQLException {
@@ -51,6 +64,7 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
         operationsDB(OptionsDb.CLOSE_CONNETION);
         return cars;
     }
+
 
     @Override
     public List<BrandCar> searchCar(Map<String, String> param) throws SQLException {
@@ -91,10 +105,10 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
         return cars;
     }
 
+
     @Override
     public BrandCar getCarById(int id) throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
-        System.out.println("\n\nODCZYT DANYCH Samochodu numer " + id + ".");
         final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
         BrandCar brandCar = new BrandCar();
         try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
@@ -106,38 +120,16 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
         return brandCar;
     }
 
+
     @Override
     public boolean deleteCarById(int id) throws SQLException {
         operationsDB(OptionsDb.INIT_CONNECTION);
-        System.out.println("\n\nUsuwanie samochodu z bazy \n\n" + id);
         final String SQL_SELECT = "DELETE FROM cars Where id=" + id;
-        statement.executeUpdate(SQL_SELECT);
+        int result = statement.executeUpdate(SQL_SELECT);
         operationsDB(OptionsDb.CLOSE_CONNETION);
-        return true;
+        return result == 1;
     }
 
-    @Override
-    public boolean addCar(BrandCar brandCar) throws SQLException {
-        operationsDB(OptionsDb.INIT_CONNECTION);
-        System.out.println("\n\nWSTAWIANIE DANYCH...");
-        String insert = String.format(
-                "INSERT INTO cars(VIN, brand, model, productionDate,color) VALUES ('%s','%s','%s','%s', '%s')",
-                brandCar.getVIN(),
-                brandCar.getBrand(),
-                brandCar.getModel(),
-                brandCar.getProductionDate().toString(),
-                brandCar.getColor());
-        try {
-            statement.executeUpdate(insert);
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Problem z zapisem danych do tablicy!!!");
-            e.printStackTrace();
-            return false;
-        } finally {
-            operationsDB(OptionsDb.CLOSE_CONNETION);
-        }
-    }
 
     @Override
     public boolean updateCar(BrandCar modifiedBrandCar) throws SQLException {
@@ -149,36 +141,35 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
             if (resultSet.next()) {
                 resultSetCar(resultSet, oldBrandCar);
             }
+            if (!modifiedBrandCar.getBrand().equals("")) oldBrandCar.setBrand(modifiedBrandCar.getBrand());
+            if (!modifiedBrandCar.getModel().equals("")) oldBrandCar.setModel(modifiedBrandCar.getModel());
+            if (!modifiedBrandCar.getVIN().equals("")) oldBrandCar.setVIN(modifiedBrandCar.getVIN());
+            if (!modifiedBrandCar.getColor().equals("")) oldBrandCar.setColor(modifiedBrandCar.getColor());
+            if (!modifiedBrandCar.getProductionDate().toString().equals(ZERO_DATE_PROD))
+                oldBrandCar.setProductionDate(modifiedBrandCar.getProductionDate());
 
-
-
-        if (!modifiedBrandCar.getBrand().equals("")) oldBrandCar.setBrand(modifiedBrandCar.getBrand());
-        if (!modifiedBrandCar.getModel().equals("")) oldBrandCar.setModel(modifiedBrandCar.getModel());
-        if (!modifiedBrandCar.getVIN().equals("")) oldBrandCar.setVIN(modifiedBrandCar.getVIN());
-        if (!modifiedBrandCar.getColor().equals("")) oldBrandCar.setColor(modifiedBrandCar.getColor());
-        if (!modifiedBrandCar.getProductionDate().toString().equals(ZERO_DATE_PROD))
-            oldBrandCar.setProductionDate(modifiedBrandCar.getProductionDate());
-
-        System.out.println("\n\nMODYFIKACJA DANYCH...");
-        String updateSQL = String.format(
-                "UPDATE cars SET VIN='%s', brand='%s', model='%s', productionDate='%s',color='%s' WHERE id='%s'",
-                oldBrandCar.getVIN(),
-                oldBrandCar.getBrand(),
-                oldBrandCar.getModel(),
-                oldBrandCar.getProductionDate().toString(),
-                oldBrandCar.getColor(),
-                oldBrandCar.getId());
-        try {
-            statement.executeUpdate(updateSQL);
-            return true;
-        } catch (SQLException e) {
-            System.out.println("Problem z zapisem danych do tablicy!!!");
-            e.printStackTrace();
-            return false;
-        } finally {
-            operationsDB(OptionsDb.CLOSE_CONNETION);
+            System.out.println("\n\nMODYFIKACJA DANYCH...");
+            String updateSQL = String.format(
+                    "UPDATE cars SET VIN='%s', brand='%s', model='%s', productionDate='%s',color='%s' WHERE id='%s'",
+                    oldBrandCar.getVIN(),
+                    oldBrandCar.getBrand(),
+                    oldBrandCar.getModel(),
+                    oldBrandCar.getProductionDate().toString(),
+                    oldBrandCar.getColor(),
+                    oldBrandCar.getId());
+            try {
+                statement.executeUpdate(updateSQL);
+                return true;
+            } catch (SQLException e) {
+                System.out.println("PROBLEM Z ZAPISEM DO TABLICY!!!");
+                e.printStackTrace();
+                return false;
+            } finally {
+                operationsDB(OptionsDb.CLOSE_CONNETION);
+            }
         }
-    }}
+    }
+
 
     private void resultSetCar(ResultSet resultSet, BrandCar brandCar) throws SQLException {
         brandCar.setId(resultSet.getInt(1));
@@ -192,5 +183,17 @@ public class DbDaoImplement extends SupportDatabase implements Dao {
         brandCar.setColor(resultSet.getString(6));
     }
 
+
+    @Override
+    public boolean isIt(int id) throws SQLException {
+        boolean there = false;
+        operationsDB(OptionsDb.INIT_CONNECTION);
+        final String SQL_SELECT = "SELECT * FROM cars Where id=" + id;
+        try (ResultSet resultSet = statement.executeQuery(SQL_SELECT)) {
+            if (resultSet.next()) there = true;
+        }
+        operationsDB(OptionsDb.CLOSE_CONNETION);
+        return there;
+    }
 }
 

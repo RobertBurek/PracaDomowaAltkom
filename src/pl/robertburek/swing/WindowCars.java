@@ -4,11 +4,7 @@ import pl.robertburek.model.BrandCar;
 import pl.robertburek.swing.Events.*;
 
 import javax.swing.*;
-import javax.swing.text.TextAction;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
 import java.util.Map;
 
 import static pl.robertburek.swing.Events.EventDataBase.typeDB;
@@ -24,7 +20,7 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
     private String nameDaoInMenuItem;
     private String currentDao;
     private EventMouseChoiceCar eventMouseChoiceCar = new EventMouseChoiceCar();
-//    private EventClearChoice eventClearChoice = new EventClearChoice();
+    //    private EventClearChoice eventClearChoice = new EventClearChoice();
 //    private EventClearSearch eventClearSearch = new EventClearSearch();
     private EventSaveChanges eventSaveChanges = new EventSaveChanges();
     private EventDeleteSelected eventDeleteSelected = new EventDeleteSelected();
@@ -147,7 +143,6 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
         JPanel panelResualt = new JPanel();
         panelResualt.setBorder(BorderFactory.createTitledBorder(
                 BorderFactory.createLineBorder(Color.BLACK), " Lista samochodów "));
-        System.out.println(currentDao);
         JList<BrandCar> listBrandcars = new JList<>(brandCarDefaultListModel);
         listBrandcars.setFixedCellHeight(32);
         listBrandcars.setFixedCellWidth(720);

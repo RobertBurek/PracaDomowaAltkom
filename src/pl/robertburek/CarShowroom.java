@@ -32,12 +32,12 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         String numberOption;
 
         do {
-            numberOption = getOption("  Wybierz opcje: \n"
-                    + "[1] - Dodaj samochód \n"
-                    + "[2] - Edytuj samochód \n"
+            numberOption = getOption("\n  Wybierz opcje: \n"
+                    + "[1] - Lista samochodów \n"
+                    + "[2] - Dodaj samochód \n"
                     + "[3] - Usuń samochód \n"
-                    + "[4] - Pokaż samochód \n"
-                    + "[5] - Lista samochodów \n"
+                    + "[4] - Edytuj samochód \n"
+                    + "[5] - Pokaż szczegóły samochodu \n"
                     + "[6] - Wyszukiwanie samochodu \n"
                     + "[7] - Interfejs okienkowy \n"
                     + "[8] - Zmiana bazy \n"
@@ -45,33 +45,25 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
 
             switch (numberOption) {
                 case "1":
-                    if (dao.addCar(getNewCar(false))) System.out.println("DANE ZAPISANE POPRAWNIE");
-                    else System.out.println("BŁĄD W ZAPISYWANIU DANYCH!!!");
+                    showCars();
                     break;
                 case "2":
-                    int numberCar = readNumberCar();
-                    if (dao.isIt(numberCar)) {
-                        System.out.println("Podaj dane które chcesz zmodyfikować");
-                        BrandCar newBrandCar = getNewCar(true);
-                        newBrandCar.setId(numberCar);
-                        methodsDao("updateCar", newBrandCar);
-                    } else System.out.println("\nBrak samochodu o id= " + numberCar + "\n");
+                    additionCar();
                     break;
                 case "3":
                     deleteCar();
                     break;
                 case "4":
-                    findCar();
+                    modificationCar();
                     break;
                 case "5":
-                    showCars();
+                    findCar();
                     break;
                 case "6":
                     Map<String, String> param = createParamMap();
                     showFoundCars(param);
                     break;
                 case "7":
-                    brandCars = dao.getCars();
                     new WindowCars(createListModelCars(), whatDao);
                     break;
                 case "8":
@@ -80,6 +72,84 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
             }
         } while (!numberOption.equalsIgnoreCase("9"));
     }
+
+
+    private static void showCars() throws SQLException {
+        System.out.println("\n\n--------------- Samochody ---------------");
+        System.out.printf("%3s  %10s  %10s %12s \n", "id", "Marka", "Model", "DataProd.");
+        System.out.println("-----------------------------------------");
+        brandCars = dao.getCars();
+        for (BrandCar car : brandCars) {
+            System.out.printf("%3s  %10s  %10s %12s \n", car.getId(), car.getBrand(), car.getModel(),
+                    car.getProductionDate());
+        }
+        System.out.println("-----------------------------------------");
+    }
+
+
+    public static void additionCar() throws SQLException {
+        if (dao.addCar(getNewCar(false))) System.out.println("\n\n  DANE ZAPISANO POPRAWNIE\n");
+        else System.out.println("\n\n  BŁĄD W ZAPISYWANIU DANYCH!!!\n");
+    }
+
+
+    public static void deleteCar() throws SQLException {
+        showCars();
+        System.out.print("  Który samochód usunąć: ");
+        Scanner choiceOption = new Scanner(System.in);
+        String numberOption = choiceOption.next();
+        if (dao.deleteCarById(Integer.valueOf(numberOption))) System.out.println("\n\n  POPRAWNIE USUNIĘTO DANE\n");
+        else System.out.println("\n\n  BRAK DANYCH DO USUNIĘCIA!!!\n");
+    }
+
+
+    public static void modificationCar() throws SQLException {
+        int numberCar = readNumberCar();
+        if (dao.isIt(numberCar)) {
+            System.out.println("\n\n  Podaj tylko te dane, \n  które chcesz zmodyfikować");
+            BrandCar newBrandCar = getNewCar(true);
+            newBrandCar.setId(numberCar);
+            methodsDao("updateCar", newBrandCar);
+            System.out.println("\n\n  ZMODYFIKOWANO DANE SAMOCHODU O ID = " + numberCar + "\n");
+        } else System.out.println("\n\n  BRAK SAMOCHODU O ID = " + numberCar + "\n");
+    }
+
+
+    private static void findCar() throws SQLException {
+        showCars();
+        BrandCar findBrandcar = dao.getCarById(Integer.valueOf(getOption("Podaj numer: ")));
+        if (findBrandcar.getBrand() != null) {
+            System.out.println("\n\n  ODCZYT DANYCH, SAMOCHÓD O ID = " + findBrandcar.getId());
+            System.out.println(findBrandcar + "\n");
+        } else System.out.println("\n\n  BRAK DANYCH O SAMOCHODZIE\n");
+    }
+
+
+    public static void showFoundCars(Map<String, String> param) throws SQLException {
+        System.out.println("\n\n----------------------- WYNIKI WYSZUKIWANIA --------------------");
+        System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", "id", "Marka", "Model", "VIN", "DataProd.", "Kolor");
+        System.out.println("----------------------------------------------------------------");
+        brandCars = dao.searchCar(param);
+        for (BrandCar car : brandCars) {
+            System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", car.getId(),
+                    car.getBrand(), car.getModel(), car.getVIN(), car.getProductionDate(), car.getColor());
+        }
+        System.out.println("----------------------------------------------------------------\n");
+        defaultListModel = createListModelCars();
+    }
+
+
+    public static void changeDao() throws SQLException {
+        if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
+            dao = DaoProvider.getDao(Sources.TEST);
+        } else {
+            dao = DaoProvider.getDao(Sources.DB);
+        }
+        System.out.println("\n\n" + dao.getNameDao() + "\n");
+        brandCars = dao.getCars();
+        defaultListModel = createListModelCars();
+    }
+
 
     public static void methodsDao(String nameMetode, Object o) throws SQLException {
         switch (nameMetode) {
@@ -97,7 +167,9 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         defaultListModel = createListModelCars();
     }
 
-    public static DefaultListModel<BrandCar> createListModelCars() {
+
+    public static DefaultListModel<BrandCar> createListModelCars() throws SQLException {
+        brandCars = dao.getCars();
         if (defaultListModel != null) defaultListModel.removeAllElements();
         for (BrandCar brandCar : brandCars) {
             defaultListModel.addElement(brandCar);
@@ -105,16 +177,6 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         return defaultListModel;
     }
 
-    public static void changeDao() throws SQLException {
-        if (dao.getClass().getSimpleName().equals("DbDaoImplement")) {
-            dao = DaoProvider.getDao(Sources.TEST);
-        } else {
-            dao = DaoProvider.getDao(Sources.DB);
-        }
-        System.out.println("\n\n" + dao.getNameDao() + "\n");
-        brandCars = dao.getCars();
-        defaultListModel = createListModelCars();
-    }
 
     private static int readNumberCar() throws SQLException {
         showCars();
@@ -124,42 +186,9 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
     }
 
 
-    public static void deleteCar() throws SQLException {
-        showCars();
-        System.out.print("Który samochód usunąć: ");
-        Scanner choiceOption = new Scanner(System.in);
-        String numberOption = choiceOption.next();
-        dao.deleteCarById(Integer.valueOf(numberOption));
-    }
-
-    private static void showCars() throws SQLException {
-        System.out.println("\n\n--------------- Samochody ---------------");
-        System.out.printf("%3s  %10s  %10s %12s \n", "id", "Marka", "Model", "DataProd.");
-        System.out.println("-----------------------------------------");
-        brandCars = dao.getCars();
-        for (BrandCar car : brandCars) {
-            System.out.printf("%3s  %10s  %10s %12s \n", car.getId(), car.getBrand(), car.getModel(),
-                    car.getProductionDate());
-        }
-        System.out.println("-----------------------------------------\n");
-    }
-
-    public static void showFoundCars(Map<String, String> param) throws SQLException {
-        System.out.println("\n\n----------------------- WYNIKI WYSZUKIWANIA --------------------");
-        System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", "id", "Marka", "Model", "VIN", "DataProd.", "Kolor");
-        System.out.println("----------------------------------------------------------------");
-        brandCars = dao.searchCar(param);
-        for (BrandCar car : brandCars) {
-            System.out.printf("%3s  %10s  %10s %10s %12s %11s \n", car.getId(),
-                    car.getBrand(), car.getModel(), car.getVIN(), car.getProductionDate(), car.getColor());
-        }
-        System.out.println("----------------------------------------------------------------\n");
-        defaultListModel = createListModelCars();
-    }
-
     private static Map<String, String> createParamMap() {
         Map<String, String> param = new HashMap<>();
-        System.out.println("\n\nPodaj szukane dane:");
+        System.out.println("\n\n  Podaj szukane dane");
         BrandCar searchedCar = getNewCar(true);
         if (searchedCar.getBrand().length() > 0) param.put("brand", searchedCar.getBrand());
         if (searchedCar.getModel().length() > 0) param.put("model", searchedCar.getModel());
@@ -167,17 +196,10 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         if (!(searchedCar.getProductionDate().toString().equals(ZERO_DATE_PROD)))
             param.put("productionDate", searchedCar.getProductionDate().toString());
         if (searchedCar.getColor().length() > 0) param.put("color", searchedCar.getColor());
-        System.out.print("\n\nParametry wyszukiwania : " + param);
+        System.out.print("\n\n  Parametry wyszukiwania : " + param);
         return param;
     }
 
-    private static void findCar() throws SQLException {
-        showCars();
-        BrandCar findBrandcar = dao.getCarById(Integer.valueOf(getOption("Podaj numer: ")));
-        if (findBrandcar.getBrand() != null) System.out.println(findBrandcar);
-        else System.out.println("Brak danych");
-        System.out.println();
-    }
 
     private static String getOption(String s) {
         String numberOption;
@@ -186,6 +208,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         numberOption = choiceOption.next();
         return numberOption;
     }
+
 
     private static BrandCar getNewCar(boolean maybeEmpty) {
         Scanner readData = new Scanner(System.in);
@@ -199,12 +222,13 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         return new BrandCar(VIN, brand.toUpperCase(), model, productionDate, color);
     }
 
+
     private static String getBrand(Scanner readData, boolean maybeEmpty) {
         String brand;
         do {
             System.out.print("Podaj markę: ");
             brand = readData.nextLine();
-            if ((brand.length() == 0) && (!maybeEmpty)) System.out.println("Samochód musi posiadać markę !!!");
+            if ((brand.length() == 0) && (!maybeEmpty)) System.out.println("SAMOCHÓD MUSI POSIADAĆ MARKĘ!!!");
         }
         while ((brand.length() == 0) && (!maybeEmpty));
         return brand;
@@ -224,7 +248,7 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
                 ok = true;
                 stringToDate(prodDate);
             } catch (Exception e) {
-                System.out.println("Data nie jest w poprawnym formacie!!!");
+                System.out.println("DATA NIE JEST W POPRAWNYM FORMACIE!!!");
                 ok = false;
             }
         }
@@ -232,25 +256,28 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
         return stringToDate(prodDate);
     }
 
+
     public static LocalDate stringToDate(String prodDate) {
         return LocalDate.of(Integer.parseInt(prodDate.substring(0, 4)),
                 Integer.parseInt(prodDate.substring(5, 7)),
                 Integer.parseInt(prodDate.substring(8, 10)));
     }
 
+
     private static String getVIN(Scanner readData, boolean maybeEmpty) {
         String vin;
         do {
             System.out.print("Podaj VIN (8 znaków): ");
             vin = readData.nextLine();
-            if ((vin.length() != 8) && (!maybeEmpty)) System.out.println("Numer VIN musi mieć 8 znaków !!!");
+            if ((vin.length() != 8) && (!maybeEmpty)) System.out.println("NUMER VIN MUSI MIEĆ 8 ZNAKÓW!!!");
         }
         while ((vin.length() != 8) && (!maybeEmpty));
         return vin;
     }
 
+
     public static String changeUpperFirstChar(String text) {
-        char[] modelNew = text.toCharArray();
+        char[] modelNew = text.toLowerCase().toCharArray();
         if (!text.isEmpty()) {
             modelNew[0] = Character.toUpperCase(modelNew[0]);
         }

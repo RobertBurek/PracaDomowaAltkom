@@ -24,7 +24,6 @@ public class EventSaveChanges implements ActionListener {
         if (!Pattern.matches(String.valueOf(pattern), dateProdTextField.getText())) {
             dateProdTextField.setForeground(Color.RED);
         } else if (vinTextField.getText().length() != 8) {
-//            vinTextField.setText(vinTextField.getText().substring(0, 8));
             vinTextField.setForeground(Color.RED);
         } else {
             BrandCar brandCar = new BrandCar(

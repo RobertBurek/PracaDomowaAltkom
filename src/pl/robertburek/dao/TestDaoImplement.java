@@ -60,7 +60,15 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public String getNameDao() {
-        return "Dane testowe z kolekcji!!!";
+        return "DANE TESTOWE Z KOLEKCJI";
+    }
+
+
+    @Override
+    public boolean addCar(BrandCar brandCar) {
+        brandCar.setId(brandCars.get(brandCars.size() - 1).getId() + 1);
+        brandCars.add(brandCar);
+        return true;
     }
 
 
@@ -119,7 +127,6 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public BrandCar getCarById(int id) {
-        System.out.println("\n\nODCZYT DANYCH Samochodu numer " + id + ".");
         List<BrandCar> oneBrandcar = brandCars.stream()
                 .filter(brandCar -> brandCar.getId() == id)
                 .collect(Collectors.toList());
@@ -130,19 +137,13 @@ public class TestDaoImplement implements Dao {
 
     @Override
     public boolean deleteCarById(int id) {
-        System.out.println("\n\nUsuwanie samochodu z bazy o id=" + id + "\n");
-        brandCars = brandCars.stream()
-                .filter(brandCar -> brandCar.getId() != id)
-                .collect(Collectors.toList());
-        return true;
-    }
-
-
-    @Override
-    public boolean addCar(BrandCar brandCar) {
-        brandCar.setId(brandCars.get(brandCars.size() - 1).getId() + 1);
-        brandCars.add(brandCar);
-        return true;
+        if (isIt(id)) {
+            brandCars = brandCars.stream()
+                    .filter(brandCar -> brandCar.getId() != id)
+                    .collect(Collectors.toList());
+            return true;
+        }
+        return false;
     }
 
 
@@ -160,10 +161,10 @@ public class TestDaoImplement implements Dao {
                 if (!modifiedBrandCar.getProductionDate().toString().equals(ZERO_DATE_PROD))
                     oldBrandCar.setProductionDate(modifiedBrandCar.getProductionDate());
                 brandCars.set(i, oldBrandCar);
-                break;
+                return true;
             }
         }
-        return true;
+        return false;
     }
 
 
