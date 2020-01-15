@@ -17,17 +17,21 @@ public class EventMouseChoiceCar implements MouseListener, FieldsAllEvents {
 
     @Override
     public void mouseClicked(MouseEvent e) {
+        stylesDefaultTextField(brandTextField);
+        stylesDefaultTextField(vinTextField);
+        stylesDefaultTextField(dateProdTextField);
         if (e.getClickCount() == 2) {
             int choiceIndex = listBrandcars.locationToIndex(e.getPoint());
-            BrandCar brandCar = brandCarDefaultListModel.getElementAt(choiceIndex);
-            showChoiceCar(brandCar);
+            if (choiceIndex >= 0) {
+                BrandCar brandCar = brandCarDefaultListModel.getElementAt(choiceIndex);
+                showChoiceCar(brandCar);
+            }
         }
     }
 
     private void showChoiceCar(BrandCar brandCar) {
         idTextField.setText(String.valueOf(brandCar.getId()));
         brandTextField.setText(brandCar.getBrand());
-
         modelTextField.setText(brandCar.getModel());
         dateProdTextField.setText(brandCar.getProductionDate().toString());
         vinTextField.setText(brandCar.getVIN());
@@ -36,10 +40,15 @@ public class EventMouseChoiceCar implements MouseListener, FieldsAllEvents {
 
     @Override
     public void mousePressed(MouseEvent e) {
+        stylesDefaultTextField(brandTextField);
+        stylesDefaultTextField(vinTextField);
+        stylesDefaultTextField(dateProdTextField);
         if (e.getButton() == 1) {
             int choiceIndex = listBrandcars.locationToIndex(e.getPoint());
-            BrandCar brandCar = brandCarDefaultListModel.getElementAt(choiceIndex);
-            showChoiceCar(brandCar);
+            if (choiceIndex >= 0) {
+                BrandCar brandCar = brandCarDefaultListModel.getElementAt(choiceIndex);
+                showChoiceCar(brandCar);
+            }
         }
     }
 

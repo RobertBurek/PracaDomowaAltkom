@@ -35,7 +35,6 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
 
         JMenuBar panelMenuBar = createMenu(nameDaoInMenuItem, currentDao);
         this.getContentPane().add(BorderLayout.NORTH, panelMenuBar);
-//        setJMenuBar(panelMenuBar);
 
         JPanel panelMain = createPanelMain();
         add(BorderLayout.CENTER, panelMain);
@@ -63,8 +62,6 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
 
     private JMenuBar createMenu(String nameDaoInMenuItem, String currentDao) {
         EventDataBase eventDataBase = new EventDataBase();
-//        FieldsAllEvents.eventClearChoice = eventClearChoice;
-//        eventDataBase.eventClearSearch = eventClearSearch;
         JMenuBar menuBar = new JMenuBar();
         JMenu menuDane = new JMenu("Dane");
         JMenu menuHelp = new JMenu("Help");
@@ -108,7 +105,6 @@ public class WindowCars extends JFrame implements FieldsAllEvents {
         panel.add(saveChanges);
         JButton deleteSelected = new JButton("Usuń samochód");
         deleteSelected.addActionListener(eventDeleteSelected);
-//        FieldsAllEvents.eventClearChoice = eventClearChoice;
         panel.add(deleteSelected);
         JButton clearData = new JButton("Wyczyść");
         clearData.addActionListener(eventClearChoice);

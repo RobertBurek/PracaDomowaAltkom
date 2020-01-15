@@ -237,23 +237,29 @@ public class CarShowroom implements DaoProvider, FieldsAllEvents {
 
     private static LocalDate getProductionDate(Scanner readData) {
         String prodDate;
-        boolean ok;
+        boolean correctDate;
         do {
             System.out.print("Podaj datę produkcji (rrrr-mm-dd): ");
             prodDate = readData.nextLine();
             if (prodDate.isEmpty()) {
                 prodDate = ZERO_DATE_PROD;
             }
-            try {
-                ok = true;
-                stringToDate(prodDate);
-            } catch (Exception e) {
-                System.out.println("DATA NIE JEST W POPRAWNYM FORMACIE!!!");
-                ok = false;
-            }
+            correctDate = dateIsCorrect(prodDate);
         }
-        while (!ok);
+        while (!correctDate);
         return stringToDate(prodDate);
+    }
+
+    public static boolean dateIsCorrect(String prodDate) {
+        boolean ok;
+        try {
+            ok = true;
+            stringToDate(prodDate);
+        } catch (Exception e) {
+            System.out.println("DATA NIE JEST W POPRAWNYM FORMACIE!!!");
+            ok = false;
+        }
+        return ok;
     }
 
 

@@ -2,7 +2,8 @@ package pl.robertburek.swing.Events;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.regex.Pattern;
+
+import static pl.robertburek.CarShowroom.dateIsCorrect;
 
 /**
  * Created by Robert Burek
@@ -39,7 +40,7 @@ public interface FieldsAllEvents {
                 "Uwaga", JOptionPane.OK_CANCEL_OPTION);
     }
 
-    default boolean validationTextField() {
+    default boolean validationTextFieldChange() {
         boolean isValidationOK = true;
         if (brandTextField.getText().isEmpty()) {
             brandTextField.setBackground(Color.PINK);
@@ -57,15 +58,34 @@ public interface FieldsAllEvents {
             dateProdTextField.setBackground(Color.PINK);
             isValidationOK = false;
         } else dateProdTextField.setBackground(Color.WHITE);
-        Pattern patternDate = Pattern.compile("[0-9]{4}[^\\w][0-9]{2}[^\\w][0-9]{2}");
-        if ((!Pattern.matches(String.valueOf(patternDate), dateProdTextField.getText())) &&
-                (!dateProdTextField.getText().isEmpty())) {
-            dateProdTextField.setForeground(Color.RED);
+        if ((!dateProdTextFieldSearch.getText().isEmpty()) &&
+                (!dateIsCorrect(dateProdTextFieldSearch.getText()))) {
+            dateProdTextFieldSearch.setForeground(Color.RED);
             isValidationOK = false;
-        } else dateProdTextField.setForeground(Color.BLACK);
+        } else dateProdTextFieldSearch.setForeground(Color.BLACK);
+//        Pattern patternDate = Pattern.compile("[0-9]{4}[^\\w][0-9]{2}[^\\w][0-9]{2}");
+//        if ((!Pattern.matches(String.valueOf(patternDate), dateProdTextField.getText())) &&
+//                (!dateProdTextField.getText().isEmpty())) {
+//            dateProdTextField.setForeground(Color.RED);
+//            isValidationOK = false;
+//        } else dateProdTextField.setForeground(Color.BLACK);
         return isValidationOK;
     }
 
+
+    default boolean validationTextFieldSearch() {
+        boolean isValidationOK = true;
+        if ((!vinTextFieldSearch.getText().isEmpty()) && (vinTextFieldSearch.getText().length() != 8)) {
+            vinTextFieldSearch.setForeground(Color.RED);
+            isValidationOK = false;
+        } else vinTextFieldSearch.setForeground(Color.BLACK);
+        if ((!dateProdTextFieldSearch.getText().isEmpty()) &&
+                (!dateIsCorrect(dateProdTextFieldSearch.getText()))) {
+            dateProdTextFieldSearch.setForeground(Color.RED);
+            isValidationOK = false;
+        } else dateProdTextFieldSearch.setForeground(Color.BLACK);
+        return isValidationOK;
+    }
 
     default void stylesDefaultTextField(JTextField textField) {
         textField.setBackground(Color.WHITE);

@@ -6,8 +6,7 @@ import java.sql.SQLException;
 import java.util.HashMap;
 import java.util.Map;
 
-import static pl.robertburek.CarShowroom.changeUpperFirstChar;
-import static pl.robertburek.CarShowroom.showFoundCars;
+import static pl.robertburek.CarShowroom.*;
 
 /**
  * Created by Robert Burek
@@ -16,17 +15,21 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
-
-        {
+        validationTextFieldSearch();
 //        informationWindow("Szukane dane");
         Map<String, String> param = new HashMap<>();
         if (!brandTextFieldSearch.getText().isEmpty())
             param.put("brand", brandTextFieldSearch.getText().toUpperCase());
         if (!modelTextFieldSearch.getText().isEmpty())
             param.put("model", changeUpperFirstChar(modelTextFieldSearch.getText()));
-        if (!dateProdTextFieldSearch.getText().isEmpty())
-            param.put("productionDate", dateProdTextFieldSearch.getText());
+        if (!dateProdTextFieldSearch.getText().isEmpty()) {
+            try {
+                param.put("productionDate", (stringToDate(dateProdTextFieldSearch.getText())).toString());
+            } catch (Exception ex) {
+                System.out.println("BŁĄD: " + ex.getClass().getSimpleName());
+                param.put("productionDate", dateProdTextFieldSearch.getText());
+            }
+        }
         if (!vinTextFieldSearch.getText().isEmpty())
             param.put("VIN", vinTextFieldSearch.getText());
         if (!colorTextFieldSearch.getText().isEmpty())
@@ -37,7 +40,5 @@ public class EventSearch implements ActionListener, FieldsAllEvents {
             e1.printStackTrace();
         }
     }
-    }
-
 
 }

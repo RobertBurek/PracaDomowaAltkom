@@ -15,5 +15,7 @@ public class EventClearSearch implements ActionListener, FieldsAllEvents {
         dateProdTextFieldSearch.setText("");
         vinTextFieldSearch.setText("");
         colorTextFieldSearch.setText("");
+        stylesDefaultTextField(vinTextFieldSearch);
+        stylesDefaultTextField(dateProdTextFieldSearch);
     }
 }

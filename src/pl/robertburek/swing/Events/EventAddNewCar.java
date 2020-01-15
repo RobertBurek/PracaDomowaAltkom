@@ -15,7 +15,7 @@ public class EventAddNewCar implements ActionListener, FieldsAllEvents {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (validationTextField()) {
+        if (validationTextFieldChange()) {
             BrandCar brandCar = new BrandCar(
                     vinTextField.getText(),
                     brandTextField.getText().toUpperCase(),

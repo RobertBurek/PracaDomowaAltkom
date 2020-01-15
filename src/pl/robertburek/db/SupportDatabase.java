@@ -42,8 +42,9 @@ public class SupportDatabase {
 
 
     private void initConnection() {
-        String dbURL = String.format("jdbc:mysql://%s:%d/%s?%s", getHOST_MY(), getPORT(), getDB_NAME(),
-                getPARAM_STRING());
+        String dbURL = String.format("jdbc:mysql://%s:%d/%s?%s", getHOST_MY(), getPORT(), getDB_NAME()
+                ,getPARAM_STRING()
+        );
         try {
             connection = DriverManager.getConnection(dbURL, getUSER_NAME(), getPASSWORD());
             statement = connection.createStatement();

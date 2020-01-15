@@ -16,7 +16,7 @@ public class EventSaveChanges implements ActionListener, FieldsAllEvents {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (!idTextField.getText().isEmpty() && validationTextField()) {
+        if (!idTextField.getText().isEmpty() && validationTextFieldChange()) {
             BrandCar brandCar = new BrandCar(
                     vinTextField.getText(),
                     brandTextField.getText().toUpperCase(),

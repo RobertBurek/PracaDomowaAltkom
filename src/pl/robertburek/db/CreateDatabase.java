@@ -17,7 +17,7 @@ public class CreateDatabase extends SupportDatabase {
     public static void main(String[] args) {
         Dao dao = new DbDaoImplement();
 
-        BrandCar fordFocus = new BrandCar("2q31ad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
+        BrandCar fordFocus = new BrandCar("2qjuad3v", "FORD", "Focus", LocalDate.of(2010, 11, 12), "Zielony");
         BrandCar audiQuatro = new BrandCar("3g34sd5t", "AUDI", "Quatro", LocalDate.of(2010, 11, 12), "Czerwony");
         BrandCar nissanPulsar = new BrandCar("3d21gf3e", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 6), "Srebrny");
         BrandCar fiatUno = new BrandCar("2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
@@ -27,13 +27,13 @@ public class CreateDatabase extends SupportDatabase {
         BrandCar ford2 = new BrandCar("2qg6ad3v", "FORD", "Fiesta", LocalDate.of(2012, 8, 2), "Biały");
         BrandCar audi = new BrandCar("3g34yh5t", "AUDI", "Quatro", LocalDate.of(2009, 11, 12), "Czerwony");
         BrandCar audi1 = new BrandCar("3g354dyt", "AUDI", "1000", LocalDate.of(2008, 5, 18), "Niebieski");
-        BrandCar audi2 = new BrandCar("3g354dyt", "AUDI", "200", LocalDate.of(2010, 12, 18), "Czarny");
+        BrandCar audi2 = new BrandCar("3g35u7yt", "AUDI", "200", LocalDate.of(2010, 12, 18), "Czarny");
         BrandCar nissan = new BrandCar("3dy1gfye", "NISSAN", "Pulsar", LocalDate.of(2015, 5, 16), "Niebieski");
         BrandCar nissan1 = new BrandCar("3d265f3e", "NISSAN", "Primera", LocalDate.of(2015, 7, 6), "Metalik");
-        BrandCar nissan2 = new BrandCar("3d265f3e", "NISSAN", "Mikra", LocalDate.of(2015, 7, 6), "Metalik");
+        BrandCar nissan2 = new BrandCar("3dgt5f3e", "NISSAN", "Mikra", LocalDate.of(2015, 7, 6), "Metalik");
         BrandCar fiat = new BrandCar("2c21sa3w", "FIAT", "Uno", LocalDate.of(2009, 8, 24), "Biały");
         BrandCar fiat1 = new BrandCar("2yysa3w6", "FIAT", "Punto", LocalDate.of(2005, 8, 4), "Niebieski");
-        BrandCar fiat2 = new BrandCar("2yysa3w6", "FIAT", "Uno", LocalDate.of(2005, 8, 4), "Niebieski");
+        BrandCar fiat2 = new BrandCar("2yfra3w6", "FIAT", "Uno", LocalDate.of(2005, 8, 4), "Niebieski");
 
         try {
             dao.operationsDB(OptionsDb.INIT_CONNECTION, OptionsDb.CREATE_TABLE);
